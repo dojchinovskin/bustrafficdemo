@@ -12,7 +12,6 @@
 		CD70EBFE20DBED7900FDFDF3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EBFD20DBED7900FDFDF3 /* UserManager.swift */; };
 		CD70EC0520DBF80B00FDFDF3 /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EC0420DBF80B00FDFDF3 /* MainAssembly.swift */; };
 		CD70EC0A20DBFE7000FDFDF3 /* UserManagerFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EC0920DBFE7000FDFDF3 /* UserManagerFirebase.swift */; };
-		FA010203210724BD0035FBB6 /* TimetableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA010202210724BD0035FBB6 /* TimetableController.swift */; };
 		FA01020521074CC70035FBB6 /* LocationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01020421074CC70035FBB6 /* LocationExt.swift */; };
 		FA77881820DB958F00AEB405 /* LoginPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77881720DB958F00AEB405 /* LoginPresenterImpl.swift */; };
 		FA77881A20DBA46B00AEB405 /* RegisterPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77881920DBA46B00AEB405 /* RegisterPresenterImpl.swift */; };
@@ -38,6 +37,7 @@
 		FA9CB2B820F3B72700C1A2FD /* LoginContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2B720F3B72700C1A2FD /* LoginContract.swift */; };
 		FA9CB2BC20F3B80D00C1A2FD /* SettingsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2BB20F3B80D00C1A2FD /* SettingsContract.swift */; };
 		FA9CB2BF20F3B84900C1A2FD /* UserSettingsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2BE20F3B84900C1A2FD /* UserSettingsContract.swift */; };
+		FAA648312109E16200BC688D /* ARKITViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA648302109E16200BC688D /* ARKITViewController.swift */; };
 		FAA96DD920E65ED100282687 /* UserSettingsPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA96DD820E65ED100282687 /* UserSettingsPresenterImpl.swift */; };
 		FAA96DDB20EA55A000282687 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA96DDA20EA55A000282687 /* SettingsController.swift */; };
 /* End PBXBuildFile section */
@@ -50,7 +50,6 @@
 		CD70EC0420DBF80B00FDFDF3 /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
 		CD70EC0920DBFE7000FDFDF3 /* UserManagerFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerFirebase.swift; sourceTree = "<group>"; };
 		ECBDAAAFC62CAB951C38282F /* Pods-BusTrafficDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusTrafficDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusTrafficDemo/Pods-BusTrafficDemo.release.xcconfig"; sourceTree = "<group>"; };
-		FA010202210724BD0035FBB6 /* TimetableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableController.swift; sourceTree = "<group>"; };
 		FA01020421074CC70035FBB6 /* LocationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExt.swift; sourceTree = "<group>"; };
 		FA77881720DB958F00AEB405 /* LoginPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterImpl.swift; sourceTree = "<group>"; };
 		FA77881920DBA46B00AEB405 /* RegisterPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenterImpl.swift; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		FA9CB2B720F3B72700C1A2FD /* LoginContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContract.swift; sourceTree = "<group>"; };
 		FA9CB2BB20F3B80D00C1A2FD /* SettingsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContract.swift; sourceTree = "<group>"; };
 		FA9CB2BE20F3B84900C1A2FD /* UserSettingsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsContract.swift; sourceTree = "<group>"; };
+		FAA648302109E16200BC688D /* ARKITViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKITViewController.swift; sourceTree = "<group>"; };
 		FAA96DD820E65ED100282687 /* UserSettingsPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsPresenterImpl.swift; sourceTree = "<group>"; };
 		FAA96DDA20EA55A000282687 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,7 +176,7 @@
 				FA7A6D4B20DA8A4A00C2D47C /* LoginController.swift */,
 				FA88C77E20E39C7100E31BAB /* AppSettingsController.swift */,
 				FA86BD8720F74FE7003F7DA9 /* CameraViewController.swift */,
-				FA010202210724BD0035FBB6 /* TimetableController.swift */,
+				FAA648302109E16200BC688D /* ARKITViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -329,21 +329,25 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BusTrafficDemo/Pods-BusTrafficDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -371,7 +375,6 @@
 				CD70EC0A20DBFE7000FDFDF3 /* UserManagerFirebase.swift in Sources */,
 				FAA96DD920E65ED100282687 /* UserSettingsPresenterImpl.swift in Sources */,
 				FA77881A20DBA46B00AEB405 /* RegisterPresenterImpl.swift in Sources */,
-				FA010203210724BD0035FBB6 /* TimetableController.swift in Sources */,
 				FA9CB2B520F3B6C400C1A2FD /* RegisterContract.swift in Sources */,
 				FA9CB2BF20F3B84900C1A2FD /* UserSettingsContract.swift in Sources */,
 				CD70EC0520DBF80B00FDFDF3 /* MainAssembly.swift in Sources */,
@@ -381,6 +384,7 @@
 				FA7AB6A820E0DEDE00A3404D /* AnimationExt.swift in Sources */,
 				FA88C77D20E3829700E31BAB /* UserSettingsController.swift in Sources */,
 				FA888BEA20ECD9C9002E55FF /* SettingsPresenterImpl.swift in Sources */,
+				FAA648312109E16200BC688D /* ARKITViewController.swift in Sources */,
 				FA88C77F20E39C7100E31BAB /* AppSettingsController.swift in Sources */,
 				CD70EBFE20DBED7900FDFDF3 /* UserManager.swift in Sources */,
 				FA7A6D3720DA6F5200C2D47C /* AppDelegate.swift in Sources */,

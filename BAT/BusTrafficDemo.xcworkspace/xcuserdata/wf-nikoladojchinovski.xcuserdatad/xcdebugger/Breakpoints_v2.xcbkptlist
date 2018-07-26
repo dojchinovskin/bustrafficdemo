@@ -124,11 +124,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BusTrafficDemo/Controllers/CameraViewController.swift"
-            timestampString = "554128607.842364"
+            timestampString = "554305453.260365"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "CameraViewController"
             landmarkType = "3">
             <Locations>

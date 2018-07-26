@@ -29,15 +29,15 @@ extension CameraViewController: ARSCNViewDelegate {
             }
             
             
-            guard let url = URL(string: "https://www.google.com/maps/@\(self.latitude ?? 0),\(self.longitude ?? 0)") else { return }
+//            guard let url = URL(string: "https://www.google.com/maps/@\(self.latitude ),\(self.longitude )") else { return }
             
-            let webView = UIWebView(frame: CGRect(x: 0, y: 0, width: 640, height: 480))
-            let request = URLRequest(url: url)
+//            let webView = UIWebView(frame: CGRect(x: 0, y: 0, width: 640, height: 480))
+//            let request = URLRequest(url: url)
             
-            webView.loadRequest(request)
+//            webView.loadRequest(request)
             
             let tvPlane = SCNPlane(width: 1.0, height: 0.75)
-            tvPlane.firstMaterial?.diffuse.contents = webView
+//            tvPlane.firstMaterial?.diffuse.contents = webView
             tvPlane.firstMaterial?.isDoubleSided = true
             
             let tvPlaneNode = SCNNode(geometry: tvPlane)

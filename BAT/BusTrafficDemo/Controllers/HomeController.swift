@@ -75,9 +75,10 @@ class HomeController: UIViewController {
     }()
     
     @objc func showCamera() {
-        let storyboard = UIStoryboard(name: "Camera", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "cameraViewController")
-        self.navigationController!.pushViewController(vc, animated: true)
+//        let storyboard = UIStoryboard(name: "Camera", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "cameraViewController")
+//        self.navigationController!.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(ARKITViewController(), animated: true)
     }
     
     func setupButton() {
