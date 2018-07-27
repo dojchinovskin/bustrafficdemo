@@ -20,8 +20,19 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>For Augmented Reality</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Description</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We want to know where you are!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We want to get your location</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -45,16 +56,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Description</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We want to know where you are!</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We want to get your location</string>
 </dict>
 </plist>

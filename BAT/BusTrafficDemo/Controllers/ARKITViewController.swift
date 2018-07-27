@@ -43,20 +43,26 @@ class ARKITViewController: UIViewController, CLLocationManagerDelegate {
     }()
     
     @objc func nearestStation() {
-        
-        buildDemoData().forEach { sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: $0) }
+        buildDemoData().forEach {
+            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: $0)
+        }
         
         let annotation = MKPointAnnotation()
         let centerCoordinate = CLLocationCoordinate2D(latitude: self.stationLatitude!, longitude: self.stationLongitude!)
         annotation.coordinate = centerCoordinate
-        annotation.title = "Bus station"
+        let distance = userDistance(from: annotation)
+        let dis = String(format:"%d", Int(distance!))
+        annotation.title = "Bus station: \n" + "~" + dis + "m"
         mapView.addAnnotation(annotation)
         
         let annotation2 = MKPointAnnotation()
         let centerCoordinate2 = CLLocationCoordinate2D(latitude: self.stationLatitude2!, longitude: self.stationLongitude2!)
         annotation2.coordinate = centerCoordinate2
-        annotation2.title = "Bus station"
+        let distance2 = userDistance(from: annotation2)
+        let dis2 = String(format:"%d", Int(distance2!))
+        annotation2.title = "Bus station: \n" + "~" + dis2 + "m"
         mapView.addAnnotation(annotation2)
+        
     }
     
     override func viewDidLoad() {
@@ -98,7 +104,6 @@ class ARKITViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
         
-        
         navigationController?.navigationBar.isHidden = true
         UIApplication.shared.isStatusBarHidden = true
         
@@ -110,25 +115,27 @@ class ARKITViewController: UIViewController, CLLocationManagerDelegate {
         mapView.showsUserLocation = true
         mapView.alpha = 0.8
         
-        
         let latDelta:CLLocationDegrees = 0.005
-        
         let lonDelta:CLLocationDegrees = 0.005
-        
         let span = MKCoordinateSpanMake(latDelta, lonDelta)
-        
         let location = CLLocationCoordinate2DMake((locationManager.location?.coordinate.latitude)!, (locationManager.location?.coordinate.longitude)!)
-        
         let region = MKCoordinateRegionMake(location, span)
-        
         mapView.setRegion(region, animated: false)
         
         
         view.addSubview(mapView)
         view.addSubview(nearestStationButton)
-        
-
-        
+    }
+    
+    func userDistance(from point: MKPointAnnotation) -> Double? {
+        guard let userLocation = mapView.userLocation.location else {
+            return nil // User location unknown!
+        }
+        let pointLocation = CLLocation(
+            latitude:  point.coordinate.latitude,
+            longitude: point.coordinate.longitude
+        )
+        return userLocation.distance(from: pointLocation)
     }
     
     
