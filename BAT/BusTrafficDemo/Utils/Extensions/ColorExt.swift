@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SideMenu
 
 extension UIColor {
     convenience init(r: CGFloat, g: CGFloat, b: CGFloat) {

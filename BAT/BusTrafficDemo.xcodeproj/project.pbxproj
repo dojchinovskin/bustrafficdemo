@@ -40,6 +40,7 @@
 		FAA648312109E16200BC688D /* ARKITViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA648302109E16200BC688D /* ARKITViewController.swift */; };
 		FAA96DD920E65ED100282687 /* UserSettingsPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA96DD820E65ED100282687 /* UserSettingsPresenterImpl.swift */; };
 		FAA96DDB20EA55A000282687 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA96DDA20EA55A000282687 /* SettingsController.swift */; };
+		FAE84287210B19AB00CDDCD2 /* Reachabilty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE84286210B19AB00CDDCD2 /* Reachabilty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		FAA648302109E16200BC688D /* ARKITViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKITViewController.swift; sourceTree = "<group>"; };
 		FAA96DD820E65ED100282687 /* UserSettingsPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsPresenterImpl.swift; sourceTree = "<group>"; };
 		FAA96DDA20EA55A000282687 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		FAE84286210B19AB00CDDCD2 /* Reachabilty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachabilty.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				CD70EBFB20DBEC2900FDFDF3 /* Navigator.swift */,
 				CD70EBFD20DBED7900FDFDF3 /* UserManager.swift */,
 				CD70EC0420DBF80B00FDFDF3 /* MainAssembly.swift */,
+				FAE84286210B19AB00CDDCD2 /* Reachabilty.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE84287210B19AB00CDDCD2 /* Reachabilty.swift in Sources */,
 				FA888BEC20ECF188002E55FF /* SettingsTableViewExt.swift in Sources */,
 				FAA96DDB20EA55A000282687 /* SettingsController.swift in Sources */,
 				FA9CB2B120F3A34500C1A2FD /* KeyboardExt.swift in Sources */,

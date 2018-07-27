@@ -17,6 +17,19 @@ class HomeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let noNetAlert = UIAlertController(title: "No Internet Connection", message: "Connect your phone to internet connections before using this app.", preferredStyle: .alert)
+            noNetAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                exit(1)
+            }))
+            present(noNetAlert, animated: true, completion: nil)
+            
+        }
+        
         checkIfUserIsLoggedIn()
         
         self.navigationController?.navigationBar.colorBar()

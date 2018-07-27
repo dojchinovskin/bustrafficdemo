@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BusTrafficDemo/AppDelegate.swift"
-            timestampString = "553086065.883099"
+            timestampString = "554377361.685771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "setupRootController()"
             landmarkType = "7">
          </BreakpointContent>

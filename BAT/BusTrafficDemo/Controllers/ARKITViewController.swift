@@ -23,6 +23,8 @@ class ARKITViewController: UIViewController, CLLocationManagerDelegate {
     var locationEstimateAnnotation: MKPointAnnotation?
     var stationLatitude: CLLocationDegrees?
     var stationLongitude: CLLocationDegrees?
+    var stationLatitude2: CLLocationDegrees?
+    var stationLongitude2: CLLocationDegrees?
     
     let locationManager = CLLocationManager()
 
@@ -49,10 +51,17 @@ class ARKITViewController: UIViewController, CLLocationManagerDelegate {
         annotation.coordinate = centerCoordinate
         annotation.title = "Bus station"
         mapView.addAnnotation(annotation)
+        
+        let annotation2 = MKPointAnnotation()
+        let centerCoordinate2 = CLLocationCoordinate2D(latitude: self.stationLatitude2!, longitude: self.stationLongitude2!)
+        annotation2.coordinate = centerCoordinate2
+        annotation2.title = "Bus station"
+        mapView.addAnnotation(annotation2)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         self.locationManager.requestAlwaysAuthorization()
         
@@ -69,7 +78,7 @@ class ARKITViewController: UIViewController, CLLocationManagerDelegate {
         let lon = String(format:"%f", locationManager.location?.coordinate.longitude ?? 0)
         
         
-        let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=500&type=bus_station&key=AIzaSyBhhGnyRKf735lvZ6eq-UtJwkHmlTeVSUQ"
+        let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=1000&type=bus_station&key=AIzaSyBhhGnyRKf735lvZ6eq-UtJwkHmlTeVSUQ"
         
         Alamofire.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
@@ -77,9 +86,12 @@ class ARKITViewController: UIViewController, CLLocationManagerDelegate {
                 let json = JSON(value)
                 let latitude = json["results"][0]["geometry"]["location"]["lat"].doubleValue
                 let longitude = json["results"][0]["geometry"]["location"]["lng"].doubleValue
+                let latitude2 = json["results"][1]["geometry"]["location"]["lat"].doubleValue
+                let longitude2 = json["results"][1]["geometry"]["location"]["lng"].doubleValue
                 self.stationLatitude = latitude
                 self.stationLongitude = longitude
-                //print(latitude, longitude)
+                self.stationLatitude2 = latitude2
+                self.stationLongitude2 = longitude2
                 
             case .failure(let error):
                 print(error)
@@ -97,6 +109,21 @@ class ARKITViewController: UIViewController, CLLocationManagerDelegate {
         mapView.delegate = self
         mapView.showsUserLocation = true
         mapView.alpha = 0.8
+        
+        
+        let latDelta:CLLocationDegrees = 0.005
+        
+        let lonDelta:CLLocationDegrees = 0.005
+        
+        let span = MKCoordinateSpanMake(latDelta, lonDelta)
+        
+        let location = CLLocationCoordinate2DMake((locationManager.location?.coordinate.latitude)!, (locationManager.location?.coordinate.longitude)!)
+        
+        let region = MKCoordinateRegionMake(location, span)
+        
+        mapView.setRegion(region, animated: false)
+        
+        
         view.addSubview(mapView)
         view.addSubview(nearestStationButton)
         
@@ -230,6 +257,10 @@ private extension ARKITViewController {
         let station = buildNode(latitude: stationLatitude!, longitude: stationLongitude!, altitude: 250, imageName: "pin")
         station.scaleRelativeToDistance = true
         nodes.append(station)
+        
+        let station2 = buildNode(latitude: stationLatitude2!, longitude: stationLongitude2!, altitude: 250, imageName: "pin")
+        station2.scaleRelativeToDistance = true
+        nodes.append(station2)
         
         
         return nodes
