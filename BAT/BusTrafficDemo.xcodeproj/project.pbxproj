@@ -12,7 +12,8 @@
 		CD70EBFE20DBED7900FDFDF3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EBFD20DBED7900FDFDF3 /* UserManager.swift */; };
 		CD70EC0520DBF80B00FDFDF3 /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EC0420DBF80B00FDFDF3 /* MainAssembly.swift */; };
 		CD70EC0A20DBFE7000FDFDF3 /* UserManagerFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EC0920DBFE7000FDFDF3 /* UserManagerFirebase.swift */; };
-		FA01020521074CC70035FBB6 /* LocationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01020421074CC70035FBB6 /* LocationExt.swift */; };
+		FA217C07210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA217C06210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift */; };
+		FA217C09210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift */; };
 		FA77881820DB958F00AEB405 /* LoginPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77881720DB958F00AEB405 /* LoginPresenterImpl.swift */; };
 		FA77881A20DBA46B00AEB405 /* RegisterPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77881920DBA46B00AEB405 /* RegisterPresenterImpl.swift */; };
 		FA7A6D3720DA6F5200C2D47C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A6D3620DA6F5200C2D47C /* AppDelegate.swift */; };
@@ -25,22 +26,22 @@
 		FA7A6D5520DA9AD300C2D47C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA7A6D5420DA9AD300C2D47C /* GoogleService-Info.plist */; };
 		FA7AB6A820E0DEDE00A3404D /* AnimationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AB6A720E0DEDE00A3404D /* AnimationExt.swift */; };
 		FA7AF89020EE3EC3003BFC08 /* UserSettingsTableViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewExt.swift */; };
-		FA86BD8820F74FE7003F7DA9 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86BD8720F74FE7003F7DA9 /* CameraViewController.swift */; };
+		FA86BD8820F74FE7003F7DA9 /* TimetableARKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86BD8720F74FE7003F7DA9 /* TimetableARKitController.swift */; };
 		FA86BD8A20F7544F003F7DA9 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA86BD8920F7544F003F7DA9 /* Camera.storyboard */; };
-		FA86BD8C20F77A27003F7DA9 /* SceneKitExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86BD8B20F77A27003F7DA9 /* SceneKitExt.swift */; };
 		FA888BEA20ECD9C9002E55FF /* SettingsPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */; };
 		FA888BEC20ECF188002E55FF /* SettingsTableViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA888BEB20ECF188002E55FF /* SettingsTableViewExt.swift */; };
 		FA88C77D20E3829700E31BAB /* UserSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88C77C20E3829700E31BAB /* UserSettingsController.swift */; };
-		FA88C77F20E39C7100E31BAB /* AppSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88C77E20E39C7100E31BAB /* AppSettingsController.swift */; };
 		FA9CB2B120F3A34500C1A2FD /* KeyboardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2B020F3A34500C1A2FD /* KeyboardExt.swift */; };
 		FA9CB2B520F3B6C400C1A2FD /* RegisterContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2B420F3B6C400C1A2FD /* RegisterContract.swift */; };
 		FA9CB2B820F3B72700C1A2FD /* LoginContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2B720F3B72700C1A2FD /* LoginContract.swift */; };
 		FA9CB2BC20F3B80D00C1A2FD /* SettingsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2BB20F3B80D00C1A2FD /* SettingsContract.swift */; };
 		FA9CB2BF20F3B84900C1A2FD /* UserSettingsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2BE20F3B84900C1A2FD /* UserSettingsContract.swift */; };
-		FAA648312109E16200BC688D /* ARKITViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA648302109E16200BC688D /* ARKITViewController.swift */; };
+		FAA648312109E16200BC688D /* StationsARKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA648302109E16200BC688D /* StationsARKitController.swift */; };
 		FAA96DD920E65ED100282687 /* UserSettingsPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA96DD820E65ED100282687 /* UserSettingsPresenterImpl.swift */; };
 		FAA96DDB20EA55A000282687 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA96DDA20EA55A000282687 /* SettingsController.swift */; };
 		FAE84287210B19AB00CDDCD2 /* Reachabilty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE84286210B19AB00CDDCD2 /* Reachabilty.swift */; };
+		FAF88A53210F43130068DB00 /* TimetableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF88A52210F43130068DB00 /* TimetableController.swift */; };
+		FAF88A55210F4B5E0068DB00 /* Timetable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF88A54210F4B5E0068DB00 /* Timetable.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +52,8 @@
 		CD70EC0420DBF80B00FDFDF3 /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
 		CD70EC0920DBFE7000FDFDF3 /* UserManagerFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerFirebase.swift; sourceTree = "<group>"; };
 		ECBDAAAFC62CAB951C38282F /* Pods-BusTrafficDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusTrafficDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusTrafficDemo/Pods-BusTrafficDemo.release.xcconfig"; sourceTree = "<group>"; };
-		FA01020421074CC70035FBB6 /* LocationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExt.swift; sourceTree = "<group>"; };
+		FA217C06210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegateEx.swift; sourceTree = "<group>"; };
+		FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLocationViewDelegateEx.swift; sourceTree = "<group>"; };
 		FA77881720DB958F00AEB405 /* LoginPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterImpl.swift; sourceTree = "<group>"; };
 		FA77881920DBA46B00AEB405 /* RegisterPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenterImpl.swift; sourceTree = "<group>"; };
 		FA7A6D3320DA6F5200C2D47C /* BusTrafficDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusTrafficDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,22 +68,22 @@
 		FA7A6D5420DA9AD300C2D47C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA7AB6A720E0DEDE00A3404D /* AnimationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationExt.swift; sourceTree = "<group>"; };
 		FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewExt.swift; sourceTree = "<group>"; };
-		FA86BD8720F74FE7003F7DA9 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		FA86BD8720F74FE7003F7DA9 /* TimetableARKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableARKitController.swift; sourceTree = "<group>"; };
 		FA86BD8920F7544F003F7DA9 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
-		FA86BD8B20F77A27003F7DA9 /* SceneKitExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKitExt.swift; sourceTree = "<group>"; };
 		FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterImpl.swift; sourceTree = "<group>"; };
 		FA888BEB20ECF188002E55FF /* SettingsTableViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewExt.swift; sourceTree = "<group>"; };
 		FA88C77C20E3829700E31BAB /* UserSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsController.swift; sourceTree = "<group>"; };
-		FA88C77E20E39C7100E31BAB /* AppSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsController.swift; sourceTree = "<group>"; };
 		FA9CB2B020F3A34500C1A2FD /* KeyboardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExt.swift; sourceTree = "<group>"; };
 		FA9CB2B420F3B6C400C1A2FD /* RegisterContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterContract.swift; sourceTree = "<group>"; };
 		FA9CB2B720F3B72700C1A2FD /* LoginContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContract.swift; sourceTree = "<group>"; };
 		FA9CB2BB20F3B80D00C1A2FD /* SettingsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContract.swift; sourceTree = "<group>"; };
 		FA9CB2BE20F3B84900C1A2FD /* UserSettingsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsContract.swift; sourceTree = "<group>"; };
-		FAA648302109E16200BC688D /* ARKITViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKITViewController.swift; sourceTree = "<group>"; };
+		FAA648302109E16200BC688D /* StationsARKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsARKitController.swift; sourceTree = "<group>"; };
 		FAA96DD820E65ED100282687 /* UserSettingsPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsPresenterImpl.swift; sourceTree = "<group>"; };
 		FAA96DDA20EA55A000282687 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FAE84286210B19AB00CDDCD2 /* Reachabilty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachabilty.swift; sourceTree = "<group>"; };
+		FAF88A52210F43130068DB00 /* TimetableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableController.swift; sourceTree = "<group>"; };
+		FAF88A54210F4B5E0068DB00 /* Timetable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timetable.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,33 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
+		FA606AC7210F3D8F00F5E261 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FA7A6D3820DA6F5200C2D47C /* HomeController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FA606AC8210F3DEC00F5E261 /* StationsARKit */ = {
+			isa = PBXGroup;
+			children = (
+				FAA648302109E16200BC688D /* StationsARKitController.swift */,
+				FA217C06210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift */,
+				FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift */,
+			);
+			path = StationsARKit;
+			sourceTree = "<group>";
+		};
+		FA606AC9210F3E3700F5E261 /* Timetable */ = {
+			isa = PBXGroup;
+			children = (
+				FA86BD8720F74FE7003F7DA9 /* TimetableARKitController.swift */,
+				FAF88A52210F43130068DB00 /* TimetableController.swift */,
+			);
+			path = Timetable;
+			sourceTree = "<group>";
+		};
 		FA7A6D2A20DA6F5200C2D47C = {
 			isa = PBXGroup;
 			children = (
@@ -155,14 +184,17 @@
 		FA7A6D3520DA6F5200C2D47C /* BusTrafficDemo */ = {
 			isa = PBXGroup;
 			children = (
+				FA7A6D3620DA6F5200C2D47C /* AppDelegate.swift */,
+				FA606AC9210F3E3700F5E261 /* Timetable */,
+				FA606AC8210F3DEC00F5E261 /* StationsARKit */,
+				FA606AC7210F3D8F00F5E261 /* Home */,
 				FA9CB2BD20F3B82400C1A2FD /* UserSettings */,
 				FA9CB2BA20F3B7E800C1A2FD /* Settings */,
 				FA9CB2B620F3B71000C1A2FD /* Login */,
 				FA9CB2B320F3B67A00C1A2FD /* Register */,
 				CD70EBFF20DBEE2C00FDFDF3 /* Utils */,
-				FA7A6D4820DA75DF00C2D47C /* Controllers */,
-				FA7A6D3620DA6F5200C2D47C /* AppDelegate.swift */,
 				FA7A6D3A20DA6F5200C2D47C /* Main.storyboard */,
+				FAF88A54210F4B5E0068DB00 /* Timetable.storyboard */,
 				FA86BD8920F7544F003F7DA9 /* Camera.storyboard */,
 				FA7A6D3D20DA6F5300C2D47C /* Assets.xcassets */,
 				FA7A6D3F20DA6F5300C2D47C /* LaunchScreen.storyboard */,
@@ -172,28 +204,12 @@
 			path = BusTrafficDemo;
 			sourceTree = "<group>";
 		};
-		FA7A6D4820DA75DF00C2D47C /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				FA7A6D3820DA6F5200C2D47C /* HomeController.swift */,
-				FA7A6D4B20DA8A4A00C2D47C /* LoginController.swift */,
-				FA88C77E20E39C7100E31BAB /* AppSettingsController.swift */,
-				FA86BD8720F74FE7003F7DA9 /* CameraViewController.swift */,
-				FAA648302109E16200BC688D /* ARKITViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		FA7A6D4D20DA8B7A00C2D47C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				FA7A6D4E20DA8B8600C2D47C /* ColorExt.swift */,
 				FA7AB6A720E0DEDE00A3404D /* AnimationExt.swift */,
-				FA888BEB20ECF188002E55FF /* SettingsTableViewExt.swift */,
-				FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewExt.swift */,
 				FA9CB2B020F3A34500C1A2FD /* KeyboardExt.swift */,
-				FA86BD8B20F77A27003F7DA9 /* SceneKitExt.swift */,
-				FA01020421074CC70035FBB6 /* LocationExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -212,6 +228,7 @@
 			children = (
 				FA77881720DB958F00AEB405 /* LoginPresenterImpl.swift */,
 				FA9CB2B720F3B72700C1A2FD /* LoginContract.swift */,
+				FA7A6D4B20DA8A4A00C2D47C /* LoginController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -222,6 +239,7 @@
 				FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */,
 				FA9CB2BB20F3B80D00C1A2FD /* SettingsContract.swift */,
 				FAA96DDA20EA55A000282687 /* SettingsController.swift */,
+				FA888BEB20ECF188002E55FF /* SettingsTableViewExt.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -229,6 +247,7 @@
 		FA9CB2BD20F3B82400C1A2FD /* UserSettings */ = {
 			isa = PBXGroup;
 			children = (
+				FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewExt.swift */,
 				FAA96DD820E65ED100282687 /* UserSettingsPresenterImpl.swift */,
 				FA9CB2BE20F3B84900C1A2FD /* UserSettingsContract.swift */,
 				FA88C77C20E3829700E31BAB /* UserSettingsController.swift */,
@@ -296,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF88A55210F4B5E0068DB00 /* Timetable.storyboard in Resources */,
 				FA7A6D4120DA6F5300C2D47C /* LaunchScreen.storyboard in Resources */,
 				FA7A6D5520DA9AD300C2D47C /* GoogleService-Info.plist in Resources */,
 				FA7A6D3E20DA6F5300C2D47C /* Assets.xcassets in Resources */,
@@ -371,13 +391,13 @@
 				FAA96DDB20EA55A000282687 /* SettingsController.swift in Sources */,
 				FA9CB2B120F3A34500C1A2FD /* KeyboardExt.swift in Sources */,
 				CD70EBFC20DBEC2900FDFDF3 /* Navigator.swift in Sources */,
-				FA01020521074CC70035FBB6 /* LocationExt.swift in Sources */,
 				FA77881820DB958F00AEB405 /* LoginPresenterImpl.swift in Sources */,
-				FA86BD8820F74FE7003F7DA9 /* CameraViewController.swift in Sources */,
+				FA86BD8820F74FE7003F7DA9 /* TimetableARKitController.swift in Sources */,
 				FA7A6D4F20DA8B8600C2D47C /* ColorExt.swift in Sources */,
 				FA7AF89020EE3EC3003BFC08 /* UserSettingsTableViewExt.swift in Sources */,
 				CD70EC0A20DBFE7000FDFDF3 /* UserManagerFirebase.swift in Sources */,
 				FAA96DD920E65ED100282687 /* UserSettingsPresenterImpl.swift in Sources */,
+				FA217C07210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift in Sources */,
 				FA77881A20DBA46B00AEB405 /* RegisterPresenterImpl.swift in Sources */,
 				FA9CB2B520F3B6C400C1A2FD /* RegisterContract.swift in Sources */,
 				FA9CB2BF20F3B84900C1A2FD /* UserSettingsContract.swift in Sources */,
@@ -385,15 +405,15 @@
 				FA7A6D4C20DA8A4A00C2D47C /* LoginController.swift in Sources */,
 				FA9CB2B820F3B72700C1A2FD /* LoginContract.swift in Sources */,
 				FA7A6D3920DA6F5200C2D47C /* HomeController.swift in Sources */,
+				FAF88A53210F43130068DB00 /* TimetableController.swift in Sources */,
 				FA7AB6A820E0DEDE00A3404D /* AnimationExt.swift in Sources */,
 				FA88C77D20E3829700E31BAB /* UserSettingsController.swift in Sources */,
 				FA888BEA20ECD9C9002E55FF /* SettingsPresenterImpl.swift in Sources */,
-				FAA648312109E16200BC688D /* ARKITViewController.swift in Sources */,
-				FA88C77F20E39C7100E31BAB /* AppSettingsController.swift in Sources */,
+				FAA648312109E16200BC688D /* StationsARKitController.swift in Sources */,
 				CD70EBFE20DBED7900FDFDF3 /* UserManager.swift in Sources */,
 				FA7A6D3720DA6F5200C2D47C /* AppDelegate.swift in Sources */,
+				FA217C09210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift in Sources */,
 				FA9CB2BC20F3B80D00C1A2FD /* SettingsContract.swift in Sources */,
-				FA86BD8C20F77A27003F7DA9 /* SceneKitExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

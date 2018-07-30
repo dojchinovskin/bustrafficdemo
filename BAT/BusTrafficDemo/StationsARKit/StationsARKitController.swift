@@ -15,7 +15,7 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 
-class ARKITViewController: UIViewController, CLLocationManagerDelegate {
+class StationsARKitController: UIViewController, CLLocationManagerDelegate {
     let sceneLocationView = SceneLocationView()
     
     let mapView = MKMapView()
@@ -27,7 +27,6 @@ class ARKITViewController: UIViewController, CLLocationManagerDelegate {
     var stationLongitude2: CLLocationDegrees?
     
     let locationManager = CLLocationManager()
-
     
     lazy var nearestStationButton: UIButton = {
         let button = UIButton(type: .system)
@@ -68,63 +67,16 @@ class ARKITViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        userLocation()
+        apiCall()
         
-        self.locationManager.requestAlwaysAuthorization()
-        
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
-        
-        let lat = String(format:"%f", locationManager.location?.coordinate.latitude ?? 0)
-        let lon = String(format:"%f", locationManager.location?.coordinate.longitude ?? 0)
-        
-        
-        let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=1000&type=bus_station&key=AIzaSyBhhGnyRKf735lvZ6eq-UtJwkHmlTeVSUQ"
-        
-        Alamofire.request(url, method: .get).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                let latitude = json["results"][0]["geometry"]["location"]["lat"].doubleValue
-                let longitude = json["results"][0]["geometry"]["location"]["lng"].doubleValue
-                let latitude2 = json["results"][1]["geometry"]["location"]["lat"].doubleValue
-                let longitude2 = json["results"][1]["geometry"]["location"]["lng"].doubleValue
-                self.stationLatitude = latitude
-                self.stationLongitude = longitude
-                self.stationLatitude2 = latitude2
-                self.stationLongitude2 = longitude2
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        navigationController?.navigationBar.isHidden = true
-        UIApplication.shared.isStatusBarHidden = true
+//        navigationController?.navigationBar.isHidden = true
+//        UIApplication.shared.isStatusBarHidden = true
         
         sceneLocationView.locationDelegate = self
-                
         view.addSubview(sceneLocationView)
         
-        mapView.delegate = self
-        mapView.showsUserLocation = true
-        mapView.alpha = 0.8
-        
-        let latDelta:CLLocationDegrees = 0.005
-        let lonDelta:CLLocationDegrees = 0.005
-        let span = MKCoordinateSpanMake(latDelta, lonDelta)
-        let location = CLLocationCoordinate2DMake((locationManager.location?.coordinate.latitude)!, (locationManager.location?.coordinate.longitude)!)
-        let region = MKCoordinateRegionMake(location, span)
-        mapView.setRegion(region, animated: false)
-        
-        
-        view.addSubview(mapView)
-        view.addSubview(nearestStationButton)
+        mapSetup()
     }
     
     func userDistance(from point: MKPointAnnotation) -> Double? {
@@ -171,6 +123,59 @@ class ARKITViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    func userLocation() {
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func apiCall() {
+        let lat = String(format:"%f", locationManager.location?.coordinate.latitude ?? 0)
+        let lon = String(format:"%f", locationManager.location?.coordinate.longitude ?? 0)
+        
+        
+        let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=1000&type=bus_station&key=AIzaSyBhhGnyRKf735lvZ6eq-UtJwkHmlTeVSUQ"
+        
+        Alamofire.request(url, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let latitude = json["results"][0]["geometry"]["location"]["lat"].doubleValue
+                let longitude = json["results"][0]["geometry"]["location"]["lng"].doubleValue
+                let latitude2 = json["results"][1]["geometry"]["location"]["lat"].doubleValue
+                let longitude2 = json["results"][1]["geometry"]["location"]["lng"].doubleValue
+                self.stationLatitude = latitude
+                self.stationLongitude = longitude
+                self.stationLatitude2 = latitude2
+                self.stationLongitude2 = longitude2
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func mapSetup() {
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        mapView.alpha = 0.8
+        
+        let latDelta:CLLocationDegrees = 0.005
+        let lonDelta:CLLocationDegrees = 0.005
+        let span = MKCoordinateSpanMake(latDelta, lonDelta)
+        let location = CLLocationCoordinate2DMake((locationManager.location?.coordinate.latitude)!, (locationManager.location?.coordinate.longitude)!)
+        let region = MKCoordinateRegionMake(location, span)
+        mapView.setRegion(region, animated: false)
+        
+        
+        view.addSubview(mapView)
+        view.addSubview(nearestStationButton)
+    }
+    
     @objc func updateUserLocation() {
         guard let currentLocation = sceneLocationView.currentLocation() else {
             return
@@ -199,67 +204,13 @@ class ARKITViewController: UIViewController, CLLocationManagerDelegate {
             UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: {
                 self.userAnnotation?.coordinate = currentLocation.coordinate
             }, completion: nil)
-            
         }
     }
 }
 
-// MARK: - MKMapViewDelegate
-@available(iOS 11.0, *)
-extension ARKITViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation {
-            return nil
-        }
-        
-        guard let pointAnnotation = annotation as? MKPointAnnotation else {
-            return nil
-        }
-        
-        let marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
-        marker.displayPriority = .required
-        
-        if pointAnnotation == self.userAnnotation {
-            marker.glyphImage = UIImage(named: "user")
-        } else {
-            marker.markerTintColor = UIColor(hue: 0.267, saturation: 0.67, brightness: 0.77, alpha: 1.0)
-            marker.glyphImage = UIImage(named: "compass")
-        }
-        
-        return marker
-    }
-}
-
-// MARK: - SceneLocationViewDelegate
-@available(iOS 11.0, *)
-extension ARKITViewController: SceneLocationViewDelegate {
-    func sceneLocationViewDidAddSceneLocationEstimate(sceneLocationView: SceneLocationView, position: SCNVector3, location: CLLocation) {
-        //print("add scene location estimate, position: \(position), location: \(location.coordinate), accuracy: \(location.horizontalAccuracy), date: \(location.timestamp)")
-    }
-    
-    func sceneLocationViewDidRemoveSceneLocationEstimate(sceneLocationView: SceneLocationView, position: SCNVector3, location: CLLocation) {
-        //print("remove scene location estimate, position: \(position), location: \(location.coordinate), accuracy: \(location.horizontalAccuracy), date: \(location.timestamp)")
-    }
-    
-    func sceneLocationViewDidConfirmLocationOfNode(sceneLocationView: SceneLocationView, node: LocationNode) {
-    }
-    
-    func sceneLocationViewDidSetupSceneNode(sceneLocationView: SceneLocationView, sceneNode: SCNNode) {
-        
-    }
-    
-    func sceneLocationViewDidUpdateLocationAndScaleOfLocationNode(sceneLocationView: SceneLocationView, locationNode: LocationNode) {
-        
-    }
-
-}
-
-private extension ARKITViewController {
+private extension StationsARKitController {
     func buildDemoData() -> [LocationAnnotationNode] {
         var nodes: [LocationAnnotationNode] = []
-        
-        // TODO: add a few more demo points of interest.
-        // TODO: use more varied imagery.
         
         let station = buildNode(latitude: stationLatitude!, longitude: stationLongitude!, altitude: 250, imageName: "pin")
         station.scaleRelativeToDistance = true
@@ -268,7 +219,6 @@ private extension ARKITViewController {
         let station2 = buildNode(latitude: stationLatitude2!, longitude: stationLongitude2!, altitude: 250, imageName: "pin")
         station2.scaleRelativeToDistance = true
         nodes.append(station2)
-        
         
         return nodes
     }

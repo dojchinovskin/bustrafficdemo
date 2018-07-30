@@ -31,8 +31,7 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
             let userSettings = UserSettingsController()
             self.navigationController?.pushViewController(userSettings, animated: true)
         case 1:
-            let appSettings = AppSettingsController()
-            self.navigationController?.pushViewController(appSettings, animated: true)
+            UIApplication.shared.open(URL(string:UIApplicationOpenSettingsURLString)!)
         case 2:
             deactivateAccount()
         case 3:

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Camera View Controller-->
+        <!--TimetableAR Kit Controller-->
         <scene sceneID="rYx-h5-bxk">
             <objects>
-                <viewController storyboardIdentifier="cameraViewController" id="0eD-ke-2hQ" customClass="CameraViewController" customModule="BusTrafficDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timetableARKitController" id="0eD-ke-2hQ" customClass="TimetableARKitController" customModule="BusTrafficDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dh1-B6-pEf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,29 +45,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFM-hd-sYb">
-                                <rect key="frame" x="135" y="270" width="105" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="jir-zq-hPK"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="we6-Nb-qqH"/>
-                                </constraints>
-                                <state key="normal" title="Nearest station"/>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="0eD-ke-2hQ" eventType="touchUpInside" id="Ofg-sa-L24"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="B7D-QK-67d" firstAttribute="trailing" secondItem="UUM-AC-LZm" secondAttribute="trailing" id="ANG-nk-Ib6"/>
                             <constraint firstItem="ABq-20-Om5" firstAttribute="trailing" secondItem="B7D-QK-67d" secondAttribute="trailing" id="E8r-UA-la9"/>
                             <constraint firstItem="B7D-QK-67d" firstAttribute="bottom" secondItem="UUM-AC-LZm" secondAttribute="bottom" id="aYr-fN-tST"/>
-                            <constraint firstItem="B7D-QK-67d" firstAttribute="trailing" secondItem="kFM-hd-sYb" secondAttribute="trailing" constant="135" id="cBs-xB-Jk4"/>
-                            <constraint firstItem="kFM-hd-sYb" firstAttribute="top" secondItem="B7D-QK-67d" secondAttribute="top" constant="250" id="cpl-j4-Hbh"/>
                             <constraint firstItem="sbj-jT-L9l" firstAttribute="top" secondItem="ABq-20-Om5" secondAttribute="bottom" id="fby-Ns-gR5"/>
                             <constraint firstItem="sbj-jT-L9l" firstAttribute="bottom" secondItem="B7D-QK-67d" secondAttribute="bottom" id="ixT-I9-hGc"/>
                             <constraint firstItem="sbj-jT-L9l" firstAttribute="leading" secondItem="B7D-QK-67d" secondAttribute="leading" id="jYo-hy-jtF"/>
-                            <constraint firstItem="kFM-hd-sYb" firstAttribute="leading" secondItem="B7D-QK-67d" secondAttribute="leading" constant="135" id="kWJ-eW-tJR"/>
                             <constraint firstItem="sbj-jT-L9l" firstAttribute="trailing" secondItem="B7D-QK-67d" secondAttribute="trailing" id="tqm-Mh-shl"/>
                             <constraint firstItem="UUM-AC-LZm" firstAttribute="leading" secondItem="B7D-QK-67d" secondAttribute="leading" id="wWd-NC-64d"/>
                             <constraint firstItem="ABq-20-Om5" firstAttribute="leading" secondItem="B7D-QK-67d" secondAttribute="leading" id="wxr-lg-Hzw"/>

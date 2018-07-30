@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BusTrafficDemo/AppDelegate.swift"
-            timestampString = "554392643.23724"
+            timestampString = "554639087.4286751"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
@@ -124,12 +124,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BusTrafficDemo/Controllers/CameraViewController.swift"
-            timestampString = "554305453.260365"
+            timestampString = "554645477.25734"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "CameraViewController"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "TimetableARKitController"
             landmarkType = "3">
             <Locations>
                <Location

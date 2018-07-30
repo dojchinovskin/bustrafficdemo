@@ -8,16 +8,11 @@
 
 import UIKit
 import ARKit
-import CoreLocation
 
-class CameraViewController: UIViewController {
+class TimetableARKitController: UIViewController {
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var label: UILabel!
-    
-    let locationManager = CLLocationManager()
-    var latitude: CLLocationDegrees?
-    var longitude: CLLocationDegrees?
     
     let fadeDuration: TimeInterval = 0.3
     let rotateDuration: TimeInterval = 3
@@ -26,13 +21,10 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        locationManager.requestLocation()
+//        navigationController?.navigationBar.isHidden = true
+//        UIApplication.shared.isStatusBarHidden = true
         
         sceneView.delegate = self
-        navigationController?.navigationBar.isHidden = true
-        UIApplication.shared.isStatusBarHidden = true
         configureLighting()
     }
     
@@ -72,5 +64,35 @@ class CameraViewController: UIViewController {
             ])
     }()
 }
+
+extension TimetableARKitController: ARSCNViewDelegate {
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        DispatchQueue.main.async {
+            guard let imageAnchor = anchor as? ARImageAnchor,
+                let imageName = imageAnchor.referenceImage.name else { return }
+            
+                let planeNode = self.getPlaneNode(withReferenceImage: imageAnchor.referenceImage)
+                planeNode.opacity = 0.0
+                planeNode.eulerAngles.x = -.pi / 2
+                planeNode.runAction(self.fadeAction, completionHandler: {
+                    print(123)
+                    let timetable = TimetableController()
+                    self.present(timetable, animated: true, completion: nil)
+                })
+            node.addChildNode(planeNode)
+            
+            self.label.text = "Image detected: \"\(imageName)\""
+        }
+    }
+    
+    func getPlaneNode(withReferenceImage image: ARReferenceImage) -> SCNNode {
+        let plane = SCNPlane(width: image.physicalSize.width,
+                             height: image.physicalSize.height)
+        let node = SCNNode(geometry: plane)
+        return node
+    }
+}
+
 
 
