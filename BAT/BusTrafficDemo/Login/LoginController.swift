@@ -39,19 +39,8 @@ class LoginController: UIViewController, LoginView, RegisterView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.hideKeyboardWhenTappedAround()
-        
-        view.backgroundColor = UIColor(r: 161, g: 117, b: 170)
-        
-        view.addSubview(inputsContainerView)
-        view.addSubview(loginRegisterButton)
-        view.addSubview(loginRegisterSegmentedControl)
-        view.addSubview(forgetPasswordButton)
-        
-        setupInputsContainerView()
-        setupLoginRegisterButton()
-        setupLoginRegisterSegmentedControl()
-        setupForgetPasswordButton()
+        checkInternetConnections()
+        setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +49,7 @@ class LoginController: UIViewController, LoginView, RegisterView {
         loginPresenter.attach(view: self)
         registerPresenter.attach(view: self)
         navigationController?.isNavigationBarHidden = true
+
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -117,6 +107,19 @@ class LoginController: UIViewController, LoginView, RegisterView {
         present(viewController, animated: true, completion: nil)
     }
     
+    func checkInternetConnections() {
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let noNetAlert = UIAlertController(title: "No Internet Connection", message: "Connect your phone to internet connections before using this app.", preferredStyle: .alert)
+            noNetAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                exit(1)
+            }))
+            present(noNetAlert, animated: true, completion: nil)
+        }
+    }
+    
     //MARK: Handling Buttons
     
     @objc func pressedLogin() {
@@ -148,6 +151,22 @@ class LoginController: UIViewController, LoginView, RegisterView {
     }
 
     //MARK: Setup Views
+    
+    func setupViews() {
+        self.hideKeyboardWhenTappedAround()
+        
+        view.backgroundColor = UIColor(r: 161, g: 117, b: 170)
+        
+        view.addSubview(inputsContainerView)
+        view.addSubview(loginRegisterButton)
+        view.addSubview(loginRegisterSegmentedControl)
+        view.addSubview(forgetPasswordButton)
+        
+        setupInputsContainerView()
+        setupLoginRegisterButton()
+        setupLoginRegisterSegmentedControl()
+        setupForgetPasswordButton()
+    }
     
     @objc func handleLoginRegisterChange() {
         let title = loginRegisterSegmentedControl.titleForSegment(at: loginRegisterSegmentedControl.selectedSegmentIndex)
