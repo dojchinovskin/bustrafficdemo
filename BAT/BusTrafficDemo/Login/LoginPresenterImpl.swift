@@ -44,7 +44,6 @@ class LoginPresenterImpl: LoginPresenter {
                 }
                 return
             }
-
             self?.view?.loginSuccess()
         }
     }
@@ -52,32 +51,27 @@ class LoginPresenterImpl: LoginPresenter {
     func forgetPassword() {
         let forgotPasswordAlert = UIAlertController(title: "Are you sure you want to reset your password?", message: "Enter email address", preferredStyle: .alert)
         forgotPasswordAlert.addTextField { (textField) in
-            textField.placeholder = "Enter email address"
+            textField.placeholder = "Enter your email address"
         }
         forgotPasswordAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        forgotPasswordAlert.addAction(UIAlertAction(title: "Reset Password", style: .default, handler: { (action) in
+        forgotPasswordAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action) in
             let resetEmail = forgotPasswordAlert.textFields?.first?.text
             self.view?.showProgressHud()
-
             Auth.auth().sendPasswordReset(withEmail: resetEmail!, completion: { (error) in
-                //Make sure you execute the following code on the main queue
                 self.view?.hideProgressHud()
                 DispatchQueue.main.async {
-                    //Use "if let" to access the error, if it is non-nil
                     if let error = error {
                         let resetFailedAlert = UIAlertController(title: "Reset Failed", message: error.localizedDescription, preferredStyle: .alert)
                         resetFailedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.view?.presentAlerts(viewController: resetFailedAlert)
+                        self.view?.showResetPasswordFailure(viewController: resetFailedAlert)
                     } else {
                         let resetEmailSentAlert = UIAlertController(title: "Reset email sent successfully", message: "Check your email", preferredStyle: .alert)
                         resetEmailSentAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.view?.presentAlerts(viewController: resetEmailSentAlert)
+                        self.view?.showResetPasswordSuccess(viewController: resetEmailSentAlert)
                     }
                 }
             })
         }))
-        //PRESENT ALERT
-        self.view?.presentAlerts(viewController: forgotPasswordAlert)
+        self.view?.showConfirmationPassword(viewController: forgotPasswordAlert)
     }
-    
 }

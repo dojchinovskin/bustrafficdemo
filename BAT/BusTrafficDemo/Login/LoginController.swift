@@ -105,7 +105,15 @@ class LoginController: UIViewController, LoginView, RegisterView {
         navigator.setHomeScreenAsRootController()
     }
     
-    func presentAlerts(viewController: UIViewController) {
+    func showResetPasswordSuccess(viewController: UIViewController) {
+        present(viewController, animated: true, completion: nil)
+    }
+    
+    func showResetPasswordFailure(viewController: UIViewController) {
+        present(viewController, animated: true, completion: nil)
+    }
+    
+    func showConfirmationPassword(viewController: UIViewController) {
         present(viewController, animated: true, completion: nil)
     }
     

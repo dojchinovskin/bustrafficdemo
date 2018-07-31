@@ -14,7 +14,9 @@ protocol LoginView: class {
     func loginSuccess()
     func showProgressHud()
     func hideProgressHud()
-    func presentAlerts(viewController: UIViewController)
+    func showResetPasswordSuccess(viewController: UIViewController)
+    func showResetPasswordFailure(viewController: UIViewController)
+    func showConfirmationPassword(viewController: UIViewController)
 }
 
 protocol LoginPresenter: class {

@@ -193,13 +193,10 @@
 				FA9CB2B620F3B71000C1A2FD /* Login */,
 				FA9CB2B320F3B67A00C1A2FD /* Register */,
 				CD70EBFF20DBEE2C00FDFDF3 /* Utils */,
-				FA7A6D3A20DA6F5200C2D47C /* Main.storyboard */,
-				FAF88A54210F4B5E0068DB00 /* Timetable.storyboard */,
-				FA86BD8920F7544F003F7DA9 /* Camera.storyboard */,
-				FA7A6D3D20DA6F5300C2D47C /* Assets.xcassets */,
-				FA7A6D3F20DA6F5300C2D47C /* LaunchScreen.storyboard */,
 				FA7A6D4220DA6F5300C2D47C /* Info.plist */,
 				FA7A6D5420DA9AD300C2D47C /* GoogleService-Info.plist */,
+				FAFEDF1A2110513A00A3C294 /* Storyboards */,
+				FAFEDF1B2110516400A3C294 /* Resources */,
 			);
 			path = BusTrafficDemo;
 			sourceTree = "<group>";
@@ -253,6 +250,25 @@
 				FA88C77C20E3829700E31BAB /* UserSettingsController.swift */,
 			);
 			path = UserSettings;
+			sourceTree = "<group>";
+		};
+		FAFEDF1A2110513A00A3C294 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FA7A6D3F20DA6F5300C2D47C /* LaunchScreen.storyboard */,
+				FA86BD8920F7544F003F7DA9 /* Camera.storyboard */,
+				FAF88A54210F4B5E0068DB00 /* Timetable.storyboard */,
+				FA7A6D3A20DA6F5200C2D47C /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FAFEDF1B2110516400A3C294 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA7A6D3D20DA6F5300C2D47C /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
