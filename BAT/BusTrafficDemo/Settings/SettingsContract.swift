@@ -13,7 +13,6 @@ protocol SettingsView: class {
     func hideProgressHud()
     func showAccountDeactivationSuccess()
     func showAccountDeactivationFailure(error: Error)
-    func showLogOutDialog(viewController: UIViewController)
 }
 
 protocol SettingsPresenter: class {
@@ -21,4 +20,5 @@ protocol SettingsPresenter: class {
     func dettach(view: SettingsView)
     
     func deactivateAccount(email: String, password: String)
+    func logOut() 
 }

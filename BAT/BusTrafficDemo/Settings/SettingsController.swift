@@ -89,7 +89,12 @@ class SettingsController: UIViewController, SettingsView  {
     }
     
     @objc func logOut() {
-       settingsPresenter.logOut()
+        let logOutAlert = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .alert)
+        logOutAlert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+            self.settingsPresenter.logOut()
+        }))
+        logOutAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+        present(logOutAlert, animated: true, completion: nil)
     }
     
     @objc func deactivateAccount() {

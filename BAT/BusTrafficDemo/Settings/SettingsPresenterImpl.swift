@@ -50,18 +50,11 @@ class SettingsPresenterImpl: SettingsPresenter {
                     self.view?.showAccountDeactivationSuccess()
                 }
             })
-        
-        
     }
     
-    @objc func logOut() {
-        let logOutAlert = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .alert)
-        logOutAlert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
-            self.showLoginScreen()
-            self.userManager.logOut()
-        }))
-        logOutAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
-        self.view?.showLogOutDialog(viewController: logOutAlert)
+    func logOut() {
+        self.showLoginScreen()
+        self.userManager.logOut()
     }
     
     private func showLoginScreen() {
