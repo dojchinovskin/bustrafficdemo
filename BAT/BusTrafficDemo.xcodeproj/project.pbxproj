@@ -41,7 +41,7 @@
 		FAA96DDB20EA55A000282687 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA96DDA20EA55A000282687 /* SettingsController.swift */; };
 		FAE84287210B19AB00CDDCD2 /* Reachabilty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE84286210B19AB00CDDCD2 /* Reachabilty.swift */; };
 		FAF88A53210F43130068DB00 /* TimetableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF88A52210F43130068DB00 /* TimetableController.swift */; };
-		FAF88A55210F4B5E0068DB00 /* Timetable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF88A54210F4B5E0068DB00 /* Timetable.storyboard */; };
+		FAFEDF1D211093B500A3C294 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEDF1C211093B500A3C294 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,7 +83,7 @@
 		FAA96DDA20EA55A000282687 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FAE84286210B19AB00CDDCD2 /* Reachabilty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachabilty.swift; sourceTree = "<group>"; };
 		FAF88A52210F43130068DB00 /* TimetableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableController.swift; sourceTree = "<group>"; };
-		FAF88A54210F4B5E0068DB00 /* Timetable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timetable.storyboard; sourceTree = "<group>"; };
+		FAFEDF1C211093B500A3C294 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +159,7 @@
 			children = (
 				FA86BD8720F74FE7003F7DA9 /* TimetableARKitController.swift */,
 				FAF88A52210F43130068DB00 /* TimetableController.swift */,
+				FAFEDF1C211093B500A3C294 /* CustomTableViewCell.swift */,
 			);
 			path = Timetable;
 			sourceTree = "<group>";
@@ -257,7 +258,6 @@
 			children = (
 				FA7A6D3F20DA6F5300C2D47C /* LaunchScreen.storyboard */,
 				FA86BD8920F7544F003F7DA9 /* Camera.storyboard */,
-				FAF88A54210F4B5E0068DB00 /* Timetable.storyboard */,
 				FA7A6D3A20DA6F5200C2D47C /* Main.storyboard */,
 			);
 			path = Storyboards;
@@ -331,7 +331,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAF88A55210F4B5E0068DB00 /* Timetable.storyboard in Resources */,
 				FA7A6D4120DA6F5300C2D47C /* LaunchScreen.storyboard in Resources */,
 				FA7A6D5520DA9AD300C2D47C /* GoogleService-Info.plist in Resources */,
 				FA7A6D3E20DA6F5300C2D47C /* Assets.xcassets in Resources */,
@@ -413,6 +412,7 @@
 				FA7AF89020EE3EC3003BFC08 /* UserSettingsTableViewExt.swift in Sources */,
 				CD70EC0A20DBFE7000FDFDF3 /* UserManagerFirebase.swift in Sources */,
 				FAA96DD920E65ED100282687 /* UserSettingsPresenterImpl.swift in Sources */,
+				FAFEDF1D211093B500A3C294 /* CustomTableViewCell.swift in Sources */,
 				FA217C07210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift in Sources */,
 				FA77881A20DBA46B00AEB405 /* RegisterPresenterImpl.swift in Sources */,
 				FA9CB2B520F3B6C400C1A2FD /* RegisterContract.swift in Sources */,

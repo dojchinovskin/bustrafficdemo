@@ -14,9 +14,8 @@ protocol LoginView: class {
     func loginSuccess()
     func showProgressHud()
     func hideProgressHud()
-    func showResetPasswordSuccess(viewController: UIViewController)
-    func showResetPasswordFailure(viewController: UIViewController)
-    func showConfirmationPassword(viewController: UIViewController)
+    func showResetPasswordSuccess()
+    func showResetPasswordFailure(error: Error)
 }
 
 protocol LoginPresenter: class {
@@ -24,6 +23,6 @@ protocol LoginPresenter: class {
     func dettach(view: LoginView)
     
     func login(email: String, password: String)
-    func forgetPassword()
+    func forgetPassword(email: String)
 }
 

@@ -95,16 +95,16 @@ class LoginController: UIViewController, LoginView, RegisterView {
         navigator.setHomeScreenAsRootController()
     }
     
-    func showResetPasswordSuccess(viewController: UIViewController) {
-        present(viewController, animated: true, completion: nil)
+    func showResetPasswordSuccess() {
+        let resetEmailSentAlert = UIAlertController(title: "Reset email sent successfully", message: "Check your email", preferredStyle: .alert)
+        resetEmailSentAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(resetEmailSentAlert, animated: true, completion: nil)
     }
     
-    func showResetPasswordFailure(viewController: UIViewController) {
-        present(viewController, animated: true, completion: nil)
-    }
-    
-    func showConfirmationPassword(viewController: UIViewController) {
-        present(viewController, animated: true, completion: nil)
+    func showResetPasswordFailure(error: Error) {
+        let resetFailedAlert = UIAlertController(title: "Reset Failed", message: error.localizedDescription, preferredStyle: .alert)
+        resetFailedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(resetFailedAlert, animated: true, completion: nil)
     }
     
     func checkInternetConnections() {
@@ -147,7 +147,16 @@ class LoginController: UIViewController, LoginView, RegisterView {
     }
     
     @objc func forgetPassword() {
-        loginPresenter.forgetPassword()
+        let forgotPasswordAlert = UIAlertController(title: "Are you sure you want to reset your password?", message: "Enter email address", preferredStyle: .alert)
+        forgotPasswordAlert.addTextField { (textField) in
+            textField.placeholder = "Enter your email address"
+        }
+        forgotPasswordAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        forgotPasswordAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak self] (action) in
+            guard let resetEmail = forgotPasswordAlert.textFields?.first?.text else { return }
+            self?.loginPresenter.forgetPassword(email: resetEmail)
+        }))
+        present(forgotPasswordAlert, animated: true, completion: nil)
     }
 
     //MARK: Setup Views

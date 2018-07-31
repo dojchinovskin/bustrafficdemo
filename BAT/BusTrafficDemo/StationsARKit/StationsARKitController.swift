@@ -134,9 +134,9 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
     }
     
     func apiCall() {
+        
         let lat = String(format:"%f", locationManager.location?.coordinate.latitude ?? 0)
         let lon = String(format:"%f", locationManager.location?.coordinate.longitude ?? 0)
-        
         
         let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=1000&type=bus_station&key=AIzaSyBhhGnyRKf735lvZ6eq-UtJwkHmlTeVSUQ"
         

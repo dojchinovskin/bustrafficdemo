@@ -28,33 +28,17 @@ class SettingsPresenterImpl: SettingsPresenter {
         }
     }
     
-    func deactivateAccount() {
-        let deleteAccAlert = UIAlertController(title: "Deactivate your account", message: "Enter your email and password", preferredStyle: .alert)
-        deleteAccAlert.addTextField { (emailTextField) in
-            emailTextField.placeholder = "Enter your email"
-        }
-        deleteAccAlert.addTextField { (passwordTextField) in
-            passwordTextField.placeholder = "Enter your password"
-            passwordTextField.isSecureTextEntry = true
-        }
-        deleteAccAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        deleteAccAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            let email = deleteAccAlert.textFields?[0].text
-            let password = deleteAccAlert.textFields?[1].text
-            let emailCheck = EmailAuthProvider.credential(withEmail: email!, password: password! )
+    func deactivateAccount(email: String, password: String) {
+            let emailCheck = EmailAuthProvider.credential(withEmail: email, password: password )
             self.view?.showProgressHud()
             Auth.auth().currentUser?.reauthenticateAndRetrieveData(with: emailCheck, completion: { (result, error) in
                 self.view?.hideProgressHud()
                 if let error = error {
-                    let FailedAlert = UIAlertController(title: "Failed To Deactivate", message: error.localizedDescription, preferredStyle: .alert)
-                    FailedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.view?.showAccountDeactivationFailure(viewController: FailedAlert)
+                    self.view?.showAccountDeactivationFailure(error: error)
                 } else {
                     Auth.auth().currentUser?.delete(completion: { (error) in
                         if let error = error {
-                            let resetFailedAlert = UIAlertController(title: "Failed To Deactivate", message: error.localizedDescription, preferredStyle: .alert)
-                            resetFailedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                            self.view?.showAccountDeactivationFailure(viewController: resetFailedAlert)
+                           self.view?.showAccountDeactivationFailure(error: error)
                         }
                     })
                     guard let uid = Auth.auth().currentUser?.uid else {
@@ -63,16 +47,11 @@ class SettingsPresenterImpl: SettingsPresenter {
                     let ref = Database.database().reference(fromURL: "https://busartrafficdemo.firebaseio.com/")
                     let userReference = ref.child("users").child(uid)
                     userReference.removeValue()
-                    let removeDatAlert = UIAlertController(title: "Deactivate Your Account", message: "Your account has been deactivated.", preferredStyle: .alert)
-                    removeDatAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                        self.showLoginScreen()
-                        self.userManager.logOut()
-                    }))
-                    self.view?.showAccountDeactivationSuccess(viewController: removeDatAlert)
+                    self.view?.showAccountDeactivationSuccess()
                 }
             })
-        }))
-        self.view?.showDeactivationConfirmationDialog(viewController: deleteAccAlert)
+        
+        
     }
     
     @objc func logOut() {
