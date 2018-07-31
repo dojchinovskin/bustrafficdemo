@@ -46,39 +46,17 @@ class TimetableController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
-    // return the number of sections
-    func numberOfSections(in tableView: UITableView) -> Int{
-        return sections.count
-    }
-    
-    
-    
-    // return the title of sections
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section] as? String
-    }
-    
-    
     // called when the cell is selected.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print("Num: \(indexPath.row)")
-        if indexPath.section == 0 {
             print("Value: \(fruit[indexPath.row])")
-        } else if indexPath.section == 1 {
             print("Value: \(vegitable[indexPath.row])")
-        }
     }
     
     // return the number of cells each section.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return fruit.count
-        } else if section == 1 {
-            return vegitable.count
-        } else {
-            return 0
-        }
+       return fruit.count
     }
     
     // return cells
@@ -86,17 +64,9 @@ class TimetableController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         
-        if indexPath.section == 0 {
-            cell.labUerName.text = "\(fruit[indexPath.row])"
-            cell.labMessage.text = "Message \(indexPath.row)"
-            cell.labTime.text = DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .short, timeStyle: .short)
-        } else if indexPath.section == 1 {
-            cell.labUerName.text = "\(vegitable[indexPath.row])"
-            cell.labMessage.text = "Message \(indexPath.row)"
-            cell.labTime.text = DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .short, timeStyle: .short)
-        }
-        
-        
+        cell.labUerName.text = "\(fruit[indexPath.row])"
+        cell.labMessage.text = "BUS \(indexPath.row + 1)"
+        cell.labTime.text = DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .short, timeStyle: .short)
         
         return cell
     }
