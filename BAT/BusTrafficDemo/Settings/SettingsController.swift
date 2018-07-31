@@ -56,9 +56,22 @@ class SettingsController: UIViewController, SettingsView  {
         SVProgressHUD.dismiss()
     }
     
-    func presentAlert(viewController: UIViewController) {
+    func showAccountDeactivationSuccess(viewController: UIViewController) {
         present(viewController, animated: true, completion: nil)
     }
+    
+    func showAccountDeactivationFailure(viewController: UIViewController) {
+        present(viewController, animated: true, completion: nil)
+    }
+    
+    func showDeactivationConfirmationDialog(viewController: UIViewController) {
+        present(viewController, animated: true, completion: nil)
+    }
+    
+    func showLogOutDialog(viewController: UIViewController) {
+        present(viewController, animated: true, completion: nil)
+    }
+    
     
     @objc func goBack() {
         self.navigationController?.popViewController(animated: true)

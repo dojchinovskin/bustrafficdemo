@@ -11,7 +11,10 @@ import UIKit
 protocol SettingsView: class {
     func showProgressHud()
     func hideProgressHud()
-    func presentAlert(viewController: UIViewController)
+    func showAccountDeactivationSuccess(viewController: UIViewController)
+    func showAccountDeactivationFailure(viewController: UIViewController)
+    func showDeactivationConfirmationDialog(viewController: UIViewController)
+    func showLogOutDialog(viewController: UIViewController)
 }
 
 protocol SettingsPresenter: class {
