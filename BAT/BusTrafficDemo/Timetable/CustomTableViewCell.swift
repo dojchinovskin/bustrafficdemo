@@ -8,45 +8,42 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class CustomTableViewCell: UITableViewCell {
     
-    let imgUser = UIImageView()
-    let labUerName = UILabel()
-    let labMessage = UILabel()
-    let labTime = UILabel()
+    let img = UIImageView()
+    let bus = UILabel()
+    let time = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        imgUser.backgroundColor = UIColor.green
+        img.backgroundColor = UIColor.green
         
-        imgUser.translatesAutoresizingMaskIntoConstraints = false
-        labUerName.translatesAutoresizingMaskIntoConstraints = false
-        labMessage.translatesAutoresizingMaskIntoConstraints = false
-        labTime.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(img)
+        contentView.addSubview(bus)
+        contentView.addSubview(time)
         
-        contentView.addSubview(imgUser)
-        contentView.addSubview(labUerName)
-        contentView.addSubview(labMessage)
-        contentView.addSubview(labTime)
+        img.snp.makeConstraints { (make) in
+            make.right.equalToSuperview().offset(-10)
+            make.width.equalTo(10)
+            make.height.equalTo(10)
+            make.centerY.equalToSuperview()
+        }
         
-        let viewsDict = [
-            "image" : imgUser,
-            "username" : labUerName,
-            "message" : labMessage,
-            "labTime" : labTime,
-            ] as [String : Any]
+        bus.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(10)
+            make.centerY.equalToSuperview()
+        }
         
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[image(10)]", options: [], metrics: nil, views: viewsDict))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[labTime]-|", options: [], metrics: nil, views: viewsDict))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[username]-[message]-|", options: [], metrics: nil, views: viewsDict))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[username]-[image(10)]-|", options: [], metrics: nil, views: viewsDict))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[message]-[labTime]-|", options: [], metrics: nil, views: viewsDict))
+        time.snp.makeConstraints { (make) in
+            make.right.equalTo(img.snp.left).offset(-10)
+            make.centerY.equalToSuperview()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

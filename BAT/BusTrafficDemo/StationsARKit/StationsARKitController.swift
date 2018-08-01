@@ -14,6 +14,7 @@ import SnapKit
 import Alamofire
 import SwiftyJSON
 import CoreLocation
+import ARKit
 
 class StationsARKitController: UIViewController, CLLocationManagerDelegate {
     let sceneLocationView = SceneLocationView()
@@ -64,6 +65,14 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    func resetTrackingConfiguration() {
+        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else { return }
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.detectionImages = referenceImages
+        let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
+        sceneLocationView.session.run(configuration, options: options)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         userLocation()
@@ -89,6 +98,7 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
         super.viewWillAppear(animated)
         print("run")
         sceneLocationView.run()
+        resetTrackingConfiguration()
         
     }
     

@@ -14,11 +14,7 @@ class TimetableController: UIViewController, UITableViewDelegate, UITableViewDat
     
     private var myTableView: UITableView!
     
-    private let sections: NSArray = ["fruit", "vegitable"]    //Profile    network    audio Codecs
-    private let fruit: NSArray = ["apple", "orange", "banana", "strawberry", "lemon"]
-    private let vegitable: NSArray = ["carrots", "avocado", "potato", "onion"]
-    
-    
+    private let stations: Array = ["BUS 1", "BUS 2", "BUS 3", "BUS 4", "BUS 5", "BUS 6", "BUS 7", "BUS 8", "BUS 9", "BUS 10",]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,18 +41,14 @@ class TimetableController: UIViewController, UITableViewDelegate, UITableViewDat
         super.didReceiveMemoryWarning()
     }
     
-    
     // called when the cell is selected.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         print("Num: \(indexPath.row)")
-            print("Value: \(fruit[indexPath.row])")
-            print("Value: \(vegitable[indexPath.row])")
     }
     
     // return the number of cells each section.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return fruit.count
+       return stations.count
     }
     
     // return cells
@@ -64,9 +56,8 @@ class TimetableController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         
-        cell.labUerName.text = "\(fruit[indexPath.row])"
-        cell.labMessage.text = "BUS \(indexPath.row + 1)"
-        cell.labTime.text = DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .short, timeStyle: .short)
+        cell.bus.text = "\(stations[indexPath.row])"
+        cell.time.text = DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .short, timeStyle: .short)
         
         return cell
     }
