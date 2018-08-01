@@ -25,7 +25,7 @@ class HomeController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateTitle()
+        //updateTitle()
     }
     
     @objc func showSettings() {
@@ -37,6 +37,7 @@ class HomeController: UIViewController {
         self.navigationController?.navigationBar.colorBar()
         view.backgroundColor = .white
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburger-menu-icon"), style: .plain, target: self, action: #selector(showSettings))
+        navigationItem.title = "Home"
         
         view.addSubview(findNearestBusStationsButton)
         view.addSubview(showTimetableButton)

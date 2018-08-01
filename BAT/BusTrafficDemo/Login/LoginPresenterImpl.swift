@@ -31,7 +31,6 @@ class LoginPresenterImpl: LoginPresenter {
         view?.showProgressHud()
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] (user, error) in
             self?.view?.hideProgressHud()
-
             if error != nil {
                 print("\(error!)")
                 if error?.localizedDescription == self?.errorEmailString {

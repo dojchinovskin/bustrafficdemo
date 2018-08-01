@@ -66,16 +66,9 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         userLocation()
         apiCall()
-        
-//        navigationController?.navigationBar.isHidden = true
-//        UIApplication.shared.isStatusBarHidden = true
-        
-        sceneLocationView.locationDelegate = self
-        view.addSubview(sceneLocationView)
-        
+        setupViews()
         mapSetup()
     }
     
@@ -157,6 +150,12 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
                 print(error)
             }
         }
+    }
+    
+    func setupViews() {
+        sceneLocationView.locationDelegate = self
+        view.addSubview(sceneLocationView)
+        
     }
     
     func mapSetup() {

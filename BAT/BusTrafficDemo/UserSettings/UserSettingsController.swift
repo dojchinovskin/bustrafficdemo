@@ -20,13 +20,7 @@ class UserSettingsController: UIViewController, UserSettingsView {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
-        self.navigationController?.navigationBar.colorBar()
-        navigationItem.title = "User Settings"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(goBack))
-  
-        view.addSubview(inputsContainerView)
-        setupConstraints()
+        setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +82,15 @@ class UserSettingsController: UIViewController, UserSettingsView {
         tv.isScrollEnabled = false
         return tv
     }()
+    
+    func setupViews() {
+        view.backgroundColor = .white
+        self.navigationController?.navigationBar.colorBar()
+        navigationItem.title = "User Settings"
+        
+        view.addSubview(inputsContainerView)
+        setupConstraints()
+    }
     
     func setupConstraints() {
         // SAFEAREALAYOUT

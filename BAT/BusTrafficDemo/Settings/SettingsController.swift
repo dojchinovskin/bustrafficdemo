@@ -26,7 +26,6 @@ class SettingsController: UIViewController, SettingsView  {
         view.backgroundColor = .white
         self.navigationController?.navigationBar.colorBar()
         navigationItem.title = "Settings"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(goBack))
         
         view.addSubview(inputsContainerView)
         view.addSubview(profileImageView)

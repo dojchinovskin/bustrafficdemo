@@ -21,11 +21,7 @@ class TimetableARKitController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        navigationController?.navigationBar.isHidden = true
-//        UIApplication.shared.isStatusBarHidden = true
-        
-        sceneView.delegate = self
-        configureLighting()
+        setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +50,11 @@ class TimetableARKitController: UIViewController {
         let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
         sceneView.session.run(configuration, options: options)
         label.text = "Move camera around to detect images"
+    }
+    
+    func setupViews() {
+        sceneView.delegate = self
+        configureLighting()
     }
     
     lazy var fadeAction: SCNAction = {
