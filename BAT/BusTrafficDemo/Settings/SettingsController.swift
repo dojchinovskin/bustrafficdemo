@@ -22,15 +22,8 @@ class SettingsController: UIViewController, SettingsView  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .white
-        self.navigationController?.navigationBar.colorBar()
-        navigationItem.title = "Settings"
-        
-        view.addSubview(inputsContainerView)
-        view.addSubview(profileImageView)
-        setupConstraints()
-        setupImage()
+
+        setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,17 +62,9 @@ class SettingsController: UIViewController, SettingsView  {
     }
     
     func showAccountDeactivationFailure(error: Error) {
-        let FailedAlert = UIAlertController(title: "Failed To Deactivate", message: error.localizedDescription, preferredStyle: .alert)
-        FailedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(FailedAlert, animated: true, completion: nil)
-    }
-    
-    func showDeactivationConfirmationDialog(viewController: UIViewController) {
-        present(viewController, animated: true, completion: nil)
-    }
-    
-    func showLogOutDialog(viewController: UIViewController) {
-        present(viewController, animated: true, completion: nil)
+        let failedAlert = UIAlertController(title: "Failed To Deactivate", message: error.localizedDescription, preferredStyle: .alert)
+        failedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(failedAlert, animated: true, completion: nil)
     }
     
     
@@ -87,31 +72,35 @@ class SettingsController: UIViewController, SettingsView  {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc func logOut() {
-        let logOutAlert = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .alert)
-        logOutAlert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
-            self.settingsPresenter.logOut()
-        }))
-        logOutAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
-        present(logOutAlert, animated: true, completion: nil)
+    func logOut() {
+        DispatchQueue.main.async {
+            let logOutAlert = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .alert)
+            logOutAlert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+                self.settingsPresenter.logOut()
+            }))
+            logOutAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+            self.present(logOutAlert, animated: true, completion: nil)
+        }
     }
     
-    @objc func deactivateAccount() {
-        let deleteAccAlert = UIAlertController(title: "Deactivate your account", message: "Enter your email and password", preferredStyle: .alert)
-        deleteAccAlert.addTextField { (emailTextField) in
-            emailTextField.placeholder = "Enter your email"
+    func deactivateAccount() {
+        DispatchQueue.main.async {
+            let deleteAccAlert = UIAlertController(title: "Deactivate your account", message: "Enter your email and password", preferredStyle: .alert)
+            deleteAccAlert.addTextField { (emailTextField) in
+                emailTextField.placeholder = "Enter your email"
+            }
+            deleteAccAlert.addTextField { (passwordTextField) in
+                passwordTextField.placeholder = "Enter your password"
+                passwordTextField.isSecureTextEntry = true
+            }
+            deleteAccAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            deleteAccAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] (action) in
+                guard let email = deleteAccAlert.textFields?[0].text else { return }
+                guard let password = deleteAccAlert.textFields?[1].text else { return }
+                self?.settingsPresenter.deactivateAccount(email: email, password: password)
+            }))
+            self.present(deleteAccAlert, animated: true, completion: nil)
         }
-        deleteAccAlert.addTextField { (passwordTextField) in
-            passwordTextField.placeholder = "Enter your password"
-            passwordTextField.isSecureTextEntry = true
-        }
-        deleteAccAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        deleteAccAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] (action) in
-            guard let email = deleteAccAlert.textFields?[0].text else { return }
-            guard let password = deleteAccAlert.textFields?[1].text else { return }
-            self?.settingsPresenter.deactivateAccount(email: email, password: password)
-        }))
-        present(deleteAccAlert, animated: true, completion: nil)
     }
     
     lazy var tableView: UITableView = {
@@ -127,7 +116,6 @@ class SettingsController: UIViewController, SettingsView  {
         let view = UIImageView()
         view.image = UIImage(named: "user-icon")
         view.translatesAutoresizingMaskIntoConstraints = false
-        
         return view
     }()
     
@@ -135,9 +123,19 @@ class SettingsController: UIViewController, SettingsView  {
         let view = UIView()
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
-        
         return view
     }()
+    
+    func setupViews() {
+        view.backgroundColor = .white
+        self.navigationController?.navigationBar.colorBar()
+        navigationItem.title = "Settings"
+        
+        view.addSubview(inputsContainerView)
+        view.addSubview(profileImageView)
+        setupConstraints()
+        setupImage()
+    }
     
     func setupImage() {
         profileImageView.snp.makeConstraints { (make) in

@@ -30,11 +30,12 @@ extension UserSettingsController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            changeName()
+            //changeName()
+            print(123)
         case 1:
-            changeEmail()
+            resetEmail()
         case 2:
-            changePassword()
+            resetPassword()
         default:
             print("Nothing selected")
         }

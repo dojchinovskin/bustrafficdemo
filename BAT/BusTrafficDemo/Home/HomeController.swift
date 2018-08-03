@@ -36,13 +36,17 @@ class HomeController: UIViewController {
     func setupViews() {
         self.navigationController?.navigationBar.colorBar()
         view.backgroundColor = .white
+        navigationController?.navigationBar.isTranslucent = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburger-menu-icon"), style: .plain, target: self, action: #selector(showSettings))
         navigationItem.title = "Home"
         
+        
+        view.addSubview(backgroundPic)
         view.addSubview(findNearestBusStationsButton)
         view.addSubview(showTimetableButton)
         setupFindNearestBusStationsButton()
         setupShowTimetableButton()
+        setupPic()
     }
     
     private func checkIfUserIsLoggedIn() {
@@ -83,13 +87,16 @@ class HomeController: UIViewController {
     
     lazy var findNearestBusStationsButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 161, g: 117, b: 170)
-        button.setTitle("Find nearest bus stations", for: .normal)
+        //button.backgroundColor = UIColor(r: 161, g: 117, b: 170)
+        button.setTitle("Bus Stations", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.layer.cornerRadius = 5
         button.layer.masksToBounds = true
+        button.backgroundColor = UIColor.clear
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor(white: 1.0, alpha: 1).cgColor
         button.addTarget(self, action: #selector(findNearestBusStations), for: .touchUpInside)
         
         return button
@@ -101,20 +108,23 @@ class HomeController: UIViewController {
     
     func setupFindNearestBusStationsButton() {
         findNearestBusStationsButton.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-            make.width.equalToSuperview().offset(-50)
-            make.height.equalTo(50)
+            make.left.equalToSuperview().offset(5)
+            make.bottom.equalToSuperview().offset(-10)
+            make.width.equalTo(view.frame.width / 2 - 7)
+            make.height.equalTo(150)
         }
     }
     
     lazy var showTimetableButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 161, g: 117, b: 170)
-        button.setTitle("Show bus timetable", for: .normal)
+        button.setTitle("Timetable", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.layer.cornerRadius = 5
+        button.backgroundColor = UIColor.clear
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor(white: 1.0, alpha: 1).cgColor
         button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(showTimetable), for: .touchUpInside)
         
@@ -129,10 +139,26 @@ class HomeController: UIViewController {
     
     func setupShowTimetableButton() {
         showTimetableButton.snp.makeConstraints { (make) in
-            make.top.equalTo(findNearestBusStationsButton.snp.bottom).offset(30)
-            make.left.equalTo(findNearestBusStationsButton.snp.left)
-            make.width.equalToSuperview().offset(-50)
-            make.height.equalTo(50)
+            make.bottom.equalToSuperview().offset(-10)
+            make.right.equalToSuperview().offset(-5)
+            make.width.equalTo(view.frame.width / 2 - 7)
+            make.height.equalTo(150)
+        }
+    }
+    
+    lazy var backgroundPic: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "busPic")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.contentMode = .scaleAspectFill
+        return view
+    }()
+    
+    func setupPic() {
+        backgroundPic.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
         }
     }
     

@@ -81,19 +81,6 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
         mapSetup()
     }
     
-    func userDistance(from point: MKPointAnnotation) -> Double? {
-        guard let userLocation = mapView.userLocation.location else {
-            return nil // User location unknown!
-        }
-        let pointLocation = CLLocation(
-            latitude:  point.coordinate.latitude,
-            longitude: point.coordinate.longitude
-        )
-        return userLocation.distance(from: pointLocation)
-    }
-    
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("run")
@@ -124,6 +111,17 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
             make.width.equalToSuperview().offset(-50)
             make.height.equalTo(50)
         }
+    }
+    
+    func userDistance(from point: MKPointAnnotation) -> Double? {
+        guard let userLocation = mapView.userLocation.location else {
+            return nil // User location unknown!
+        }
+        let pointLocation = CLLocation(
+            latitude:  point.coordinate.latitude,
+            longitude: point.coordinate.longitude
+        )
+        return userLocation.distance(from: pointLocation)
     }
     
     func userLocation() {
