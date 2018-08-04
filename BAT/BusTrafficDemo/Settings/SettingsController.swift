@@ -20,6 +20,8 @@ class SettingsController: UIViewController, SettingsView  {
     
     let items = ["User Settings", "Application Settings", "Deactivate", "Log Out"]
     
+    //MARK: LIFECYCLE
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +42,8 @@ class SettingsController: UIViewController, SettingsView  {
         settingsPresenter.dettach(view: self)
     }
     
+    //MARK: PROGRESS HUD
+    
     func showProgressHud() {
         SVProgressHUD.show()
     }
@@ -48,40 +52,7 @@ class SettingsController: UIViewController, SettingsView  {
         SVProgressHUD.dismiss()
     }
     
-    private func showLoginScreen() {
-        navigator.setLoginScreenAsRootController()
-    }
-    
-    func showAccountDeactivationSuccess() {
-        let removeDatAlert = UIAlertController(title: "Deactivate Your Account", message: "Your account has been deactivated.", preferredStyle: .alert)
-        removeDatAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] (action) in
-            self?.showLoginScreen()
-            self?.userManager.logOut()
-        }))
-        present(removeDatAlert, animated: true, completion: nil)
-    }
-    
-    func showAccountDeactivationFailure(error: Error) {
-        let failedAlert = UIAlertController(title: "Failed To Deactivate", message: error.localizedDescription, preferredStyle: .alert)
-        failedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(failedAlert, animated: true, completion: nil)
-    }
-    
-    
-    @objc func goBack() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    func logOut() {
-        DispatchQueue.main.async {
-            let logOutAlert = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .alert)
-            logOutAlert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
-                self.settingsPresenter.logOut()
-            }))
-            logOutAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
-            self.present(logOutAlert, animated: true, completion: nil)
-        }
-    }
+    //MARK: DEACTIVATION
     
     func deactivateAccount() {
         DispatchQueue.main.async {
@@ -102,6 +73,40 @@ class SettingsController: UIViewController, SettingsView  {
             self.present(deleteAccAlert, animated: true, completion: nil)
         }
     }
+    
+    func showAccountDeactivationSuccess() {
+        let removeDatAlert = UIAlertController(title: "Deactivate Your Account", message: "Your account has been deactivated.", preferredStyle: .alert)
+        removeDatAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] (action) in
+            self?.showLoginScreen()
+            self?.userManager.logOut()
+        }))
+        present(removeDatAlert, animated: true, completion: nil)
+    }
+    
+    func showAccountDeactivationFailure(error: Error) {
+        let failedAlert = UIAlertController(title: "Failed To Deactivate", message: error.localizedDescription, preferredStyle: .alert)
+        failedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(failedAlert, animated: true, completion: nil)
+    }
+    
+    //MARK: LOGOUT
+    
+    func logOut() {
+        DispatchQueue.main.async {
+            let logOutAlert = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .alert)
+            logOutAlert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+                self.settingsPresenter.logOut()
+            }))
+            logOutAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+            self.present(logOutAlert, animated: true, completion: nil)
+        }
+    }
+    
+    private func showLoginScreen() {
+        navigator.setLoginScreenAsRootController()
+    }
+    
+    // MARK: SETUP VIEWS
     
     lazy var tableView: UITableView = {
         let tv = UITableView()

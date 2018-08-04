@@ -11,6 +11,7 @@ import UIKit
 protocol SettingsView: class {
     func showProgressHud()
     func hideProgressHud()
+    func deactivateAccount()
     func showAccountDeactivationSuccess()
     func showAccountDeactivationFailure(error: Error)
 }

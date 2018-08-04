@@ -26,7 +26,9 @@ class UserSettingsPresenterImpl: UserSettingsPresenter {
         }
     }
     
-    func reauthenticate(email: String, password: String) {
+    //MARK: RESET NAME
+    
+    func reauthenticateName(email: String, password: String) {
         let emailCheck = EmailAuthProvider.credential(withEmail: email, password: password)
         self.view?.showProgressHud()
         Auth.auth().currentUser?.reauthenticateAndRetrieveData(with: emailCheck, completion: { (result, error) in
@@ -35,19 +37,39 @@ class UserSettingsPresenterImpl: UserSettingsPresenter {
                 self.view?.reauthenticateFailure(error: error)
                 return
             }
-            self.view?.reauthenticatePasswordSuccess()
+            self.view?.reauthenticateNameSuccess()
         })
     }
     
-    func updatePassword(email: String) {
-        self.view?.showProgressHud()
-        Auth.auth().currentUser?.updatePassword(to: email, completion: { (error) in
-            self.view?.hideProgressHud()
-            if let error = error {
-                self.view?.updatePasswordFailure(error: error)
+    func updateName(name: String) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let ref = Database.database().reference(fromURL: "https://busartrafficdemo.firebaseio.com/")
+        let userReference = ref.child("users").child(uid)
+        let values = ["name": name]
+        userReference.updateChildValues(values as Any as! [AnyHashable : Any], withCompletionBlock: { (err, ref) in
+            if err != nil {
+                print(err!)
                 return
             }
-            self.view?.updatePasswordSuccess()
+        })
+        self.view?.updateNameSuccess()
+    }
+    
+    //MARK: RESET EMAIL
+    
+    func reauthenticateEmail(email: String, password: String) {
+        let emailCheck = EmailAuthProvider.credential(withEmail: email, password: password)
+        self.view?.showProgressHud()
+        Auth.auth().currentUser?.reauthenticateAndRetrieveData(with: emailCheck, completion: { (result, error) in
+            self.view?.hideProgressHud()
+            if let error = error {
+                self.view?.reauthenticateFailure(error: error)
+                return
+            }
+            self.view?.reauthenticateEmailSuccess()
         })
     }
     
@@ -56,7 +78,7 @@ class UserSettingsPresenterImpl: UserSettingsPresenter {
         Auth.auth().currentUser?.updateEmail(to: email, completion: { (error) in
             self.view?.hideProgressHud()
             if let error = error {
-                self.view?.updateEmailFailure(error: error)
+                self.view?.updateEmailPasswordFailure(error: error)
                 return
             }
             self.view?.updateEmailSuccess()
@@ -77,132 +99,30 @@ class UserSettingsPresenterImpl: UserSettingsPresenter {
         })
     }
     
-//    func resetPassword() {
-//        let changePasswordAlert = UIAlertController(title: "Edit your password", message: "Enter your email and password", preferredStyle: .alert)
-//        changePasswordAlert.addTextField { (emailTextField) in
-//            emailTextField.placeholder = "Enter your email"
-//        }
-//        changePasswordAlert.addTextField { (passwordTextField) in
-//            passwordTextField.placeholder = "Enter your password"
-//            passwordTextField.isSecureTextEntry = true
-//        }
-//        changePasswordAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-//        changePasswordAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-//            let email = changePasswordAlert.textFields?[0].text
-//            let password = changePasswordAlert.textFields?[1].text
-//            let emailCheck = EmailAuthProvider.credential(withEmail: email!, password: password! )
-//            self.view?.showProgressHud()
-//            Auth.auth().currentUser?.reauthenticateAndRetrieveData(with: emailCheck, completion: { (result, error) in
-//                self.view?.hideProgressHud()
-//                if let error = error {
-//                    let FailedAlert = UIAlertController(title: "Editing Failed", message: error.localizedDescription, preferredStyle: .alert)
-//                    FailedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                    self.view?.presentAlert(viewController: FailedAlert)
-//                    return
-//                }
-//                let newPasswordAlert = UIAlertController(title: "New Password", message: "Enter your new password", preferredStyle: .alert)
-//                newPasswordAlert.addTextField(configurationHandler: { (textField) in
-//                        textField.placeholder = "Enter your new password"
-//                        textField.isSecureTextEntry = true
-//                    })
-//                    newPasswordAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-//                    newPasswordAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-//                        let email = newPasswordAlert.textFields?.first?.text
-//                        self.view?.showProgressHud()
-//                        Auth.auth().currentUser?.updatePassword(to: email!, completion: { (error) in
-//                            self.view?.hideProgressHud()
-//                                if let error = error {
-//                                    let resetFailedAlert = UIAlertController(title: "Editing Failed", message: error.localizedDescription, preferredStyle: .alert)
-//                                    resetFailedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                                    self.view?.presentAlert(viewController: resetFailedAlert)
-//                                    return
-//                                }
-//                                let resetPasswordSentAlert = UIAlertController(title: "Changed password successfully", message: "Your new password has been set.", preferredStyle: .alert)
-//                                resetPasswordSentAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                                self.view?.presentAlert(viewController: resetPasswordSentAlert)
-//                            
-//                        })
-//                    }))
-//                    self.view?.presentAlert(viewController: newPasswordAlert)
-//                })
-//            }))
-//        self.view?.presentAlert(viewController: changePasswordAlert)
-//    }
+    //MARK: RESET PASSWORD
     
-    func resetEmail() {
-        let changeEmailAlert = UIAlertController(title: "Edit your email", message: "Enter your old email and password", preferredStyle: .alert)
-            changeEmailAlert.addTextField { (emailTextField) in
-                emailTextField.placeholder = "Enter your old email"
+    func reauthenticatePassword(email: String, password: String) {
+        let emailCheck = EmailAuthProvider.credential(withEmail: email, password: password)
+        self.view?.showProgressHud()
+        Auth.auth().currentUser?.reauthenticateAndRetrieveData(with: emailCheck, completion: { (result, error) in
+            self.view?.hideProgressHud()
+            if let error = error {
+                self.view?.reauthenticateFailure(error: error)
+                return
             }
-            changeEmailAlert.addTextField { (passwordTextField) in
-                passwordTextField.placeholder = "Enter your password"
-                passwordTextField.isSecureTextEntry = true
-            }
-            changeEmailAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            changeEmailAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                let email = changeEmailAlert.textFields?[0].text
-                let password = changeEmailAlert.textFields?[1].text
-        }))
-                
+            self.view?.reauthenticatePasswordSuccess()
+        })
     }
     
-    func resetName() {
-        let changeNameAlert = UIAlertController(title: "Edit your name", message: "Enter your email and password", preferredStyle: .alert)
-        changeNameAlert.addTextField { (emailTextField) in
-            emailTextField.placeholder = "Enter your email"
-        }
-        changeNameAlert.addTextField { (passwordTextField) in
-            passwordTextField.placeholder = "Enter your password"
-            passwordTextField.isSecureTextEntry = true
-        }
-        
-        changeNameAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        changeNameAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            let email = changeNameAlert.textFields?[0].text
-            let password = changeNameAlert.textFields?[1].text
-            let emailCheck = EmailAuthProvider.credential(withEmail: email!, password: password! )
-            self.view?.showProgressHud()
-            Auth.auth().currentUser?.reauthenticateAndRetrieveData(with: emailCheck, completion: { (result, error) in
-                self.view?.hideProgressHud()
-                if let error = error {
-                    let resetFailedAlert = UIAlertController(title: "Editing Failed", message: error.localizedDescription, preferredStyle: .alert)
-                    resetFailedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.view?.presentAlert(viewController: resetFailedAlert)
-                    return
-                }
-                let newNameAlert = UIAlertController(title: "New Name", message: "Enter your new name", preferredStyle: .alert)
-                newNameAlert.addTextField(configurationHandler: { (textField) in
-                    textField.placeholder = "Enter your new name"
-                })
-                newNameAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                newNameAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                    guard let newName = newNameAlert.textFields?.first?.text else { return }
-                    if newName.isEmpty {
-                        let resetFailedAlert2 = UIAlertController(title: "Editing Failed", message: "You didn't submit anything.", preferredStyle: .alert)
-                        resetFailedAlert2.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.view?.presentAlert(viewController: resetFailedAlert2)
-                        return
-                    }
-                    guard let uid = Auth.auth().currentUser?.uid else {
-                        return
-                    }
-                    
-                    let ref = Database.database().reference(fromURL: "https://busartrafficdemo.firebaseio.com/")
-                    let userReference = ref.child("users").child(uid)
-                    let values = ["name": newName]
-                    userReference.updateChildValues(values as Any as! [AnyHashable : Any], withCompletionBlock: { (err, ref) in
-                        if err != nil {
-                            print(err!)
-                            return
-                        }
-                    })
-                    let newNameSetAlert = UIAlertController(title: "Changed name successfully", message: "Your new name has been set.", preferredStyle: .alert)
-                    newNameSetAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.view?.presentAlert(viewController: newNameSetAlert)
-                }))
-                self.view?.presentAlert(viewController: newNameAlert)
-            })
-        }))
-        self.view?.presentAlert(viewController: changeNameAlert)
+    func updatePassword(email: String) {
+        self.view?.showProgressHud()
+        Auth.auth().currentUser?.updatePassword(to: email, completion: { (error) in
+            self.view?.hideProgressHud()
+            if let error = error {
+                self.view?.updateEmailPasswordFailure(error: error)
+                return
+            }
+            self.view?.updatePasswordSuccess()
+        })
     }
 }

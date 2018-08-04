@@ -11,26 +11,29 @@ import UIKit
 protocol UserSettingsView: class {
     func showProgressHud()
     func hideProgressHud()
-    func presentAlert(viewController: UIViewController)
+    func resetName()
+    func reauthenticateNameSuccess()
+    func updateNameSuccess()
+    func emptyNameTextfield()
+    func resetEmail()
+    func reauthenticateEmailSuccess()
     func updateEmailSuccess()
-    func updateEmailFailure(error: Error)
-    func updatePasswordSuccess()
-    func updatePasswordFailure(error: Error)
+    func resetPassword()
     func reauthenticatePasswordSuccess()
-    func reathenticateEmailSuccess()
+    func updatePasswordSuccess()
+    func updateEmailPasswordFailure(error: Error)
     func reauthenticateFailure(error: Error)
-    
 }
 
 protocol UserSettingsPresenter: class {
     func attach(view: UserSettingsView)
     func dettach(view: UserSettingsView)
     
-    //func resetPassword()
-    //func resetEmail()
-    func resetName()
-    func reauthenticate(email: String, password: String)
+    func reauthenticatePassword(email: String, password: String)
+    func reauthenticateEmail(email: String, password: String)
+    func reauthenticateName(email: String, password: String)
     func updatePassword(email: String)
     func updateEmail(email: String)
+    func updateName(name: String)
 }
 
