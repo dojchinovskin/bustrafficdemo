@@ -52,7 +52,7 @@ class SettingsController: UIViewController, SettingsView  {
         SVProgressHUD.dismiss()
     }
     
-    //MARK: DEACTIVATION
+    //MARK: DEACTIVATE
     
     func deactivateAccount() {
         DispatchQueue.main.async {

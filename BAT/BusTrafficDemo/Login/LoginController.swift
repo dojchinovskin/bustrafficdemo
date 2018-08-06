@@ -16,9 +16,7 @@ enum AuthType: Int {
     case signup = 1
 }
 
-class LoginController: UIViewController, LoginView, RegisterView {
-    
-    //MARK: Variables
+class LoginController: UIViewController, LoginView, RegisterView, UITextFieldDelegate {
 
     var inputsContainerViewHeightAnchor: NSLayoutConstraint?
     var nameTextFieldHeightAnchor: NSLayoutConstraint?
@@ -34,13 +32,14 @@ class LoginController: UIViewController, LoginView, RegisterView {
     let errorPassword = "Wrong Email or Password"
     let errorEmailAlreadyUsed = "The email address is already in use by another account."
     
-    //MARK: LifeCycle
+    //MARK: LIFECYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkInternetConnections()
+        checkInternetConnection()
         setupViews()
+        setupKeyboard()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +64,15 @@ class LoginController: UIViewController, LoginView, RegisterView {
         registerPresenter.dettach(view: self)
     }
     
-    // MARK: Functions
+    func loginSuccess() {
+        navigator.setHomeScreenAsRootController()
+    }
+    
+    func registerSuccess() {
+        navigator.setHomeScreenAsRootController()
+    }
+    
+    // MARK: SVPROGRESS ALERTS
 
     func showWrongEmail() {
         SVProgressHUD.showError(withStatus: errorEmail)
@@ -74,10 +81,12 @@ class LoginController: UIViewController, LoginView, RegisterView {
     func showWrongPassword() {
         SVProgressHUD.showError(withStatus: errorPassword)
     }
-
-    func loginSuccess() {
-        navigator.setHomeScreenAsRootController()
+    
+    func showEmailAlreadyUsed() {
+        SVProgressHUD.showError(withStatus: errorEmailAlreadyUsed)
     }
+
+    //MARK: PROGRESS HUD
 
     func showProgressHud() {
         SVProgressHUD.show()
@@ -87,13 +96,7 @@ class LoginController: UIViewController, LoginView, RegisterView {
         SVProgressHUD.dismiss()
     }
     
-    func showEmailAlreadyUsed() {
-        SVProgressHUD.showError(withStatus: errorEmailAlreadyUsed)
-    }
-    
-    func registerSuccess() {
-        navigator.setHomeScreenAsRootController()
-    }
+    //MARK: RESET PASSWORD
     
     func showResetPasswordSuccess() {
         let resetEmailSentAlert = UIAlertController(title: "Reset email sent successfully", message: "Check your email", preferredStyle: .alert)
@@ -107,7 +110,9 @@ class LoginController: UIViewController, LoginView, RegisterView {
         present(resetFailedAlert, animated: true, completion: nil)
     }
     
-    func checkInternetConnections() {
+    //MARK: CHECK INTERNET CONNECTION
+    
+    func checkInternetConnection() {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
         } else {
@@ -120,7 +125,7 @@ class LoginController: UIViewController, LoginView, RegisterView {
         }
     }
     
-    //MARK: Handling Buttons
+    //MARK: BUTTONS
     
     @objc func pressedLogin() {
         guard let email = emailTextField.text, let password = passwordTextField.text else {
@@ -159,7 +164,13 @@ class LoginController: UIViewController, LoginView, RegisterView {
         present(forgotPasswordAlert, animated: true, completion: nil)
     }
 
-    //MARK: Setup Views
+    //MARK: SETUP VIEWS
+    
+    func setupKeyboard() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        nameTextField.delegate = self
+    }
     
     func setupViews() {
         self.hideKeyboardWhenTappedAround()
@@ -267,6 +278,7 @@ class LoginController: UIViewController, LoginView, RegisterView {
         let tf = UITextField()
         tf.placeholder = "Email"
         tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.keyboardType = .emailAddress
 
         return tf
     }()

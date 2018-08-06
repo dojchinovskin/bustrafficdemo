@@ -26,6 +26,8 @@ class LoginPresenterImpl: LoginPresenter {
             }
         }
     }
+    
+    //MARK: LOGIN
 
     func login(email: String, password: String) {
         view?.showProgressHud()
@@ -45,6 +47,8 @@ class LoginPresenterImpl: LoginPresenter {
             self?.view?.loginSuccess()
         }
     }
+    
+    //MARK: FORGET PASSWORD
     
     func forgetPassword(email: String) {
         self.view?.showProgressHud()

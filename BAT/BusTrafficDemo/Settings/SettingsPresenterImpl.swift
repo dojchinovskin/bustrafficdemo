@@ -28,6 +28,8 @@ class SettingsPresenterImpl: SettingsPresenter {
         }
     }
     
+    //MARK: DEACTIVATE
+    
     func deactivateAccount(email: String, password: String) {
             let emailCheck = EmailAuthProvider.credential(withEmail: email, password: password )
             self.view?.showProgressHud()
@@ -51,6 +53,8 @@ class SettingsPresenterImpl: SettingsPresenter {
                 }
             })
     }
+    
+    //MARK: LOGOUT
     
     func logOut() {
         self.showLoginScreen()
