@@ -31,6 +31,7 @@
 		FA888BEA20ECD9C9002E55FF /* SettingsPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */; };
 		FA888BEC20ECF188002E55FF /* SettingsTableViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA888BEB20ECF188002E55FF /* SettingsTableViewExt.swift */; };
 		FA88C77D20E3829700E31BAB /* UserSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88C77C20E3829700E31BAB /* UserSettingsController.swift */; };
+		FA9B9540211990C700741BEA /* GoogleMapsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B953F211990C700741BEA /* GoogleMapsProvider.swift */; };
 		FA9CB2B120F3A34500C1A2FD /* KeyboardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2B020F3A34500C1A2FD /* KeyboardExt.swift */; };
 		FA9CB2B520F3B6C400C1A2FD /* RegisterContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2B420F3B6C400C1A2FD /* RegisterContract.swift */; };
 		FA9CB2B820F3B72700C1A2FD /* LoginContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2B720F3B72700C1A2FD /* LoginContract.swift */; };
@@ -73,6 +74,7 @@
 		FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterImpl.swift; sourceTree = "<group>"; };
 		FA888BEB20ECF188002E55FF /* SettingsTableViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewExt.swift; sourceTree = "<group>"; };
 		FA88C77C20E3829700E31BAB /* UserSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsController.swift; sourceTree = "<group>"; };
+		FA9B953F211990C700741BEA /* GoogleMapsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsProvider.swift; sourceTree = "<group>"; };
 		FA9CB2B020F3A34500C1A2FD /* KeyboardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExt.swift; sourceTree = "<group>"; };
 		FA9CB2B420F3B6C400C1A2FD /* RegisterContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterContract.swift; sourceTree = "<group>"; };
 		FA9CB2B720F3B72700C1A2FD /* LoginContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContract.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		FA7A6D3520DA6F5200C2D47C /* BusTrafficDemo */ = {
 			isa = PBXGroup;
 			children = (
+				FA9B953E2119909000741BEA /* Networking */,
 				FA7A6D3620DA6F5200C2D47C /* AppDelegate.swift */,
 				FA606AC9210F3E3700F5E261 /* Timetable */,
 				FA606AC8210F3DEC00F5E261 /* StationsARKit */,
@@ -210,6 +213,14 @@
 				FA9CB2B020F3A34500C1A2FD /* KeyboardExt.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FA9B953E2119909000741BEA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FA9B953F211990C700741BEA /* GoogleMapsProvider.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		FA9CB2B320F3B67A00C1A2FD /* Register */ = {
@@ -421,6 +432,7 @@
 				FA7A6D4C20DA8A4A00C2D47C /* LoginController.swift in Sources */,
 				FA9CB2B820F3B72700C1A2FD /* LoginContract.swift in Sources */,
 				FA7A6D3920DA6F5200C2D47C /* HomeController.swift in Sources */,
+				FA9B9540211990C700741BEA /* GoogleMapsProvider.swift in Sources */,
 				FAF88A53210F43130068DB00 /* TimetableController.swift in Sources */,
 				FA7AB6A820E0DEDE00A3404D /* AnimationExt.swift in Sources */,
 				FA88C77D20E3829700E31BAB /* UserSettingsController.swift in Sources */,

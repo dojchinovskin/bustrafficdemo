@@ -76,7 +76,7 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         userLocation()
-        apiCall()
+        fetchNearestBusStations()
         setupViews()
         mapSetup()
     }
@@ -134,7 +134,7 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func apiCall() {
+    func fetchNearestBusStations() {
         
         let lat = String(format:"%f", locationManager.location?.coordinate.latitude ?? 0)
         let lon = String(format:"%f", locationManager.location?.coordinate.longitude ?? 0)

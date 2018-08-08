@@ -18,7 +18,6 @@ extension UserSettingsController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellId") else { return UITableViewCell() }
         cell.textLabel?.text = items[indexPath.row]
         cell.selectionStyle = .none
