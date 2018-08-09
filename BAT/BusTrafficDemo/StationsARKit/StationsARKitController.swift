@@ -26,6 +26,8 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
     var stationLongitude: CLLocationDegrees?
     var stationLatitude2: CLLocationDegrees?
     var stationLongitude2: CLLocationDegrees?
+    var userLatitude: String?
+    var userLongitude: String?
     
     let locationManager = CLLocationManager()
     
@@ -76,7 +78,16 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         userLocation()
-        fetchNearestBusStations()
+        //fetchNearestBusStations()
+        GoogleMapsProvider.getStations(latitude: userLatitude!, longitude: userLongitude!, success: { (stationLatitude, stationLongitude, stationLatitude2, stationLongitude2) in
+                self.stationLatitude = stationLatitude
+                self.stationLongitude = stationLongitude
+                self.stationLatitude2 = stationLatitude2
+                self.stationLongitude2 = stationLongitude2
+            
+        }) { (error) in
+            print(error)
+        }
         setupViews()
         mapSetup()
     }
@@ -84,8 +95,8 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("run")
-        sceneLocationView.run()
-        resetTrackingConfiguration()
+        self.sceneLocationView.run()
+      //  resetTrackingConfiguration()
         
     }
     
@@ -132,6 +143,8 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
+        userLatitude = String(format:"%f", locationManager.location?.coordinate.latitude ?? 0)
+        userLongitude = String(format:"%f", locationManager.location?.coordinate.longitude ?? 0)
     }
     
     func fetchNearestBusStations() {

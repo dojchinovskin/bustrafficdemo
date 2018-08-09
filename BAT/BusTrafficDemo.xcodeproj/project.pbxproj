@@ -31,8 +31,6 @@
 		FA888BEA20ECD9C9002E55FF /* SettingsPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */; };
 		FA888BEC20ECF188002E55FF /* SettingsTableViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA888BEB20ECF188002E55FF /* SettingsTableViewExt.swift */; };
 		FA88C77D20E3829700E31BAB /* UserSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88C77C20E3829700E31BAB /* UserSettingsController.swift */; };
-		FA9B5A9E211B2D7F00D12A38 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B5A9D211B2D7F00D12A38 /* APIRouter.swift */; };
-		FA9B5AA0211B300B00D12A38 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B5A9F211B300B00D12A38 /* NetworkConstants.swift */; };
 		FA9B9540211990C700741BEA /* GoogleMapsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B953F211990C700741BEA /* GoogleMapsProvider.swift */; };
 		FA9CB2B120F3A34500C1A2FD /* KeyboardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2B020F3A34500C1A2FD /* KeyboardExt.swift */; };
 		FA9CB2B520F3B6C400C1A2FD /* RegisterContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2B420F3B6C400C1A2FD /* RegisterContract.swift */; };
@@ -76,8 +74,6 @@
 		FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterImpl.swift; sourceTree = "<group>"; };
 		FA888BEB20ECF188002E55FF /* SettingsTableViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewExt.swift; sourceTree = "<group>"; };
 		FA88C77C20E3829700E31BAB /* UserSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsController.swift; sourceTree = "<group>"; };
-		FA9B5A9D211B2D7F00D12A38 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
-		FA9B5A9F211B300B00D12A38 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		FA9B953F211990C700741BEA /* GoogleMapsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsProvider.swift; sourceTree = "<group>"; };
 		FA9CB2B020F3A34500C1A2FD /* KeyboardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExt.swift; sourceTree = "<group>"; };
 		FA9CB2B420F3B6C400C1A2FD /* RegisterContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterContract.swift; sourceTree = "<group>"; };
@@ -223,8 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				FA9B953F211990C700741BEA /* GoogleMapsProvider.swift */,
-				FA9B5A9D211B2D7F00D12A38 /* APIRouter.swift */,
-				FA9B5A9F211B300B00D12A38 /* NetworkConstants.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -426,7 +420,6 @@
 				FA77881820DB958F00AEB405 /* LoginPresenterImpl.swift in Sources */,
 				FA86BD8820F74FE7003F7DA9 /* TimetableARKitController.swift in Sources */,
 				FA7A6D4F20DA8B8600C2D47C /* ColorExt.swift in Sources */,
-				FA9B5A9E211B2D7F00D12A38 /* APIRouter.swift in Sources */,
 				FA7AF89020EE3EC3003BFC08 /* UserSettingsTableViewExt.swift in Sources */,
 				CD70EC0A20DBFE7000FDFDF3 /* UserManagerFirebase.swift in Sources */,
 				FAA96DD920E65ED100282687 /* UserSettingsPresenterImpl.swift in Sources */,
@@ -442,7 +435,6 @@
 				FA9B9540211990C700741BEA /* GoogleMapsProvider.swift in Sources */,
 				FAF88A53210F43130068DB00 /* TimetableController.swift in Sources */,
 				FA7AB6A820E0DEDE00A3404D /* AnimationExt.swift in Sources */,
-				FA9B5AA0211B300B00D12A38 /* NetworkConstants.swift in Sources */,
 				FA88C77D20E3829700E31BAB /* UserSettingsController.swift in Sources */,
 				FA888BEA20ECD9C9002E55FF /* SettingsPresenterImpl.swift in Sources */,
 				FAA648312109E16200BC688D /* StationsARKitController.swift in Sources */,
