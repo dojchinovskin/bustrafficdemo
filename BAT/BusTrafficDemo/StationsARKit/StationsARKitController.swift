@@ -78,6 +78,7 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
     }
     
     func userLocation() {
+        SVProgressHUD.show(withStatus: "Please wait")
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -113,7 +114,6 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
     }
     
     func fetchNearestBusStations() {
-        SVProgressHUD.show()
         GoogleMapsProvider.getStations(latitude: userLatitude!, longitude: userLongitude!, success: {
             twoStationsInfo in
             self.twoStationsInfo = twoStationsInfo
