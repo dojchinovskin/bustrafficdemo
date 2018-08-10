@@ -15,79 +15,24 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 import ARKit
+import SVProgressHUD
 
 class StationsARKitController: UIViewController, CLLocationManagerDelegate {
     let sceneLocationView = SceneLocationView()
+    var twoStationsInfo: TwoStationsInfo?
     
     let mapView = MKMapView()
     var userAnnotation: MKPointAnnotation?
     var locationEstimateAnnotation: MKPointAnnotation?
-    var stationLatitude: CLLocationDegrees?
-    var stationLongitude: CLLocationDegrees?
-    var stationLatitude2: CLLocationDegrees?
-    var stationLongitude2: CLLocationDegrees?
     var userLatitude: String?
     var userLongitude: String?
     
     let locationManager = CLLocationManager()
     
-    lazy var nearestStationButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 161, g: 117, b: 170)
-        button.setTitle("Find nearest station", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 5
-        button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(nearestStation), for: .touchUpInside)
-        
-        return button
-    }()
-    
-    @objc func nearestStation() {
-        buildDemoData().forEach {
-            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: $0)
-        }
-        
-        let annotation = MKPointAnnotation()
-        let centerCoordinate = CLLocationCoordinate2D(latitude: self.stationLatitude!, longitude: self.stationLongitude!)
-        annotation.coordinate = centerCoordinate
-        let distance = userDistance(from: annotation)
-        let dis = String(format:"%d", Int(distance!))
-        annotation.title = "Bus station: \n" + "~" + dis + "m"
-        mapView.addAnnotation(annotation)
-        
-        let annotation2 = MKPointAnnotation()
-        let centerCoordinate2 = CLLocationCoordinate2D(latitude: self.stationLatitude2!, longitude: self.stationLongitude2!)
-        annotation2.coordinate = centerCoordinate2
-        let distance2 = userDistance(from: annotation2)
-        let dis2 = String(format:"%d", Int(distance2!))
-        annotation2.title = "Bus station: \n" + "~" + dis2 + "m"
-        mapView.addAnnotation(annotation2)
-        
-    }
-    
-    func resetTrackingConfiguration() {
-        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else { return }
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.detectionImages = referenceImages
-        let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
-        sceneLocationView.session.run(configuration, options: options)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         userLocation()
-        //fetchNearestBusStations()
-        GoogleMapsProvider.getStations(latitude: userLatitude!, longitude: userLongitude!, success: { (stationLatitude, stationLongitude, stationLatitude2, stationLongitude2) in
-                self.stationLatitude = stationLatitude
-                self.stationLongitude = stationLongitude
-                self.stationLatitude2 = stationLatitude2
-                self.stationLongitude2 = stationLongitude2
-            
-        }) { (error) in
-            print(error)
-        }
+        fetchNearestBusStations()
         setupViews()
         mapSetup()
     }
@@ -96,13 +41,10 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
         super.viewWillAppear(animated)
         print("run")
         self.sceneLocationView.run()
-      //  resetTrackingConfiguration()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         print("pause")
         // Pause the view's session
         sceneLocationView.pause()
@@ -147,36 +89,43 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
         userLongitude = String(format:"%f", locationManager.location?.coordinate.longitude ?? 0)
     }
     
+    
+    @objc func nearestStation() {
+        buildDemoData().forEach {
+            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: $0)
+        }
+        
+        let annotation = MKPointAnnotation()
+        let centerCoordinate = CLLocationCoordinate2D(latitude: (self.twoStationsInfo?.latitude1)!, longitude: (self.twoStationsInfo?.longitude1)!)
+        annotation.coordinate = centerCoordinate
+        let distance = userDistance(from: annotation)
+        let dis = String(format:"%d", Int(distance!))
+        annotation.title = "Bus station: \n" + "~" + dis + "m"
+        mapView.addAnnotation(annotation)
+        
+        let annotation2 = MKPointAnnotation()
+        let centerCoordinate2 = CLLocationCoordinate2D(latitude: (self.twoStationsInfo?.latitude2)!, longitude: (self.twoStationsInfo?.longitude2)!)
+        annotation2.coordinate = centerCoordinate2
+        let distance2 = userDistance(from: annotation2)
+        let dis2 = String(format:"%d", Int(distance2!))
+        annotation2.title = "Bus station: \n" + "~" + dis2 + "m"
+        mapView.addAnnotation(annotation2)
+    }
+    
     func fetchNearestBusStations() {
-        
-        let lat = String(format:"%f", locationManager.location?.coordinate.latitude ?? 0)
-        let lon = String(format:"%f", locationManager.location?.coordinate.longitude ?? 0)
-        
-        let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=1000&type=bus_station&key=AIzaSyBhhGnyRKf735lvZ6eq-UtJwkHmlTeVSUQ"
-        
-        Alamofire.request(url, method: .get).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                let latitude = json["results"][0]["geometry"]["location"]["lat"].doubleValue
-                let longitude = json["results"][0]["geometry"]["location"]["lng"].doubleValue
-                let latitude2 = json["results"][1]["geometry"]["location"]["lat"].doubleValue
-                let longitude2 = json["results"][1]["geometry"]["location"]["lng"].doubleValue
-                self.stationLatitude = latitude
-                self.stationLongitude = longitude
-                self.stationLatitude2 = latitude2
-                self.stationLongitude2 = longitude2
-                
-            case .failure(let error):
-                print(error)
-            }
+        SVProgressHUD.show()
+        GoogleMapsProvider.getStations(latitude: userLatitude!, longitude: userLongitude!, success: {
+            twoStationsInfo in
+            self.twoStationsInfo = twoStationsInfo
+            SVProgressHUD.dismiss()
+        }) { (error) in
+            print(error)
         }
     }
     
     func setupViews() {
         sceneLocationView.locationDelegate = self
         view.addSubview(sceneLocationView)
-        
     }
     
     func mapSetup() {
@@ -196,47 +145,29 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
         view.addSubview(nearestStationButton)
     }
     
-    @objc func updateUserLocation() {
-        guard let currentLocation = sceneLocationView.currentLocation() else {
-            return
-        }
+    lazy var nearestStationButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(r: 161, g: 117, b: 170)
+        button.setTitle("Find nearest station", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 5
+        button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(nearestStation), for: .touchUpInside)
         
-        DispatchQueue.main.async {
-            if let bestEstimate = self.sceneLocationView.bestLocationEstimate(),
-                let position = self.sceneLocationView.currentScenePosition() {
-                print("")
-                print("Fetch current location")
-                print("best location estimate, position: \(bestEstimate.position), location: \(bestEstimate.location.coordinate), accuracy: \(bestEstimate.location.horizontalAccuracy), date: \(bestEstimate.location.timestamp)")
-                print("current position: \(position)")
-                
-                let translation = bestEstimate.translatedLocation(to: position)
-                
-                print("translation: \(translation)")
-                print("translated location: \(currentLocation)")
-                print("")
-            }
-            
-            if self.userAnnotation == nil {
-                self.userAnnotation = MKPointAnnotation()
-                self.mapView.addAnnotation(self.userAnnotation!)
-            }
-            
-            UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: {
-                self.userAnnotation?.coordinate = currentLocation.coordinate
-            }, completion: nil)
-        }
-    }
+        return button
+    }()
 }
 
 private extension StationsARKitController {
     func buildDemoData() -> [LocationAnnotationNode] {
         var nodes: [LocationAnnotationNode] = []
         
-        let station = buildNode(latitude: stationLatitude!, longitude: stationLongitude!, altitude: 250, imageName: "pin")
+        let station = buildNode(latitude: (twoStationsInfo?.latitude1)!, longitude: (twoStationsInfo?.longitude1)!, altitude: 250, imageName: "pin")
         station.scaleRelativeToDistance = true
         nodes.append(station)
         
-        let station2 = buildNode(latitude: stationLatitude2!, longitude: stationLongitude2!, altitude: 250, imageName: "pin")
+        let station2 = buildNode(latitude: (twoStationsInfo?.latitude2)!, longitude: (twoStationsInfo?.longitude2)!, altitude: 250, imageName: "pin")
         station2.scaleRelativeToDistance = true
         nodes.append(station2)
         

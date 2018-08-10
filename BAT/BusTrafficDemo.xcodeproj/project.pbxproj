@@ -14,6 +14,7 @@
 		CD70EC0A20DBFE7000FDFDF3 /* UserManagerFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EC0920DBFE7000FDFDF3 /* UserManagerFirebase.swift */; };
 		FA217C07210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA217C06210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift */; };
 		FA217C09210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift */; };
+		FA752BA5211DA2B400AB7ED2 /* TwoStationsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA752BA4211DA2B400AB7ED2 /* TwoStationsInfo.swift */; };
 		FA77881820DB958F00AEB405 /* LoginPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77881720DB958F00AEB405 /* LoginPresenterImpl.swift */; };
 		FA77881A20DBA46B00AEB405 /* RegisterPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77881920DBA46B00AEB405 /* RegisterPresenterImpl.swift */; };
 		FA7A6D3720DA6F5200C2D47C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A6D3620DA6F5200C2D47C /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 		ECBDAAAFC62CAB951C38282F /* Pods-BusTrafficDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusTrafficDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusTrafficDemo/Pods-BusTrafficDemo.release.xcconfig"; sourceTree = "<group>"; };
 		FA217C06210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegateEx.swift; sourceTree = "<group>"; };
 		FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLocationViewDelegateEx.swift; sourceTree = "<group>"; };
+		FA752BA4211DA2B400AB7ED2 /* TwoStationsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoStationsInfo.swift; sourceTree = "<group>"; };
 		FA77881720DB958F00AEB405 /* LoginPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterImpl.swift; sourceTree = "<group>"; };
 		FA77881920DBA46B00AEB405 /* RegisterPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenterImpl.swift; sourceTree = "<group>"; };
 		FA7A6D3320DA6F5200C2D47C /* BusTrafficDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusTrafficDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +154,7 @@
 				FAA648302109E16200BC688D /* StationsARKitController.swift */,
 				FA217C06210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift */,
 				FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift */,
+				FA752BA4211DA2B400AB7ED2 /* TwoStationsInfo.swift */,
 			);
 			path = StationsARKit;
 			sourceTree = "<group>";
@@ -189,8 +192,8 @@
 			children = (
 				FA7A6D3620DA6F5200C2D47C /* AppDelegate.swift */,
 				FA9B953E2119909000741BEA /* Network */,
-				FA606AC9210F3E3700F5E261 /* Timetable */,
 				FA606AC8210F3DEC00F5E261 /* StationsARKit */,
+				FA606AC9210F3E3700F5E261 /* Timetable */,
 				FA606AC7210F3D8F00F5E261 /* Home */,
 				FA9CB2BD20F3B82400C1A2FD /* UserSettings */,
 				FA9CB2BA20F3B7E800C1A2FD /* Settings */,
@@ -421,6 +424,7 @@
 				FA86BD8820F74FE7003F7DA9 /* TimetableARKitController.swift in Sources */,
 				FA7A6D4F20DA8B8600C2D47C /* ColorExt.swift in Sources */,
 				FA7AF89020EE3EC3003BFC08 /* UserSettingsTableViewExt.swift in Sources */,
+				FA752BA5211DA2B400AB7ED2 /* TwoStationsInfo.swift in Sources */,
 				CD70EC0A20DBFE7000FDFDF3 /* UserManagerFirebase.swift in Sources */,
 				FAA96DD920E65ED100282687 /* UserSettingsPresenterImpl.swift in Sources */,
 				FAFEDF1D211093B500A3C294 /* CustomTableViewCell.swift in Sources */,

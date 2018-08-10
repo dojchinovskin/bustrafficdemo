@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-typealias SuccessBlock = (Double, Double, Double, Double) -> Void
+typealias SuccessBlock = (TwoStationsInfo) -> Void
 typealias ErrorBlock = (Error) -> Void
 
 struct GoogleMapsProvider {
@@ -20,16 +20,11 @@ struct GoogleMapsProvider {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                let latitude = json["results"][0]["geometry"]["location"]["lat"].doubleValue
-                let longitude = json["results"][0]["geometry"]["location"]["lng"].doubleValue
-                let latitude2 = json["results"][1]["geometry"]["location"]["lat"].doubleValue
-                let longitude2 = json["results"][1]["geometry"]["location"]["lng"].doubleValue
-                success(latitude, longitude, latitude2, longitude2)
-                //                self.stationLatitude = latitude
-                //                self.stationLongitude = longitude
-                //                self.stationLatitude2 = latitude2
-                //                self.stationLongitude2 = longitude2
-                print(latitude, longitude, latitude2, longitude2)
+                let lat1 = json["results"][0]["geometry"]["location"]["lat"].doubleValue
+                let long1 = json["results"][0]["geometry"]["location"]["lng"].doubleValue
+                let lat2 = json["results"][1]["geometry"]["location"]["lat"].doubleValue
+                let long2 = json["results"][1]["geometry"]["location"]["lng"].doubleValue
+                success(TwoStationsInfo(latitude1: lat1, longitude1: long1, latitude2: lat2, longitude2: long2))
                 
             case .failure(let error):
                 failure(error)
