@@ -14,7 +14,6 @@ typealias SuccessBlock = (TwoStationsInfo) -> Void
 typealias ErrorBlock = (Error) -> Void
 
 struct GoogleMapsProvider {
-    
     static func getStations(latitude: String, longitude: String, success: @escaping SuccessBlock, failure: @escaping ErrorBlock) {
         Alamofire.request("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latitude),\(longitude)&radius=1000&type=bus_station&key=AIzaSyBhhGnyRKf735lvZ6eq-UtJwkHmlTeVSUQ").validate().responseJSON { response in
             switch response.result {

@@ -77,7 +77,6 @@ extension TimetableARKitController: ARSCNViewDelegate {
                 planeNode.opacity = 0.0
                 planeNode.eulerAngles.x = -.pi / 2
                 planeNode.runAction(self.fadeAction, completionHandler: {
-                    print(123)
                     let timetable = TimetableController()
                     self.present(timetable, animated: true, completion: nil)
                 })

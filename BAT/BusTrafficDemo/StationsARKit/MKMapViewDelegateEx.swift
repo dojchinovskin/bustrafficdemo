@@ -19,7 +19,6 @@ extension StationsARKitController: MKMapViewDelegate {
         marker.displayPriority = .required
         marker.markerTintColor = UIColor(hue: 358, saturation: 0.67, brightness: 0.77, alpha: 1.0)
         marker.canShowCallout = true
-
         
         let openButton = UIButton(type: .custom) as UIButton
         openButton.frame.size.width = 80
@@ -29,7 +28,6 @@ extension StationsARKitController: MKMapViewDelegate {
         
         marker.rightCalloutAccessoryView = openButton
     
-        
         return marker
     }
     
