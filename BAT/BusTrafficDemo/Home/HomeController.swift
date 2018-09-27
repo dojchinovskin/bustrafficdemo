@@ -9,18 +9,21 @@
 import UIKit
 import Firebase
 import SnapKit
+import CoreLocation
 
-class HomeController: UIViewController {
+class HomeController: UIViewController, CLLocationManagerDelegate {
 
     private let userManager: UserManager = MainAssembly().getUserManager()
     private let navigator: Navigator = MainAssembly().getGlobalNavigator()
     
+    private var locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         checkInternetConnections()
         checkIfUserIsLoggedIn()
         setupViews()
+        userLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +34,16 @@ class HomeController: UIViewController {
     @objc func showSettings() {
         let settingsController = SettingsController()
         self.navigationController?.pushViewController(settingsController, animated: true)
+    }
+    
+    func userLocation() {
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
     
     func setupViews() {

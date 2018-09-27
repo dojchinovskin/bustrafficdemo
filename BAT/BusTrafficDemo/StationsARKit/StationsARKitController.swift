@@ -136,7 +136,7 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
         let latDelta:CLLocationDegrees = 0.005
         let lonDelta:CLLocationDegrees = 0.005
         let span = MKCoordinateSpanMake(latDelta, lonDelta)
-        let location = CLLocationCoordinate2DMake((locationManager.location?.coordinate.latitude)!, (locationManager.location?.coordinate.longitude)!)
+        let location = CLLocationCoordinate2DMake((locationManager.location?.coordinate.latitude) ?? 42, (locationManager.location?.coordinate.longitude) ?? 21)
         let region = MKCoordinateRegionMake(location, span)
         mapView.setRegion(region, animated: false)
         
