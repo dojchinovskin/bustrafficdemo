@@ -14,7 +14,8 @@ import CoreLocation
 class HomeController: UIViewController, CLLocationManagerDelegate {
     private let backgroundPic = UIImageView()
     private let busStationsButton = UIButton(type: .custom)
-    private let showTimetableButton = UIButton(type: .custom)
+    private let timetableButton = UIButton(type: .custom)
+    private let arcardButton = UIButton(type: .custom)
     
     private let userManager: UserManager = MainAssembly().getUserManager()
     private let navigator: Navigator = MainAssembly().getGlobalNavigator()
@@ -40,7 +41,8 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
         
         var buttons: [UIButton] = []
         buttons.append(busStationsButton)
-        buttons.append(showTimetableButton)
+        buttons.append(timetableButton)
+        buttons.append(arcardButton)
         
         for button in buttons {
             button.setTitleColor(.white, for: .normal)
@@ -55,8 +57,11 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
         busStationsButton.setTitle("Bus Stations", for: .normal)
         busStationsButton.addTarget(self, action: #selector(findNearestBusStations), for: .touchUpInside)
         
-        showTimetableButton.setTitle("Timetable", for: .normal)
-        showTimetableButton.addTarget(self, action: #selector(showTimetable), for: .touchUpInside)
+        timetableButton.setTitle("Timetable", for: .normal)
+        timetableButton.addTarget(self, action: #selector(showTimetable), for: .touchUpInside)
+        
+        arcardButton.setTitle("AR Card", for: .normal)
+        arcardButton.addTarget(self, action: #selector(showARCard), for: .touchUpInside)
         
         backgroundPic.image = UIImage(named: "busPic")
         backgroundPic.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +69,8 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
         
         view.addSubview(backgroundPic)
         view.addSubview(busStationsButton)
-        view.addSubview(showTimetableButton)
+        view.addSubview(timetableButton)
+        view.addSubview(arcardButton)
     }
     
     
@@ -82,10 +88,17 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
             make.height.equalTo(150)
         }
         
-        showTimetableButton.snp.makeConstraints { (make) in
+        timetableButton.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-10)
             make.right.equalToSuperview().offset(-5)
             make.width.equalTo(view.frame.width / 2 - 7)
+            make.height.equalTo(150)
+        }
+        
+        arcardButton.snp.makeConstraints { (make) in
+            make.bottom.equalTo(busStationsButton.snp.top).offset(-5)
+            make.left.equalToSuperview().offset(5)
+            make.width.equalTo(self.view.frame.width / 2 - 7)
             make.height.equalTo(150)
         }
     }
@@ -133,5 +146,9 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
     @objc func showSettings() {
         let settingsController = SettingsController()
         self.navigationController?.pushViewController(settingsController, animated: true)
+    }
+    
+    @objc func showARCard() {
+        print("123")
     }
 }
