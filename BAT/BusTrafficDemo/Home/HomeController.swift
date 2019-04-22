@@ -140,7 +140,8 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
     @objc func showTimetable() {
         let storyboard = UIStoryboard(name: "Camera", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "timetableARKitController")
-        self.navigationController!.pushViewController(vc, animated: true)
+        //self.navigationController!.pushViewController(vc, animated: true)
+        present(vc, animated: true, completion: nil)
     }
     
     @objc func showSettings() {
@@ -149,6 +150,8 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func showARCard() {
-        print("123")
+        let storyboard = UIStoryboard(name: "ARCardCamera", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "arCardViewController")
+        present(vc, animated: true, completion: nil)
     }
 }

@@ -11,8 +11,8 @@ import ARKit
 
 class TimetableARKitController: UIViewController {
     
+    
     @IBOutlet weak var sceneView: ARSCNView!
-    @IBOutlet weak var label: UILabel!
     
     let fadeDuration: TimeInterval = 0.3
     let rotateDuration: TimeInterval = 3
@@ -49,7 +49,6 @@ class TimetableARKitController: UIViewController {
         configuration.detectionImages = referenceImages
         let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
         sceneView.session.run(configuration, options: options)
-        label.text = "Move camera around to detect images"
     }
     
     func setupViews() {
@@ -64,6 +63,10 @@ class TimetableARKitController: UIViewController {
             .fadeOut(duration: fadeDuration)
             ])
     }()
+    
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension TimetableARKitController: ARSCNViewDelegate {
@@ -81,8 +84,6 @@ extension TimetableARKitController: ARSCNViewDelegate {
                     self.present(timetable, animated: true, completion: nil)
                 })
             node.addChildNode(planeNode)
-            
-            self.label.text = "Image detected: \"\(imageName)\""
         }
     }
     

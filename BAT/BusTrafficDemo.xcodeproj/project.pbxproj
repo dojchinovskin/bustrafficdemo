@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600E8094226E15E700F332F3 /* ARCardCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600E8093226E15E700F332F3 /* ARCardCamera.storyboard */; };
 		60B8D52E226A31060074F002 /* ARCardScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 60B8D52D226A31060074F002 /* ARCardScene.scn */; };
+		60FDE7CF226D3A7300E704BE /* ARCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FDE7CE226D3A7300E704BE /* ARCardViewController.swift */; };
 		6F13FE4A869A94B7C58604FD /* Pods_BusTrafficDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F4846446C12112B7DE771B /* Pods_BusTrafficDemo.framework */; };
 		CD70EBFC20DBEC2900FDFDF3 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EBFB20DBEC2900FDFDF3 /* Navigator.swift */; };
 		CD70EBFE20DBED7900FDFDF3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EBFD20DBED7900FDFDF3 /* UserManager.swift */; };
@@ -50,7 +52,9 @@
 /* Begin PBXFileReference section */
 		01F4846446C12112B7DE771B /* Pods_BusTrafficDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusTrafficDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57478627BD8C4EE8DAF7FFB7 /* Pods-BusTrafficDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusTrafficDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BusTrafficDemo/Pods-BusTrafficDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		600E8093226E15E700F332F3 /* ARCardCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARCardCamera.storyboard; sourceTree = "<group>"; };
 		60B8D52D226A31060074F002 /* ARCardScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ARCardScene.scn; sourceTree = "<group>"; };
+		60FDE7CE226D3A7300E704BE /* ARCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCardViewController.swift; sourceTree = "<group>"; };
 		CD70EBFB20DBEC2900FDFDF3 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		CD70EBFD20DBED7900FDFDF3 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		CD70EC0420DBF80B00FDFDF3 /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
@@ -110,6 +114,14 @@
 				01F4846446C12112B7DE771B /* Pods_BusTrafficDemo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60FDE7CD226D3A3B00E704BE /* ARCard */ = {
+			isa = PBXGroup;
+			children = (
+				60FDE7CE226D3A7300E704BE /* ARCardViewController.swift */,
+			);
+			path = ARCard;
 			sourceTree = "<group>";
 		};
 		714318BC6BECF305EBD123D3 /* Pods */ = {
@@ -194,6 +206,7 @@
 			children = (
 				FA7A6D3620DA6F5200C2D47C /* AppDelegate.swift */,
 				FA9B953E2119909000741BEA /* Network */,
+				60FDE7CD226D3A3B00E704BE /* ARCard */,
 				FA606AC8210F3DEC00F5E261 /* StationsARKit */,
 				FA606AC9210F3E3700F5E261 /* Timetable */,
 				FA606AC7210F3D8F00F5E261 /* Home */,
@@ -275,6 +288,7 @@
 				FA7A6D3F20DA6F5300C2D47C /* LaunchScreen.storyboard */,
 				FA86BD8920F7544F003F7DA9 /* Camera.storyboard */,
 				FA7A6D3A20DA6F5200C2D47C /* Main.storyboard */,
+				600E8093226E15E700F332F3 /* ARCardCamera.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -352,6 +366,7 @@
 				FA7A6D5520DA9AD300C2D47C /* GoogleService-Info.plist in Resources */,
 				FA7A6D3E20DA6F5300C2D47C /* Assets.xcassets in Resources */,
 				FA86BD8A20F7544F003F7DA9 /* Camera.storyboard in Resources */,
+				600E8094226E15E700F332F3 /* ARCardCamera.storyboard in Resources */,
 				60B8D52E226A31060074F002 /* ARCardScene.scn in Resources */,
 				FA7A6D3C20DA6F5200C2D47C /* Main.storyboard in Resources */,
 			);
@@ -420,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAE84287210B19AB00CDDCD2 /* Reachabilty.swift in Sources */,
+				60FDE7CF226D3A7300E704BE /* ARCardViewController.swift in Sources */,
 				FA888BEC20ECF188002E55FF /* SettingsTableViewExt.swift in Sources */,
 				FAA96DDB20EA55A000282687 /* SettingsController.swift in Sources */,
 				FA9CB2B120F3A34500C1A2FD /* KeyboardExt.swift in Sources */,
@@ -597,6 +613,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76HW4BQBQJ;
 				INFOPLIST_FILE = BusTrafficDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -616,6 +633,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76HW4BQBQJ;
 				INFOPLIST_FILE = BusTrafficDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
