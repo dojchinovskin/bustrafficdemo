@@ -5,6 +5,9 @@
   },
   "resources" : [
     {
+      "filename" : "businessCard.arreferenceimage"
+    },
+    {
       "filename" : "busSign.arreferenceimage"
     }
   ]

@@ -18,15 +18,15 @@ class ARCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-    }
-    @IBAction func closeButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        setupAR()
+    }
+    
+    private func setupAR() {
         guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else {
             fatalError("Missing expected asset catalog resources.")
         }
@@ -38,12 +38,34 @@ class ARCardViewController: UIViewController {
         configuration.trackingImages = referenceImages
         configuration.maximumNumberOfTrackedImages = 1
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-        
     }
+    
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     
 }
 
 extension ARCardViewController: ARSCNViewDelegate, ARSessionDelegate {
-    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        DispatchQueue.main.async {
+            
+            guard let imageAnchor = anchor as? ARImageAnchor else { return }
+            
+            let referenceImage = imageAnchor.referenceImage
+            
+            if let matchedBusinessCardName = referenceImage.name, matchedBusinessCardName == "businessCard" {
+                let arCard = ARCard()
+                node.addChildNode(arCard)
+                arCard.animateButtons()
+                
+                
+                
+            }
+            
+            
+        }
+    }
 }
