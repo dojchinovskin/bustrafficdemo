@@ -10,6 +10,7 @@
 		600E8094226E15E700F332F3 /* ARCardCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600E8093226E15E700F332F3 /* ARCardCamera.storyboard */; };
 		60A459E6226F5CDA00AE20B7 /* ARCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A459E5226F5CDA00AE20B7 /* ARCard.swift */; };
 		60B8D52E226A31060074F002 /* ARCardScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 60B8D52D226A31060074F002 /* ARCardScene.scn */; };
+		60CFE9C62270C726009C899E /* ArCardInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CFE9C52270C726009C899E /* ArCardInteraction.swift */; };
 		60FDE7CF226D3A7300E704BE /* ARCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FDE7CE226D3A7300E704BE /* ARCardViewController.swift */; };
 		6F13FE4A869A94B7C58604FD /* Pods_BusTrafficDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F4846446C12112B7DE771B /* Pods_BusTrafficDemo.framework */; };
 		CD70EBFC20DBEC2900FDFDF3 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EBFB20DBEC2900FDFDF3 /* Navigator.swift */; };
@@ -56,6 +57,7 @@
 		600E8093226E15E700F332F3 /* ARCardCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARCardCamera.storyboard; sourceTree = "<group>"; };
 		60A459E5226F5CDA00AE20B7 /* ARCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCard.swift; sourceTree = "<group>"; };
 		60B8D52D226A31060074F002 /* ARCardScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ARCardScene.scn; sourceTree = "<group>"; };
+		60CFE9C52270C726009C899E /* ArCardInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArCardInteraction.swift; sourceTree = "<group>"; };
 		60FDE7CE226D3A7300E704BE /* ARCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCardViewController.swift; sourceTree = "<group>"; };
 		CD70EBFB20DBEC2900FDFDF3 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		CD70EBFD20DBED7900FDFDF3 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				60FDE7CE226D3A7300E704BE /* ARCardViewController.swift */,
 				60A459E5226F5CDA00AE20B7 /* ARCard.swift */,
+				60CFE9C52270C726009C899E /* ArCardInteraction.swift */,
 			);
 			path = ARCard;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				FAE84287210B19AB00CDDCD2 /* Reachabilty.swift in Sources */,
 				60FDE7CF226D3A7300E704BE /* ARCardViewController.swift in Sources */,
 				FA888BEC20ECF188002E55FF /* SettingsTableViewExt.swift in Sources */,
+				60CFE9C62270C726009C899E /* ArCardInteraction.swift in Sources */,
 				FAA96DDB20EA55A000282687 /* SettingsController.swift in Sources */,
 				FA9CB2B120F3A34500C1A2FD /* KeyboardExt.swift in Sources */,
 				CD70EBFC20DBEC2900FDFDF3 /* Navigator.swift in Sources */,
