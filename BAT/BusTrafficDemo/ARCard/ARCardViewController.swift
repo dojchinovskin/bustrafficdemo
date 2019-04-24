@@ -14,11 +14,9 @@ import SnapKit
 class ARCardViewController: UIViewController {
     
     @IBOutlet weak var sceneView: ARSCNView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
+    private var targetAnchor: ARAnchor!
+    private let arCard = ARCard()
+    private var isCardPlaced = false
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -43,29 +41,40 @@ class ARCardViewController: UIViewController {
     @IBAction func closeButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
-    
 }
 
-extension ARCardViewController: ARSCNViewDelegate, ARSessionDelegate {
+extension ARCardViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         DispatchQueue.main.async {
-            
             guard let imageAnchor = anchor as? ARImageAnchor else { return }
             
             let referenceImage = imageAnchor.referenceImage
             
-            if let matchedBusinessCardName = referenceImage.name, matchedBusinessCardName == "businessCard" {
-                let arCard = ARCard()
-                node.addChildNode(arCard)
-                arCard.animateButtons()
-                
-                
-                
+            if let matchedBusinessCardName = referenceImage.name, matchedBusinessCardName == "businessCard" && !self.isCardPlaced {
+                self.isCardPlaced = true
+                node.addChildNode(self.arCard)
+                self.arCard.animateButtons()
+                self.targetAnchor = imageAnchor
             }
-            
-            
+        }
+    }
+}
+
+extension ARCardViewController: ARSessionDelegate {
+    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+        for anchor in anchors {
+            if let imageAnchor = anchor as? ARImageAnchor, imageAnchor == targetAnchor {
+                if !imageAnchor.isTracked {
+                    isCardPlaced = false
+                    self.arCard.setBaseConfig()
+                } else {
+                    if !isCardPlaced {
+                        self.arCard.animateButtons()
+                        isCardPlaced = true
+                    }
+                    
+                }
+            }
         }
     }
 }

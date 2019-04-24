@@ -48,10 +48,6 @@ class ARCard: SCNNode {
         buttons.append(emailButton)
         
         cardTarget.isHidden = true
-//        phoneButton.rotation = SCNVector4Make(0, 1, 0, GLKMathDegreesToRadians(180))
-//        smsButton.rotation = SCNVector4Make(0, 1, 0, GLKMathDegreesToRadians(180))
-//        websiteButton.rotation = SCNVector4Make(0, 1, 0, GLKMathDegreesToRadians(180))
-//        mapsButton.rotation = SCNVector4Make(0, 1, 0, GLKMathDegreesToRadians(180))
         buttons.forEach { $0.rotation = SCNVector4Make(0, 1, 0, GLKMathDegreesToRadians(180)) }
         
         self.addChildNode(rootNode)
@@ -69,5 +65,7 @@ class ARCard: SCNNode {
         buttons.forEach { $0.runAction(flipAction) }
     }
     
-
+    func setBaseConfig() {
+        buttons.forEach { $0.rotation = SCNVector4Make(0, 1, 0, GLKMathDegreesToRadians(180)) }
+    }
 }
