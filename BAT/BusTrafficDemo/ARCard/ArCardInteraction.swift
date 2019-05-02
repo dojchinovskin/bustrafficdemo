@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import MessageUI
+import SafariServices
 
 extension ARCardViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -15,12 +17,62 @@ extension ARCardViewController {
         let hitResult = self.sceneView.hitTest(currentTouchLocation, options: nil).first?.node.name else { return }
         
         switch hitResult {
-        case "Website": print("Website")
+        case "Website": displayWebsite(urlString: "https://www.google.com")
         case "Maps": print("Maps")
-        case "Phone": print("Phone")
-        case "Sms": print("Sms")
+        case "Phone": callNumber(number: "070830535") // jsp/skopska number
+        case "Sms": sendSmsTo(number: "070830535")
         case "Email": print("Email")
         default: return
         }
     }
+    
+    private func callNumber(number: String) {
+        if let url = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            print("Error Trying To Connect To Mobile Provider")
+        }
+    }
+    
+    private func sendSmsTo(number: String) {
+        if MFMessageComposeViewController.canSendText() {
+            let smsController = MFMessageComposeViewController()
+            smsController.recipients = [number]
+            smsController.messageComposeDelegate = self
+            present(smsController, animated: true, completion: nil)
+        } else {
+            print("Error Loading SMS Composer")
+        }
+    }
+    
+    private func sendEmailTo(recepient: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let mailController = MFMailComposeViewController()
+            mailController.setToRecipients([recepient])
+            mailController.mailComposeDelegate = self
+            present(mailController, animated: true, completion: nil)
+        } else {
+            print("Error loading Mail Composer")
+        }
+    }
+    
+    private func displayWebsite(urlString: String) {
+        if let url = URL(string: urlString) {
+            let vc = SFSafariViewController(url: url)
+            present(vc, animated: true)
+        }
+    }
 }
+
+extension ARCardViewController: MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ARCardViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        dismiss(animated: true, completion: nil)
+    }
+}
+

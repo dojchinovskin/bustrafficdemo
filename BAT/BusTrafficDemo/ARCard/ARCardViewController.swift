@@ -35,7 +35,7 @@ class ARCardViewController: UIViewController {
         let configuration = ARImageTrackingConfiguration()
         configuration.trackingImages = referenceImages
         configuration.maximumNumberOfTrackedImages = 1
-        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        sceneView.session.run(configuration, options: [.resetTracking])
     }
     
     @IBAction func closeButtonPressed(_ sender: Any) {

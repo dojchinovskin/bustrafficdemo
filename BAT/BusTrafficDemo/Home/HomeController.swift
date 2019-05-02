@@ -82,24 +82,24 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
         }
         
         busStationsButton.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(5)
-            make.bottom.equalToSuperview().offset(-10)
-            make.width.equalTo(view.frame.width / 2 - 7)
+            make.bottom.equalToSuperview().offset(-30)
+            make.centerX.equalToSuperview()
             make.height.equalTo(150)
+            make.width.equalTo(200)
         }
         
         timetableButton.snp.makeConstraints { (make) in
-            make.bottom.equalToSuperview().offset(-10)
-            make.right.equalToSuperview().offset(-5)
-            make.width.equalTo(view.frame.width / 2 - 7)
+            make.bottom.equalTo(busStationsButton.snp.top).offset(-10)
+            make.centerX.equalToSuperview()
             make.height.equalTo(150)
+            make.width.equalTo(200)
         }
         
         arcardButton.snp.makeConstraints { (make) in
-            make.bottom.equalTo(busStationsButton.snp.top).offset(-5)
-            make.left.equalToSuperview().offset(5)
-            make.width.equalTo(self.view.frame.width / 2 - 7)
+            make.bottom.equalTo(timetableButton.snp.top).offset(-10)
+            make.centerX.equalToSuperview()
             make.height.equalTo(150)
+            make.width.equalTo(200)
         }
     }
         
