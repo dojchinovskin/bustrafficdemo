@@ -60,6 +60,8 @@ extension ARCardViewController {
         if let url = URL(string: urlString) {
             let vc = SFSafariViewController(url: url)
             present(vc, animated: true)
+        } else {
+            print("Error displaying Safari controller")
         }
     }
 }

@@ -16,6 +16,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
     private let busStationsButton = UIButton(type: .custom)
     private let timetableButton = UIButton(type: .custom)
     private let arcardButton = UIButton(type: .custom)
+    private let arweatherButton = UIButton(type: .custom)
     
     private let userManager: UserManager = MainAssembly().getUserManager()
     private let navigator: Navigator = MainAssembly().getGlobalNavigator()
@@ -43,6 +44,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
         buttons.append(busStationsButton)
         buttons.append(timetableButton)
         buttons.append(arcardButton)
+        buttons.append(arweatherButton)
         
         for button in buttons {
             button.setTitleColor(.white, for: .normal)
@@ -63,6 +65,9 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
         arcardButton.setTitle("AR Card", for: .normal)
         arcardButton.addTarget(self, action: #selector(showARCard), for: .touchUpInside)
         
+        arweatherButton.setTitle("AR Weather", for: .normal)
+        arweatherButton.addTarget(self, action: #selector(showARWeather), for: .touchUpInside)
+        
         backgroundPic.image = UIImage(named: "busPic")
         backgroundPic.translatesAutoresizingMaskIntoConstraints = false
         backgroundPic.contentMode = .scaleAspectFill
@@ -71,6 +76,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
         view.addSubview(busStationsButton)
         view.addSubview(timetableButton)
         view.addSubview(arcardButton)
+        view.addSubview(arweatherButton)
     }
     
     
@@ -84,22 +90,29 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
         busStationsButton.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-30)
             make.centerX.equalToSuperview()
-            make.height.equalTo(150)
-            make.width.equalTo(200)
+            make.height.equalTo(100)
+            make.width.equalTo(150)
         }
         
         timetableButton.snp.makeConstraints { (make) in
             make.bottom.equalTo(busStationsButton.snp.top).offset(-10)
             make.centerX.equalToSuperview()
-            make.height.equalTo(150)
-            make.width.equalTo(200)
+            make.height.equalTo(100)
+            make.width.equalTo(150)
         }
         
         arcardButton.snp.makeConstraints { (make) in
             make.bottom.equalTo(timetableButton.snp.top).offset(-10)
             make.centerX.equalToSuperview()
-            make.height.equalTo(150)
-            make.width.equalTo(200)
+            make.height.equalTo(100)
+            make.width.equalTo(150)
+        }
+        
+        arweatherButton.snp.makeConstraints { (make) in
+            make.bottom.equalTo(arcardButton.snp.top).offset(-10)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(100)
+            make.width.equalTo(150)
         }
     }
         
@@ -114,9 +127,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
     }
     
    private func checkIfUserIsLoggedIn() {
-        if !userManager.isUserLoggedIn() {
-            showLoginScreen()
-        }
+        if !userManager.isUserLoggedIn() { showLoginScreen() }
     }
     
     private func checkInternetConnections() {
@@ -152,6 +163,12 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
     @objc func showARCard() {
         let storyboard = UIStoryboard(name: "ARCardCamera", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "arCardViewController")
+        present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func showARWeather() {
+        let storyboard = UIStoryboard(name: "ARWeatherCamera", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "arWeatherViewController")
         present(vc, animated: true, completion: nil)
     }
 }

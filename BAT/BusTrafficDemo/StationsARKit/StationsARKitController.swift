@@ -45,13 +45,13 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("pause")
-        // Pause the view's session
+        
         sceneLocationView.pause()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         sceneLocationView.frame = view.bounds
         mapView.frame = CGRect(
             x: 0,

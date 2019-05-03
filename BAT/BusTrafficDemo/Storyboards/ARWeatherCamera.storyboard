@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Weather View Controller-->
+        <scene sceneID="3xq-Vd-xOM">
+            <objects>
+                <viewController storyboardIdentifier="arWeatherViewController" id="P3A-bq-CQu" customClass="ARWeatherViewController" customModule="BusTrafficDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lpj-E9-AyZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kwN-u4-pct">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1y-CY-7J0">
+                                <rect key="frame" x="182" y="782" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="NXt-ka-b0j"/>
+                                    <constraint firstAttribute="width" constant="50" id="fJm-fW-HtR"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="XButton"/>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="P3A-bq-CQu" eventType="touchUpInside" id="md6-AJ-FbU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="j1y-CY-7J0" firstAttribute="centerX" secondItem="Lpj-E9-AyZ" secondAttribute="centerX" id="5I0-CO-5FF"/>
+                            <constraint firstItem="kwN-u4-pct" firstAttribute="leading" secondItem="a7s-rQ-kZA" secondAttribute="leading" id="LqB-CO-YWq"/>
+                            <constraint firstItem="a7s-rQ-kZA" firstAttribute="bottom" secondItem="kwN-u4-pct" secondAttribute="bottom" id="O7R-dE-TFJ"/>
+                            <constraint firstItem="kwN-u4-pct" firstAttribute="top" secondItem="Lpj-E9-AyZ" secondAttribute="top" id="Vir-iv-UtB"/>
+                            <constraint firstItem="a7s-rQ-kZA" firstAttribute="bottom" secondItem="j1y-CY-7J0" secondAttribute="bottom" constant="30" id="lOB-G3-fl8"/>
+                            <constraint firstItem="a7s-rQ-kZA" firstAttribute="trailing" secondItem="kwN-u4-pct" secondAttribute="trailing" id="mJG-k6-KLV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="a7s-rQ-kZA"/>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="kwN-u4-pct" id="WHD-rh-VCS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YK5-Hn-S6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="XButton" width="640" height="640"/>
+    </resources>
+</document>
