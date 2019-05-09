@@ -114,7 +114,7 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
     }
     
     func fetchNearestBusStations() {
-        GoogleMapsProvider.getStations(latitude: userLatitude!, longitude: userLongitude!, success: {
+        APIProvider.getStations(latitude: userLatitude!, longitude: userLongitude!, success: {
             twoStationsInfo in
             self.twoStationsInfo = twoStationsInfo
             SVProgressHUD.dismiss()

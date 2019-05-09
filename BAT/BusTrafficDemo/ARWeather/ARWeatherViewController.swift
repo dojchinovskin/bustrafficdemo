@@ -10,23 +10,34 @@ import Foundation
 import UIKit
 import ARKit
 
-class ARWeatherViewController: UIViewController {
+class ARWeatherViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
+    let arWeather = ARWeather()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchTemperatures()
+    }
+    
+    private func fetchTemperatures() {
+        APIProvider.getWeather(latitude: "42", longitude: "21.43", success: { [weak self] weatherInfo in
+            print(weatherInfo)
+            self?.arWeather.updateNodes(weatherInfo)
+        }, failure: { error in
+            print(error)
+        })
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         setupAR()
-        setupARCloud()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         sceneView.session.pause()
     }
-    
     
     private func setupAR() {
         sceneView.delegate = self
@@ -34,27 +45,10 @@ class ARWeatherViewController: UIViewController {
         let configuration = ARWorldTrackingConfiguration()
         configuration.isLightEstimationEnabled = true
         sceneView.session.run(configuration, options: [])
-    }
-    
-    private func setupARCloud() {
-        let plane = SCNPlane(width: 0.3, height: 0.3)
-        plane.firstMaterial?.diffuse.contents = UIImage(named: "cloud")
-        let planeNode = SCNNode(geometry: plane)
-        planeNode.opacity = 0.3
-        planeNode.position = SCNVector3(0,0,-0.5)
-        sceneView.scene.rootNode.addChildNode(planeNode)
+        sceneView.scene.rootNode.addChildNode(arWeather)
     }
     
     @IBAction func closeButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-}
-
-extension ARWeatherViewController: ARSCNViewDelegate {
-    
-}
-
-extension ARWeatherViewController: ARSessionDelegate {
-    
 }
