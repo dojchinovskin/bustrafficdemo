@@ -68,8 +68,12 @@ class ARWeather: SCNNode {
         self.afterAfterTomorrowMinTemp = afterAfterTomorrowMinTemp
         self.afterAfterTomorrowMaxTemp = afterAfterTomorrowMaxTemp
         
-        self.addChildNode(cloud)
+        self.currTempIcon.isHidden = true
+        self.tomorrowIcon.isHidden = true
+        self.afterTomorrowIcon.isHidden = true
+        self.afterAfterTomorrowIcon.isHidden = true
         
+        self.addChildNode(cloud)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -81,6 +85,11 @@ class ARWeather: SCNNode {
         tomorrowIcon.geometry?.firstMaterial?.diffuse.contents = setImageFor(weatherInfo.tomorrow.0)
         afterTomorrowIcon.geometry?.firstMaterial?.diffuse.contents = setImageFor(weatherInfo.afterTomorrow.0)
         afterAfterTomorrowIcon.geometry?.firstMaterial?.diffuse.contents = setImageFor(weatherInfo.afterAfterTomorrow.0)
+        
+        self.currTempIcon.isHidden = false
+        self.tomorrowIcon.isHidden = false
+        self.afterTomorrowIcon.isHidden = false
+        self.afterAfterTomorrowIcon.isHidden = false
         
         let weekdays = getWeekday()
         if let tomorrowText = tomorrow.geometry as? SCNText,
