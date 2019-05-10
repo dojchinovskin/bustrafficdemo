@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct WeatherInfo {
+    var location: String
+    var today: (String, String)
+    var tomorrow: (String, String, String)
+    var afterTomorrow: (String, String, String)
+    var afterAfterTomorrow: (String, String, String)
+}
