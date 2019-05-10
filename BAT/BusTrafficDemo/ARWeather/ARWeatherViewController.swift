@@ -61,11 +61,11 @@ class ARWeatherViewController: UIViewController, ARSCNViewDelegate, ARSessionDel
     }
     
     private func setTextFor(_ weather: String) {
-        //if weather.lowercased().contains("rain") {
+        if weather.lowercased().contains("rain") {
             text = "You should consider taking a bus."
-        //} else {
-        //    text = "The weather is nice today."
-        //}
+        } else {
+            text = "The weather is nice today."
+        }
     }
     
     @IBAction func closeButtonPressed(_ sender: Any) {
