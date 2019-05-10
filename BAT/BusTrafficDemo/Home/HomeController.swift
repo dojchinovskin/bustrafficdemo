@@ -37,7 +37,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
         self.navigationController?.navigationBar.colorBar()
         view.backgroundColor = .white
         navigationController?.navigationBar.isTranslucent = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburger-menu-icon"), style: .plain, target: self, action: #selector(showSettings))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ProfileMenuIcon"), style: .plain, target: self, action: #selector(showSettings))
         navigationItem.title = "Home"
         
         var buttons: [UIButton] = []

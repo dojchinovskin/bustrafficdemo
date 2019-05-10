@@ -26,7 +26,12 @@ struct APIProvider {
                 let long1 = json["results"][0]["geometry"]["location"]["lng"].doubleValue
                 let lat2 = json["results"][1]["geometry"]["location"]["lat"].doubleValue
                 let long2 = json["results"][1]["geometry"]["location"]["lng"].doubleValue
-                success(TwoStationsInfo(latitude1: lat1, longitude1: long1, latitude2: lat2, longitude2: long2))
+                
+                success(TwoStationsInfo(
+                    latitude1: lat1,
+                    longitude1: long1,
+                    latitude2: lat2,
+                    longitude2: long2))
                 
             case .failure(let error):
                 failure(error)
