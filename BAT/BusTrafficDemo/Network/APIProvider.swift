@@ -43,6 +43,7 @@ struct APIProvider {
             case .success(let value):
                 let json = JSON(value)
                 
+                let location = json["timezone"].stringValue
                 let currTemp = json["currently"]["temperature"].intValue
                 let currTempIcon = json["currently"]["icon"].stringValue
                 let tomorrowMinTemp = json["daily"]["data"][0]["temperatureLow"].intValue
@@ -62,9 +63,10 @@ struct APIProvider {
                 let afterTomorrowMaxTempString = String(afterTomorrowMaxTemp)
                 let afterAfterTomorrowMinTempString = String(afterAfterTomorrowMinTemp)
                 let afterAfterTomorrowMaxTempString = String(afterAfterTomorrowMaxTemp)
-                
+                let city = String(location.split(separator: "/").last ?? "Location error")
                 
                 success(WeatherInfo(
+                    location: city,
                     today: (currTempIcon, currTempString),
                     tomorrow: (tomorrowIcon, tomorrowMinTempString, tomorrowMaxTempString),
                     afterTomorrow: (afterTomorrowIcon, afterTomorrowMinTempString, afterTomorrowMaxTempString),
@@ -76,11 +78,4 @@ struct APIProvider {
             }
         }
     }
-}
-
-struct WeatherInfo {
-    var today: (String, String)
-    var tomorrow: (String, String, String)
-    var afterTomorrow: (String, String, String)
-    var afterAfterTomorrow: (String, String, String)
 }

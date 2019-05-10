@@ -91,6 +91,10 @@ class ARWeather: SCNNode {
         self.afterTomorrowIcon.isHidden = false
         self.afterAfterTomorrowIcon.isHidden = false
         
+        if let locationText = location.geometry as? SCNText {
+            locationText.string = weatherInfo.location
+        }
+        
         let weekdays = getWeekday()
         if let tomorrowText = tomorrow.geometry as? SCNText,
             let afterTomorrowText = afterTomorrow.geometry as? SCNText,

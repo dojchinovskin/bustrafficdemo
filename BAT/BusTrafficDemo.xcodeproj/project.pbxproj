@@ -14,6 +14,7 @@
 		60A459E6226F5CDA00AE20B7 /* ARCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A459E5226F5CDA00AE20B7 /* ARCard.swift */; };
 		60B2B0532284E518001FE04D /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B2B0522284E518001FE04D /* DateExt.swift */; };
 		60B8D52E226A31060074F002 /* ARCardScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 60B8D52D226A31060074F002 /* ARCardScene.scn */; };
+		60C064242285CC3C00245A7F /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C064232285CC3C00245A7F /* WeatherInfo.swift */; };
 		60C4432E228462AA00C253E4 /* ARWeatherScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 60C4432D228462AA00C253E4 /* ARWeatherScene.scn */; };
 		60CFE9C62270C726009C899E /* ArCardInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CFE9C52270C726009C899E /* ArCardInteraction.swift */; };
 		60FDE7CF226D3A7300E704BE /* ARCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FDE7CE226D3A7300E704BE /* ARCardViewController.swift */; };
@@ -66,6 +67,7 @@
 		60A459E5226F5CDA00AE20B7 /* ARCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCard.swift; sourceTree = "<group>"; };
 		60B2B0522284E518001FE04D /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		60B8D52D226A31060074F002 /* ARCardScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ARCardScene.scn; sourceTree = "<group>"; };
+		60C064232285CC3C00245A7F /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 		60C4432D228462AA00C253E4 /* ARWeatherScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ARWeatherScene.scn; sourceTree = "<group>"; };
 		60CFE9C52270C726009C899E /* ArCardInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArCardInteraction.swift; sourceTree = "<group>"; };
 		60FDE7CE226D3A7300E704BE /* ARCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCardViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				6003B0AF227C4D8200FFF3E8 /* ARWeatherViewController.swift */,
 				603BA3D722849A5700F589CF /* ARWeather.swift */,
+				60C064232285CC3C00245A7F /* WeatherInfo.swift */,
 			);
 			path = ARWeather;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				CD70EC0A20DBFE7000FDFDF3 /* UserManagerFirebase.swift in Sources */,
 				FAA96DD920E65ED100282687 /* UserSettingsPresenterImpl.swift in Sources */,
 				60A459E6226F5CDA00AE20B7 /* ARCard.swift in Sources */,
+				60C064242285CC3C00245A7F /* WeatherInfo.swift in Sources */,
 				FAFEDF1D211093B500A3C294 /* CustomTableViewCell.swift in Sources */,
 				FA217C07210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift in Sources */,
 				FA77881A20DBA46B00AEB405 /* RegisterPresenterImpl.swift in Sources */,
