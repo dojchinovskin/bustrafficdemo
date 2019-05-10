@@ -12,7 +12,6 @@ import ARKit
 import SnapKit
 
 class ARCardViewController: UIViewController {
-    
     @IBOutlet weak var sceneView: ARSCNView!
     private var targetAnchor: ARAnchor!
     private let arCard = ARCard()
@@ -20,13 +19,11 @@ class ARCardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         setupAR()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         sceneView.session.pause()
     }
     
@@ -78,7 +75,6 @@ extension ARCardViewController: ARSessionDelegate {
                         self.arCard.animateButtons()
                         isCardPlaced = true
                     }
-                    
                 }
             }
         }

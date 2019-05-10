@@ -89,30 +89,30 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
         
         busStationsButton.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-30)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(100)
-            make.width.equalTo(150)
+            make.left.equalToSuperview().offset(15)
+            make.right.equalTo(self.view.snp.centerX).offset(-5)
+            make.height.equalTo(150)
         }
         
         timetableButton.snp.makeConstraints { (make) in
-            make.bottom.equalTo(busStationsButton.snp.top).offset(-10)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(100)
-            make.width.equalTo(150)
+            make.bottom.equalTo(busStationsButton.snp.bottom)
+            make.left.equalTo(self.view.snp.centerX).offset(5)
+            make.right.equalToSuperview().offset(-15)
+            make.height.equalTo(busStationsButton.snp.height)
         }
         
         arcardButton.snp.makeConstraints { (make) in
-            make.bottom.equalTo(timetableButton.snp.top).offset(-10)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(100)
-            make.width.equalTo(150)
+            make.bottom.equalTo(busStationsButton.snp.top).offset(-10)
+            make.left.equalTo(busStationsButton.snp.left)
+            make.right.equalTo(busStationsButton.snp.right)
+            make.height.equalTo(busStationsButton.snp.height)
         }
         
         arweatherButton.snp.makeConstraints { (make) in
-            make.bottom.equalTo(arcardButton.snp.top).offset(-10)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(100)
-            make.width.equalTo(150)
+            make.bottom.equalTo(timetableButton.snp.top).offset(-10)
+            make.left.equalTo(timetableButton.snp.left)
+            make.right.equalTo(timetableButton.snp.right)
+            make.height.equalTo(timetableButton.snp.height)
         }
     }
         

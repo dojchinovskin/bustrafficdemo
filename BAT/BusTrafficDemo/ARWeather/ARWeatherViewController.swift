@@ -11,7 +11,6 @@ import UIKit
 import ARKit
 
 class ARWeatherViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
-
     @IBOutlet weak var sceneView: ARSCNView!
     let arWeather = ARWeather()
     
@@ -22,7 +21,6 @@ class ARWeatherViewController: UIViewController, ARSCNViewDelegate, ARSessionDel
     
     private func fetchTemperatures() {
         APIProvider.getWeather(latitude: "42", longitude: "21.43", success: { [weak self] weatherInfo in
-            print(weatherInfo)
             self?.arWeather.updateNodes(weatherInfo)
         }, failure: { error in
             print(error)
@@ -42,6 +40,7 @@ class ARWeatherViewController: UIViewController, ARSCNViewDelegate, ARSessionDel
     private func setupAR() {
         sceneView.delegate = self
         sceneView.session.delegate = self
+        
         let configuration = ARWorldTrackingConfiguration()
         configuration.isLightEstimationEnabled = true
         sceneView.session.run(configuration, options: [])

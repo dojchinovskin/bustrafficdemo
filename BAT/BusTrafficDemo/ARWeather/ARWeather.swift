@@ -11,7 +11,6 @@ import UIKit
 import ARKit
 
 class ARWeather: SCNNode {
-    //var cloud: SCNNode!
     var location: SCNNode!
     var currTemp: SCNNode!
     var currTempIcon: SCNNode!
@@ -53,7 +52,6 @@ class ARWeather: SCNNode {
             fatalError("Error getting ARWeather nodes")
         }
         
-        //self.cloud = cloud
         self.location = location
         self.currTemp = currTemp
         self.currTempIcon = currTempIcon
@@ -79,20 +77,34 @@ class ARWeather: SCNNode {
     }
     
     func updateNodes(_ weatherInfo: WeatherInfo) {
+        currTempIcon.geometry?.firstMaterial?.diffuse.contents = setImageFor(weatherInfo.today.0)
+        tomorrowIcon.geometry?.firstMaterial?.diffuse.contents = setImageFor(weatherInfo.tomorrow.0)
+        afterTomorrowIcon.geometry?.firstMaterial?.diffuse.contents = setImageFor(weatherInfo.afterTomorrow.0)
+        afterAfterTomorrowIcon.geometry?.firstMaterial?.diffuse.contents = setImageFor(weatherInfo.afterAfterTomorrow.0)
+        
+        let weekdays = getWeekday()
+        if let tomorrowText = tomorrow.geometry as? SCNText,
+            let afterTomorrowText = afterTomorrow.geometry as? SCNText,
+            let afterAfterTomorrowText = afterAfterTomorrow.geometry as? SCNText {
+                tomorrowText.string = weekdays.0
+                afterTomorrowText.string = weekdays.1
+                afterAfterTomorrowText.string = weekdays.2
+        }
+        
         if let currTempText = currTemp.geometry as? SCNText {
             currTempText.string = "\(weatherInfo.today.1) °C"
         }
         
         if let tomorrowMinTempText = tomorrowMinTemp.geometry as? SCNText,
             let tomorrowMaxTempText = tomorrowMaxTemp.geometry as? SCNText {
-            tomorrowMinTempText.string = "\(weatherInfo.tomorrow.1) °C"
-            tomorrowMaxTempText.string = "\(weatherInfo.tomorrow.2) °C"
+                tomorrowMinTempText.string = "\(weatherInfo.tomorrow.1) °C"
+                tomorrowMaxTempText.string = "\(weatherInfo.tomorrow.2) °C"
         }
         
         if let afterTomorrowMinTempText = afterTomorrowMinTemp.geometry as? SCNText,
             let afterTomorrowMaxTempText = afterTomorrowMaxTemp.geometry as? SCNText {
-            afterTomorrowMinTempText.string = "\(weatherInfo.afterTomorrow.1) °C"
-            afterTomorrowMaxTempText.string = "\(weatherInfo.afterTomorrow.2) °C"
+                afterTomorrowMinTempText.string = "\(weatherInfo.afterTomorrow.1) °C"
+                afterTomorrowMaxTempText.string = "\(weatherInfo.afterTomorrow.2) °C"
         }
         
         if let afterAfterTomorrowMinTempText = afterAfterTomorrowMinTemp.geometry as? SCNText,
@@ -102,4 +114,30 @@ class ARWeather: SCNNode {
         }
     }
     
+    private func setImageFor(_ image: String) -> UIImage {
+        if image.lowercased().contains("sun") {
+            let action = SCNAction.repeatForever(SCNAction.rotate(by: .pi, around: SCNVector3(0, 0, 1), duration: 5))
+            currTempIcon.runAction(action)
+            return UIImage(named: "sun")!
+        } else if image.contains("rain") {
+            return UIImage(named: "rain")!
+        } else {
+            return UIImage(named: "cloudy")!
+        }
+    }
+    
+    private func getWeekday() -> (String, String, String) {
+        let tomorrow = Date().tomorrow
+        let afterTomorrow = Date().afterTomorrow
+        let afterAfterTomorrow = Date().afterAfterTomorrow
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.dateFormat = "EEEE"
+        
+        let tomorrowString = dateFormatter.string(from: tomorrow).prefix(3)
+        let afterTomorrowString = dateFormatter.string(from: afterTomorrow).prefix(3)
+        let afterAfterTomorrowString = dateFormatter.string(from: afterAfterTomorrow).prefix(3)
+        return (String(tomorrowString), String(afterTomorrowString), String(afterAfterTomorrowString))
+    }
 }
