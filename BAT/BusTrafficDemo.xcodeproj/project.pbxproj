@@ -37,11 +37,11 @@
 		FA7A6D4F20DA8B8600C2D47C /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A6D4E20DA8B8600C2D47C /* ColorExt.swift */; };
 		FA7A6D5520DA9AD300C2D47C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA7A6D5420DA9AD300C2D47C /* GoogleService-Info.plist */; };
 		FA7AB6A820E0DEDE00A3404D /* AnimationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AB6A720E0DEDE00A3404D /* AnimationExt.swift */; };
-		FA7AF89020EE3EC3003BFC08 /* UserSettingsTableViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewExt.swift */; };
+		FA7AF89020EE3EC3003BFC08 /* UserSettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewDataSource.swift */; };
 		FA86BD8820F74FE7003F7DA9 /* TimetableARKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86BD8720F74FE7003F7DA9 /* TimetableARKitController.swift */; };
 		FA86BD8A20F7544F003F7DA9 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA86BD8920F7544F003F7DA9 /* Camera.storyboard */; };
 		FA888BEA20ECD9C9002E55FF /* SettingsPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */; };
-		FA888BEC20ECF188002E55FF /* SettingsTableViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA888BEB20ECF188002E55FF /* SettingsTableViewExt.swift */; };
+		FA888BEC20ECF188002E55FF /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA888BEB20ECF188002E55FF /* SettingsTableViewDataSource.swift */; };
 		FA88C77D20E3829700E31BAB /* UserSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88C77C20E3829700E31BAB /* UserSettingsController.swift */; };
 		FA9B9540211990C700741BEA /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B953F211990C700741BEA /* APIProvider.swift */; };
 		FA9CB2B120F3A34500C1A2FD /* KeyboardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2B020F3A34500C1A2FD /* KeyboardExt.swift */; };
@@ -92,11 +92,11 @@
 		FA7A6D4E20DA8B8600C2D47C /* ColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
 		FA7A6D5420DA9AD300C2D47C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA7AB6A720E0DEDE00A3404D /* AnimationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationExt.swift; sourceTree = "<group>"; };
-		FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewExt.swift; sourceTree = "<group>"; };
+		FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		FA86BD8720F74FE7003F7DA9 /* TimetableARKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableARKitController.swift; sourceTree = "<group>"; };
 		FA86BD8920F7544F003F7DA9 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterImpl.swift; sourceTree = "<group>"; };
-		FA888BEB20ECF188002E55FF /* SettingsTableViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewExt.swift; sourceTree = "<group>"; };
+		FA888BEB20ECF188002E55FF /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		FA88C77C20E3829700E31BAB /* UserSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsController.swift; sourceTree = "<group>"; };
 		FA9B953F211990C700741BEA /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		FA9CB2B020F3A34500C1A2FD /* KeyboardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExt.swift; sourceTree = "<group>"; };
@@ -293,10 +293,10 @@
 		FA9CB2BA20F3B7E800C1A2FD /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */,
 				FA9CB2BB20F3B80D00C1A2FD /* SettingsContract.swift */,
+				FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */,
 				FAA96DDA20EA55A000282687 /* SettingsController.swift */,
-				FA888BEB20ECF188002E55FF /* SettingsTableViewExt.swift */,
+				FA888BEB20ECF188002E55FF /* SettingsTableViewDataSource.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -304,10 +304,10 @@
 		FA9CB2BD20F3B82400C1A2FD /* UserSettings */ = {
 			isa = PBXGroup;
 			children = (
-				FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewExt.swift */,
-				FAA96DD820E65ED100282687 /* UserSettingsPresenterImpl.swift */,
 				FA9CB2BE20F3B84900C1A2FD /* UserSettingsContract.swift */,
+				FAA96DD820E65ED100282687 /* UserSettingsPresenterImpl.swift */,
 				FA88C77C20E3829700E31BAB /* UserSettingsController.swift */,
+				FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewDataSource.swift */,
 			);
 			path = UserSettings;
 			sourceTree = "<group>";
@@ -470,7 +470,7 @@
 			files = (
 				FAE84287210B19AB00CDDCD2 /* Reachabilty.swift in Sources */,
 				60FDE7CF226D3A7300E704BE /* ARCardViewController.swift in Sources */,
-				FA888BEC20ECF188002E55FF /* SettingsTableViewExt.swift in Sources */,
+				FA888BEC20ECF188002E55FF /* SettingsTableViewDataSource.swift in Sources */,
 				60B2B0532284E518001FE04D /* DateExt.swift in Sources */,
 				60CFE9C62270C726009C899E /* ArCardInteraction.swift in Sources */,
 				FAA96DDB20EA55A000282687 /* SettingsController.swift in Sources */,
@@ -479,7 +479,7 @@
 				FA77881820DB958F00AEB405 /* LoginPresenterImpl.swift in Sources */,
 				FA86BD8820F74FE7003F7DA9 /* TimetableARKitController.swift in Sources */,
 				FA7A6D4F20DA8B8600C2D47C /* ColorExt.swift in Sources */,
-				FA7AF89020EE3EC3003BFC08 /* UserSettingsTableViewExt.swift in Sources */,
+				FA7AF89020EE3EC3003BFC08 /* UserSettingsTableViewDataSource.swift in Sources */,
 				FA752BA5211DA2B400AB7ED2 /* TwoStationsInfo.swift in Sources */,
 				CD70EC0A20DBFE7000FDFDF3 /* UserManagerFirebase.swift in Sources */,
 				FAA96DD920E65ED100282687 /* UserSettingsPresenterImpl.swift in Sources */,

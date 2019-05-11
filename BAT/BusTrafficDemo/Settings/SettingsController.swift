@@ -12,6 +12,7 @@ import Firebase
 import SVProgressHUD
 
 class SettingsController: UIViewController, SettingsView  {
+    private let tableView = UITableView()
     
     private let userManager: UserManager = MainAssembly().getUserManager()
     private let navigator: Navigator = MainAssembly().getGlobalNavigator()
@@ -26,6 +27,27 @@ class SettingsController: UIViewController, SettingsView  {
         super.viewDidLoad()
 
         setupViews()
+        setupConstraints()
+    }
+    
+    private func setupViews() {
+        view.backgroundColor = .white
+        navigationItem.title = "Settings"
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+        tableView.isScrollEnabled = false
+        
+        view.addSubview(tableView)
+    }
+    
+    private func setupConstraints() {
+        tableView.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            make.height.equalTo(items.count * 44)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,64 +126,6 @@ class SettingsController: UIViewController, SettingsView  {
     
     private func showLoginScreen() {
         navigator.setLoginScreenAsRootController()
-    }
-    
-    // MARK: SETUP VIEWS
-    
-    lazy var tableView: UITableView = {
-        let tv = UITableView()
-        tv.delegate = self
-        tv.dataSource = self
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: "mycell")
-        tv.isScrollEnabled = false
-        return tv
-    }()
-    
-    lazy var profileImageView: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "user-icon")
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    lazy var inputsContainerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    func setupViews() {
-        view.backgroundColor = .white
-        self.navigationController?.navigationBar.colorBar()
-        navigationItem.title = "Settings"
-        
-        view.addSubview(inputsContainerView)
-        view.addSubview(profileImageView)
-        setupConstraints()
-        setupImage()
-    }
-    
-    func setupImage() {
-        profileImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(view).offset(100)
-            make.centerX.equalTo(view)
-            make.bottom.equalTo(inputsContainerView.snp.top)
-            make.width.height.equalTo(150)
-        }
-    }
-    
-    func setupConstraints() {
-        inputsContainerView.snp.makeConstraints { (make) in
-            make.centerX.width.equalTo(view)
-            make.top.equalTo(profileImageView.snp.bottom)
-            make.height.equalTo(200)
-        }
-        
-        inputsContainerView.addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
     }
 }
 

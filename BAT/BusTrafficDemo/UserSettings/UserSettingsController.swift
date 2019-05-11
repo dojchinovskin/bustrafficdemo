@@ -12,6 +12,7 @@ import Firebase
 import SVProgressHUD
 
 class UserSettingsController: UIViewController, UserSettingsView {
+    private let tableView = UITableView()
     
     var userSettingsPresenter = UserSettingsPresenterImpl()
     let items = ["Edit your name", "Edit your email", "Edit your password"]
@@ -22,6 +23,27 @@ class UserSettingsController: UIViewController, UserSettingsView {
         super.viewDidLoad()
 
         setupViews()
+        setupConstraints()
+    }
+    
+    private func setupViews() {
+        view.backgroundColor = .white
+        navigationItem.title = "User Settings"
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+        tableView.isScrollEnabled = false
+        
+        view.addSubview(tableView)
+    }
+    
+    private func setupConstraints() {
+        tableView.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            make.height.equalTo(items.count * 44)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -196,49 +218,6 @@ class UserSettingsController: UIViewController, UserSettingsView {
         let resetFailedAlert2 = UIAlertController(title: "Editing Failed", message: "You didn't submit anything.", preferredStyle: .alert)
         resetFailedAlert2.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(resetFailedAlert2, animated: true, completion: nil)
-    }
-   
-    //MARK: SETUP VIEWS
-    
-    lazy var inputsContainerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .red
-        
-        return view
-    }()
-    
-    lazy var tableView: UITableView = {
-        let tv = UITableView()
-        tv.delegate = self
-        tv.dataSource = self
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-        tv.isScrollEnabled = false
-        return tv
-    }()
-    
-    func setupViews() {
-        view.backgroundColor = .white
-        self.navigationController?.navigationBar.colorBar()
-        navigationItem.title = "User Settings"
-        
-        view.addSubview(inputsContainerView)
-        setupConstraints()
-    }
-    
-    func setupConstraints() {
-        // SAFEAREALAYOUT
-        let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height
-        
-        inputsContainerView.snp.makeConstraints { (make) in
-            make.top.equalTo(view.snp.top).offset(navigationBarHeight)
-            make.width.equalToSuperview()
-            make.height.equalTo(150)
-        }
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
-            make.edges.equalTo(inputsContainerView)
-        }
     }
 }
 

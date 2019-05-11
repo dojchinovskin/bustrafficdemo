@@ -1,5 +1,5 @@
 //
-//  SettingsControllerTableViewHelper.swift
+//  SettingsControllerTableViewDataSource.swift
 //  BusTrafficDemo
 //
 //  Created by Nikola Dojchinovski on 7/4/18.
@@ -13,19 +13,15 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
         return items.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height / 4
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "mycell") else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellId") else { return UITableViewCell() }
         cell.textLabel?.text = items[indexPath.row]
-        cell.selectionStyle = .none
         cell.accessoryType = .disclosureIndicator
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
             let userSettings = UserSettingsController()
