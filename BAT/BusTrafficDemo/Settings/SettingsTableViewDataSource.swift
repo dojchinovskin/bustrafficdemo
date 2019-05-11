@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension SettingsController: UITableViewDelegate, UITableViewDataSource {
+extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -24,7 +24,7 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            let userSettings = UserSettingsController()
+            let userSettings = UserSettingsViewController()
             self.navigationController?.pushViewController(userSettings, animated: true)
         case 1:
             UIApplication.shared.open(URL(string:UIApplicationOpenSettingsURLString)!)

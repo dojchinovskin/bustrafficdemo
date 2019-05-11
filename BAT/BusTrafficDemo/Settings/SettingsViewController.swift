@@ -11,7 +11,7 @@ import SnapKit
 import Firebase
 import SVProgressHUD
 
-class SettingsController: UIViewController, SettingsView  {
+class SettingsViewController: UIViewController, SettingsView  {
     private let tableView = UITableView()
     
     private let userManager: UserManager = MainAssembly().getUserManager()

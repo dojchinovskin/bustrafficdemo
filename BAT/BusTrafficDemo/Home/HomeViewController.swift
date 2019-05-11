@@ -11,7 +11,7 @@ import Firebase
 import SnapKit
 import CoreLocation
 
-class HomeController: UIViewController, CLLocationManagerDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate {
     private let backgroundPic = UIImageView()
     private let busStationsButton = UIButton(type: .custom)
     private let timetableButton = UIButton(type: .custom)
@@ -156,7 +156,7 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func showSettings() {
-        let settingsController = SettingsController()
+        let settingsController = SettingsViewController()
         self.navigationController?.pushViewController(settingsController, animated: true)
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UserSettingsController: UITableViewDelegate, UITableViewDataSource {
+extension UserSettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }

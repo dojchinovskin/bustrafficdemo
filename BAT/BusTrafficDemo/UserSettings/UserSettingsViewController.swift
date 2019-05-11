@@ -11,7 +11,7 @@ import SnapKit
 import Firebase
 import SVProgressHUD
 
-class UserSettingsController: UIViewController, UserSettingsView {
+class UserSettingsViewController: UIViewController, UserSettingsView {
     private let tableView = UITableView()
     
     var userSettingsPresenter = UserSettingsPresenterImpl()

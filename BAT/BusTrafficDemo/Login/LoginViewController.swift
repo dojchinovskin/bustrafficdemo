@@ -16,7 +16,7 @@ enum AuthType: Int {
     case signup = 1
 }
 
-class LoginController: UIViewController, LoginView, RegisterView, UITextFieldDelegate {
+class LoginViewController: UIViewController, LoginView, RegisterView, UITextFieldDelegate {
 
     var inputsContainerViewHeightAnchor: NSLayoutConstraint?
     var nameTextFieldHeightAnchor: NSLayoutConstraint?

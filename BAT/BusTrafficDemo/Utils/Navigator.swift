@@ -29,11 +29,14 @@ class NavigatorImpl: Navigator {
     }
 
     func setHomeScreenAsRootController() {
-        getMainWindow()?.setRootViewController(UINavigationController(rootViewController: HomeController()))
+        let homeViewController = UINavigationController(rootViewController: HomeViewController())
+        var options = UIWindow.TransitionOptions()
+        options.direction = .fade
+        getMainWindow()?.setRootViewController(homeViewController, options: options)
     }
 
     func setLoginScreenAsRootController() {
-        getMainWindow()?.setRootViewController(UINavigationController(rootViewController: LoginController()))
+        getMainWindow()?.setRootViewController(UINavigationController(rootViewController: LoginViewController()))
     }
 
 }
