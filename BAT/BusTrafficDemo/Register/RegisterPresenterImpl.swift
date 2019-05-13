@@ -30,7 +30,6 @@ class RegisterPresenterImpl: RegisterPresenter {
     func register(name: String, email: String, password: String) {
         view?.showProgressHud()
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] (user, error) in
-            self?.view?.hideProgressHud()
             if error != nil {
                 print(error!)
                 if error?.localizedDescription == self?.errorEmailAlreadyUsed {
@@ -41,7 +40,7 @@ class RegisterPresenterImpl: RegisterPresenter {
             guard let uid = user?.user.uid else {
                 return
             }
-            let ref = Database.database().reference(fromURL: "https://busartrafficdemo.firebaseio.com/")
+            let ref = Database.database().reference(fromURL: "https://arbustraffic.firebaseio.com/")
             let userReference = ref.child("users").child(uid)
             let values = ["name": name, "email": email]
             userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
@@ -49,6 +48,7 @@ class RegisterPresenterImpl: RegisterPresenter {
                     print(err!)
                     return
                 }
+            self?.view?.hideProgressHud()
             self?.view?.registerSuccess()
             })
         }

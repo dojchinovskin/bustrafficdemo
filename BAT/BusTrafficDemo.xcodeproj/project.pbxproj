@@ -10,6 +10,7 @@
 		6003B0B0227C4D8200FFF3E8 /* ARWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6003B0AF227C4D8200FFF3E8 /* ARWeatherViewController.swift */; };
 		6003B0B2227C4DC000FFF3E8 /* ARWeatherCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6003B0B1227C4DC000FFF3E8 /* ARWeatherCamera.storyboard */; };
 		600E8094226E15E700F332F3 /* ARCardCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600E8093226E15E700F332F3 /* ARCardCamera.storyboard */; };
+		601135162289CB9E00EAADC2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 601135152289CB9E00EAADC2 /* GoogleService-Info.plist */; };
 		603BA3D822849A5700F589CF /* ARWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603BA3D722849A5700F589CF /* ARWeather.swift */; };
 		60A459E6226F5CDA00AE20B7 /* ARCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A459E5226F5CDA00AE20B7 /* ARCard.swift */; };
 		60B2B0532284E518001FE04D /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B2B0522284E518001FE04D /* DateExt.swift */; };
@@ -35,7 +36,6 @@
 		FA7A6D4120DA6F5300C2D47C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7A6D3F20DA6F5300C2D47C /* LaunchScreen.storyboard */; };
 		FA7A6D4C20DA8A4A00C2D47C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A6D4B20DA8A4A00C2D47C /* LoginViewController.swift */; };
 		FA7A6D4F20DA8B8600C2D47C /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A6D4E20DA8B8600C2D47C /* ColorExt.swift */; };
-		FA7A6D5520DA9AD300C2D47C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA7A6D5420DA9AD300C2D47C /* GoogleService-Info.plist */; };
 		FA7AB6A820E0DEDE00A3404D /* AnimationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AB6A720E0DEDE00A3404D /* AnimationExt.swift */; };
 		FA7AF89020EE3EC3003BFC08 /* UserSettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewDataSource.swift */; };
 		FA86BD8820F74FE7003F7DA9 /* TimetableARKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86BD8720F74FE7003F7DA9 /* TimetableARKitController.swift */; };
@@ -63,6 +63,7 @@
 		6003B0AF227C4D8200FFF3E8 /* ARWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARWeatherViewController.swift; sourceTree = "<group>"; };
 		6003B0B1227C4DC000FFF3E8 /* ARWeatherCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARWeatherCamera.storyboard; sourceTree = "<group>"; };
 		600E8093226E15E700F332F3 /* ARCardCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARCardCamera.storyboard; sourceTree = "<group>"; };
+		601135152289CB9E00EAADC2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		603BA3D722849A5700F589CF /* ARWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARWeather.swift; sourceTree = "<group>"; };
 		60A459E5226F5CDA00AE20B7 /* ARCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCard.swift; sourceTree = "<group>"; };
 		60B2B0522284E518001FE04D /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		FA7A6D4220DA6F5300C2D47C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA7A6D4B20DA8A4A00C2D47C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA7A6D4E20DA8B8600C2D47C /* ColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
-		FA7A6D5420DA9AD300C2D47C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA7AB6A720E0DEDE00A3404D /* AnimationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationExt.swift; sourceTree = "<group>"; };
 		FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		FA86BD8720F74FE7003F7DA9 /* TimetableARKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableARKitController.swift; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 				FA9CB2B320F3B67A00C1A2FD /* Register */,
 				CD70EBFF20DBEE2C00FDFDF3 /* Utils */,
 				FA7A6D4220DA6F5300C2D47C /* Info.plist */,
-				FA7A6D5420DA9AD300C2D47C /* GoogleService-Info.plist */,
+				601135152289CB9E00EAADC2 /* GoogleService-Info.plist */,
 				FAFEDF1A2110513A00A3C294 /* Storyboards */,
 				FAFEDF1B2110516400A3C294 /* Resources */,
 			);
@@ -396,8 +396,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA7A6D4120DA6F5300C2D47C /* LaunchScreen.storyboard in Resources */,
-				FA7A6D5520DA9AD300C2D47C /* GoogleService-Info.plist in Resources */,
 				FA7A6D3E20DA6F5300C2D47C /* Assets.xcassets in Resources */,
+				601135162289CB9E00EAADC2 /* GoogleService-Info.plist in Resources */,
 				FA86BD8A20F7544F003F7DA9 /* Camera.storyboard in Resources */,
 				600E8094226E15E700F332F3 /* ARCardCamera.storyboard in Resources */,
 				6003B0B2227C4DC000FFF3E8 /* ARWeatherCamera.storyboard in Resources */,
