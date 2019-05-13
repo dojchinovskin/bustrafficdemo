@@ -15,7 +15,7 @@ class UserSettingsViewController: UIViewController, UserSettingsView {
     private let tableView = UITableView()
     
     var userSettingsPresenter = UserSettingsPresenterImpl()
-    let items = ["Edit your name", "Edit your email", "Edit your password"]
+    let items = ["Change your name", "Change your email", "Change your password"]
     
     //MARK: LIFECYCLE
     
