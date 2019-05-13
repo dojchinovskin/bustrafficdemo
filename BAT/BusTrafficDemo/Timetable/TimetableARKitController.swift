@@ -10,8 +10,6 @@ import UIKit
 import ARKit
 
 class TimetableARKitController: UIViewController {
-    
-    
     @IBOutlet weak var sceneView: ARSCNView!
     
     let fadeDuration: TimeInterval = 0.3
@@ -80,8 +78,10 @@ extension TimetableARKitController: ARSCNViewDelegate {
                 planeNode.opacity = 0.0
                 planeNode.eulerAngles.x = -.pi / 2
                 planeNode.runAction(self.fadeAction, completionHandler: {
-                    let timetable = TimetableController()
-                    self.present(timetable, animated: true, completion: nil)
+                    let timetable = TimetableViewController()
+                    DispatchQueue.main.async {
+                        self.present(timetable, animated: true, completion: nil)
+                    }
                 })
             node.addChildNode(planeNode)
         }

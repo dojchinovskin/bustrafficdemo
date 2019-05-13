@@ -11,84 +11,69 @@ import UIKit
 import SnapKit
 
 
-class TimetableController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TimetableViewController: UIViewController {
+    private var tableView: UITableView!
+    private var closeButton: UIButton!
     
-    private var myTableView: UITableView!
-    
-    private let stations: Array = ["BUS 1", "BUS 2", "BUS 3", "BUS 4", "BUS 5", "BUS 6", "BUS 7", "BUS 8", "BUS 9", "BUS 10",]
+    private let items = ["BUS 1", "BUS 2", "BUS 3", "BUS 4", "BUS 5", "BUS 6", "BUS 7", "BUS 8", "BUS 9", "BUS 10",]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        setupViews()
+        setupConstraints()
+    }
+    
+    private func setupViews() {
         view.backgroundColor = .white
+
+        tableView = UITableView()
+        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cellId")
+        tableView.dataSource = self
+        tableView.delegate = self
         
-        myTableView = UITableView()
-        myTableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell")
+        closeButton = UIButton(type: .custom)
+        closeButton.setImage(UIImage(named: "XButton"), for: .normal)
+        closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
         
-        myTableView.dataSource = self
-        myTableView.delegate = self
-        
-        myTableView.rowHeight = UITableViewAutomaticDimension
-        myTableView.estimatedRowHeight = 44
-        
-        setupView()
+        view.addSubview(tableView)
+        view.addSubview(closeButton)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Num: \(indexPath.row)")
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return stations.count
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    private func setupConstraints() {
+        closeButton.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(self.view).offset(-30)
+            make.height.width.equalTo(50)
+        }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
-        
-        cell.bus.text = "\(stations[indexPath.row])"
-        cell.time.text = DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .short, timeStyle: .short)
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        tableView.snp.makeConstraints { (make) in
+            make.left.right.top.equalTo(self.view)
+            make.bottom.equalTo(closeButton.snp.top)
+        }
     }
     
     @objc func close() {
         dismiss(animated: true, completion: nil)
     }
-    
-    func setupView() {
-        self.view.addSubview(myTableView)
-        self.view.addSubview(closeButton)
-        
-        myTableView.snp.makeConstraints { (make) in
-            make.top.equalTo(view)
-            make.bottom.equalTo(view).offset(-90)
-            make.right.equalTo(view)
-            make.left.equalTo(view)
-        }
-        
-        closeButton.snp.makeConstraints { (make) in
-            make.top.equalTo(myTableView.snp.bottom).offset(10)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(150)
-            make.height.equalTo(50)
-        }
+}
+
+extension TimetableViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
     }
     
-    lazy var closeButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 161, g: 117, b: 170)
-        button.setTitle("Close", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 5
-        button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(close), for: .touchUpInside)
-        
-        return button
-    }()
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellId") as? CustomTableViewCell else { return UITableViewCell() }
+        cell.bus.text = items[indexPath.row]
+        return cell
+    }
 }

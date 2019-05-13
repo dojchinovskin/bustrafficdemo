@@ -53,7 +53,7 @@
 		FAA96DD920E65ED100282687 /* UserSettingsPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA96DD820E65ED100282687 /* UserSettingsPresenterImpl.swift */; };
 		FAA96DDB20EA55A000282687 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA96DDA20EA55A000282687 /* SettingsViewController.swift */; };
 		FAE84287210B19AB00CDDCD2 /* Reachabilty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE84286210B19AB00CDDCD2 /* Reachabilty.swift */; };
-		FAF88A53210F43130068DB00 /* TimetableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF88A52210F43130068DB00 /* TimetableController.swift */; };
+		FAF88A53210F43130068DB00 /* TimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF88A52210F43130068DB00 /* TimetableViewController.swift */; };
 		FAFEDF1D211093B500A3C294 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEDF1C211093B500A3C294 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -108,7 +108,7 @@
 		FAA96DD820E65ED100282687 /* UserSettingsPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsPresenterImpl.swift; sourceTree = "<group>"; };
 		FAA96DDA20EA55A000282687 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FAE84286210B19AB00CDDCD2 /* Reachabilty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachabilty.swift; sourceTree = "<group>"; };
-		FAF88A52210F43130068DB00 /* TimetableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableController.swift; sourceTree = "<group>"; };
+		FAF88A52210F43130068DB00 /* TimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewController.swift; sourceTree = "<group>"; };
 		FAFEDF1C211093B500A3C294 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				FA86BD8720F74FE7003F7DA9 /* TimetableARKitController.swift */,
-				FAF88A52210F43130068DB00 /* TimetableController.swift */,
+				FAF88A52210F43130068DB00 /* TimetableViewController.swift */,
 				FAFEDF1C211093B500A3C294 /* CustomTableViewCell.swift */,
 			);
 			path = Timetable;
@@ -516,7 +516,7 @@
 				6003B0B0227C4D8200FFF3E8 /* ARWeatherViewController.swift in Sources */,
 				603BA3D822849A5700F589CF /* ARWeather.swift in Sources */,
 				FA9B9540211990C700741BEA /* APIProvider.swift in Sources */,
-				FAF88A53210F43130068DB00 /* TimetableController.swift in Sources */,
+				FAF88A53210F43130068DB00 /* TimetableViewController.swift in Sources */,
 				FA7AB6A820E0DEDE00A3404D /* AnimationExt.swift in Sources */,
 				FA88C77D20E3829700E31BAB /* UserSettingsViewController.swift in Sources */,
 				FA888BEA20ECD9C9002E55FF /* SettingsPresenterImpl.swift in Sources */,
