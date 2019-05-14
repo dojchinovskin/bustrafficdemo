@@ -15,7 +15,7 @@ class TimetableViewController: UIViewController {
     private var tableView: UITableView!
     private var closeButton: UIButton!
     
-    private let items = ["BUS 1", "BUS 2", "BUS 3", "BUS 4", "BUS 5", "BUS 6", "BUS 7", "BUS 8", "BUS 9", "BUS 10",]
+    var lines: [Line]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class TimetableViewController: UIViewController {
         view.backgroundColor = .white
 
         tableView = UITableView()
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cellId")
+        tableView.register(TimetableTableViewCell.self, forCellReuseIdentifier: "cellId")
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -68,12 +68,13 @@ extension TimetableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return lines.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellId") as? CustomTableViewCell else { return UITableViewCell() }
-        cell.bus.text = items[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellId") as? TimetableTableViewCell else { return UITableViewCell() }
+        cell.busLabel.text = lines[indexPath.row].bus
+        cell.timeLabel.text = lines[indexPath.row].time
         return cell
     }
 }

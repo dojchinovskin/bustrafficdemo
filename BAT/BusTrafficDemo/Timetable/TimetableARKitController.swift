@@ -8,23 +8,27 @@
 
 import UIKit
 import ARKit
+import Firebase
+
 
 class TimetableARKitController: UIViewController {
     @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    let fadeDuration: TimeInterval = 0.3
-    let rotateDuration: TimeInterval = 3
-    let waitDuration: TimeInterval = 0.5
+    private var lines: [Line]!
+
+    private var place = "Simpo"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
+        fetchLinesFor(place)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        resetTrackingConfiguration()
+        setupAR()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -32,35 +36,40 @@ class TimetableARKitController: UIViewController {
         sceneView.session.pause()
     }
     
-    func configureLighting() {
+    private func setupViews() {
+        sceneView.delegate = self
         sceneView.autoenablesDefaultLighting = true
         sceneView.automaticallyUpdatesLighting = true
+        
+        segmentedControl.addTarget(self, action: #selector(handleSegmentedControl), for: .valueChanged)
     }
     
-    @IBAction func resetButtonDidTouch(_ sender: UIBarButtonItem) {
-        resetTrackingConfiguration()
-    }
-    
-    func resetTrackingConfiguration() {
+    private func setupAR() {
         guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else { return }
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.detectionImages = referenceImages
-        let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
-        sceneView.session.run(configuration, options: options)
+        let configuration = ARImageTrackingConfiguration()
+        configuration.trackingImages = referenceImages
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
     
-    func setupViews() {
-        sceneView.delegate = self
-        configureLighting()
+    private func fetchLinesFor(_ place: String) {
+        lines = []
+        let databaseRef = Database.database().reference(fromURL: "https://arbustraffic.firebaseio.com/")
+        databaseRef.child("Lines").child(place).observeSingleEvent(of: .value) { [weak self] (snapshot) in
+            guard let values = snapshot.value as? Dictionary<String, String> else { return }
+            for value in values {
+                let line = Line(bus: value.key, time: value.value)
+                self?.lines.append(line)
+            }            
+        }
     }
     
-    lazy var fadeAction: SCNAction = {
-        return .sequence([
-            .fadeOpacity(by: 0.8, duration: fadeDuration),
-            .wait(duration: waitDuration),
-            .fadeOut(duration: fadeDuration)
-            ])
-    }()
+    @objc private func handleSegmentedControl() {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0: fetchLinesFor(segmentedControl.titleForSegment(at: 0) ?? "Simpo")
+        case 1: fetchLinesFor(segmentedControl.titleForSegment(at: 1) ?? "Rekord")
+        default: return
+        }
+    }
     
     @IBAction func closeButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -68,32 +77,27 @@ class TimetableARKitController: UIViewController {
 }
 
 extension TimetableARKitController: ARSCNViewDelegate {
-    
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         DispatchQueue.main.async {
-            guard let imageAnchor = anchor as? ARImageAnchor,
-                let imageName = imageAnchor.referenceImage.name else { return }
+            guard let imageAnchor = anchor as? ARImageAnchor else { return }
             
-                let planeNode = self.getPlaneNode(withReferenceImage: imageAnchor.referenceImage)
-                planeNode.opacity = 0.0
-                planeNode.eulerAngles.x = -.pi / 2
-                planeNode.runAction(self.fadeAction, completionHandler: {
+            if let referencedImage = imageAnchor.referenceImage.name, referencedImage == "busSign" {
+                let trackingNode = TrackingNode(imageAnchor.referenceImage)
+                node.addChildNode(trackingNode)
+                
+                let action = SCNAction.sequence([.fadeOpacity(by: 0.8, duration: 0.3),
+                                                 .wait(duration: 0.5),
+                                                 .fadeOut(duration: 0.3)])
+                trackingNode.runAction(action, completionHandler: {
                     let timetable = TimetableViewController()
+                    timetable.lines = self.lines
                     DispatchQueue.main.async {
                         self.present(timetable, animated: true, completion: nil)
                     }
                 })
-            node.addChildNode(planeNode)
+            }
         }
     }
-    
-    func getPlaneNode(withReferenceImage image: ARReferenceImage) -> SCNNode {
-        let plane = SCNPlane(width: image.physicalSize.width,
-                             height: image.physicalSize.height)
-        let node = SCNNode(geometry: plane)
-        return node
-    }
 }
-
 
 

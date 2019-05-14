@@ -31,13 +31,27 @@
                                     <action selector="closeButtonPressed:" destination="0eD-ke-2hQ" eventType="touchUpInside" id="8ST-E7-Czg"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VRl-by-ozh">
+                                <rect key="frame" x="62.5" y="50" width="250" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="DtT-AG-LxX"/>
+                                    <constraint firstAttribute="width" constant="250" id="et6-b5-0iJ"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Simpo"/>
+                                    <segment title="Rekord"/>
+                                </segments>
+                                <color key="tintColor" red="0.58095151190000005" green="0.4721743464" blue="0.64315241580000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="B7D-QK-67d" firstAttribute="trailing" secondItem="UUM-AC-LZm" secondAttribute="trailing" id="ANG-nk-Ib6"/>
+                            <constraint firstItem="VRl-by-ozh" firstAttribute="top" secondItem="B7D-QK-67d" secondAttribute="top" constant="30" id="Ler-lP-w3k"/>
                             <constraint firstItem="goy-rl-5ig" firstAttribute="centerX" secondItem="dh1-B6-pEf" secondAttribute="centerX" id="TTb-Q8-wDI"/>
                             <constraint firstItem="B7D-QK-67d" firstAttribute="bottom" secondItem="goy-rl-5ig" secondAttribute="bottom" constant="30" id="VIa-aj-aiS"/>
                             <constraint firstItem="B7D-QK-67d" firstAttribute="bottom" secondItem="UUM-AC-LZm" secondAttribute="bottom" id="aYr-fN-tST"/>
+                            <constraint firstItem="VRl-by-ozh" firstAttribute="centerX" secondItem="dh1-B6-pEf" secondAttribute="centerX" id="mnZ-g3-Q5v"/>
                             <constraint firstItem="UUM-AC-LZm" firstAttribute="leading" secondItem="B7D-QK-67d" secondAttribute="leading" id="wWd-NC-64d"/>
                             <constraint firstItem="UUM-AC-LZm" firstAttribute="top" secondItem="dh1-B6-pEf" secondAttribute="top" id="zcY-P1-RyY"/>
                         </constraints>
@@ -45,6 +59,7 @@
                     </view>
                     <connections>
                         <outlet property="sceneView" destination="UUM-AC-LZm" id="J0v-Yu-V6s"/>
+                        <outlet property="segmentedControl" destination="VRl-by-ozh" id="IOd-Sa-CfN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HbC-BG-AF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
