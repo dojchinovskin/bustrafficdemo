@@ -18,6 +18,7 @@
 		60C064242285CC3C00245A7F /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C064232285CC3C00245A7F /* WeatherInfo.swift */; };
 		60C4432E228462AA00C253E4 /* ARWeatherScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 60C4432D228462AA00C253E4 /* ARWeatherScene.scn */; };
 		60CFE9C62270C726009C899E /* ArCardInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CFE9C52270C726009C899E /* ArCardInteraction.swift */; };
+		60FC47B3228BA2A400AEB8FD /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC47B2228BA2A400AEB8FD /* InputContainerView.swift */; };
 		60FDC4B9228B268200FF5222 /* TrackingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FDC4B8228B268200FF5222 /* TrackingNode.swift */; };
 		60FDE7CF226D3A7300E704BE /* ARCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FDE7CE226D3A7300E704BE /* ARCardViewController.swift */; };
 		6F13FE4A869A94B7C58604FD /* Pods_BusTrafficDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F4846446C12112B7DE771B /* Pods_BusTrafficDemo.framework */; };
@@ -72,6 +73,7 @@
 		60C064232285CC3C00245A7F /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 		60C4432D228462AA00C253E4 /* ARWeatherScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ARWeatherScene.scn; sourceTree = "<group>"; };
 		60CFE9C52270C726009C899E /* ArCardInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArCardInteraction.swift; sourceTree = "<group>"; };
+		60FC47B2228BA2A400AEB8FD /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		60FDC4B8228B268200FF5222 /* TrackingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingNode.swift; sourceTree = "<group>"; };
 		60FDE7CE226D3A7300E704BE /* ARCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCardViewController.swift; sourceTree = "<group>"; };
 		CD70EBFB20DBEC2900FDFDF3 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				FA77881720DB958F00AEB405 /* LoginPresenterImpl.swift */,
 				FA9CB2B720F3B72700C1A2FD /* LoginContract.swift */,
 				FA7A6D4B20DA8A4A00C2D47C /* LoginViewController.swift */,
+				60FC47B2228BA2A400AEB8FD /* InputContainerView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				FA9CB2B120F3A34500C1A2FD /* KeyboardExt.swift in Sources */,
 				CD70EBFC20DBEC2900FDFDF3 /* Navigator.swift in Sources */,
 				FA77881820DB958F00AEB405 /* LoginPresenterImpl.swift in Sources */,
+				60FC47B3228BA2A400AEB8FD /* InputContainerView.swift in Sources */,
 				FA86BD8820F74FE7003F7DA9 /* TimetableARKitController.swift in Sources */,
 				FA7A6D4F20DA8B8600C2D47C /* ColorExt.swift in Sources */,
 				FA7AF89020EE3EC3003BFC08 /* UserSettingsTableViewDataSource.swift in Sources */,
