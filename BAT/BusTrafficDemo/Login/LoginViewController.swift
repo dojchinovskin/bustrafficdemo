@@ -17,10 +17,7 @@ enum AuthType: Int {
 }
 
 class LoginViewController: UIViewController, LoginView, RegisterView, UITextFieldDelegate {
-    private let inputContainerView = InputContainerView()
-    private let forgetPassButton = UIButton(type: .custom)
-    private let loginButton = UIButton(type: .custom)
-    private let segmentedControl = UISegmentedControl(items: ["Login", "Register"])
+    private let loginContainerView = LoginContainerView()
     
     var loginPresenter: LoginPresenter = LoginPresenterImpl()
     var registerPresenter: RegisterPresenter = RegisterPresenterImpl()
@@ -125,20 +122,20 @@ class LoginViewController: UIViewController, LoginView, RegisterView, UITextFiel
     //MARK: BUTTONS
     
     @objc func pressedLogin() {
-        guard let email = inputContainerView.emailTextfield.text,
-            let password = inputContainerView.passwordTextfield.text else { return }
+        guard let email = loginContainerView.inputContainerView.emailTextfield.text,
+            let password = loginContainerView.inputContainerView.passwordTextfield.text else { return }
         loginPresenter.login(email: email, password: password)       
     }
     
     @objc func pressedRegister() {
-        guard let email = inputContainerView.emailTextfield.text,
-            let password = inputContainerView.passwordTextfield.text,
-            let name = inputContainerView.nameTextfield.text else { return }
+        guard let email = loginContainerView.inputContainerView.emailTextfield.text,
+            let password = loginContainerView.inputContainerView.passwordTextfield.text,
+            let name = loginContainerView.inputContainerView.nameTextfield.text else { return }
         registerPresenter.register(name: name, email: email, password: password)
     }
 
     @objc func handleLoginRegister() {
-        segmentedControl.selectedSegmentIndex == AuthType.login.rawValue
+        loginContainerView.segmentedControl.selectedSegmentIndex == AuthType.login.rawValue
             ? pressedLogin() : pressedRegister()
     }
     
@@ -156,15 +153,15 @@ class LoginViewController: UIViewController, LoginView, RegisterView, UITextFiel
     }
     
     @objc func handleLoginRegisterChange() {
-        let title = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)
-        loginButton.setTitle(title, for: .normal)
+        let title = loginContainerView.segmentedControl.titleForSegment(at: loginContainerView.segmentedControl.selectedSegmentIndex)
+        loginContainerView.loginButton.setTitle(title, for: .normal)
         
-        let isLoginPressed = segmentedControl.selectedSegmentIndex == 0
-        inputContainerView.updateConstraints(isLoginPressed)
-        inputContainerView.snp.updateConstraints { (update) in
+        let isLoginPressed = loginContainerView.segmentedControl.selectedSegmentIndex == 0
+        loginContainerView.inputContainerView.updateConstraints(isLoginPressed)
+        loginContainerView.inputContainerView.snp.updateConstraints { (update) in
             update.height.equalTo(isLoginPressed ? 100 : 150)
         }
-        forgetPassButton.isHidden = isLoginPressed ? false : true
+        loginContainerView.forgetPassButton.isHidden = isLoginPressed ? false : true
     }
 
     //MARK: SETUP VIEWS
@@ -172,60 +169,26 @@ class LoginViewController: UIViewController, LoginView, RegisterView, UITextFiel
     func setupViews() {
         self.hideKeyboardWhenTappedAround()
         
-        view.backgroundColor = UIColor(r: 161, g: 117, b: 170)
+        loginContainerView.inputContainerView.emailTextfield.delegate = self
+        loginContainerView.inputContainerView.passwordTextfield.delegate = self
+        loginContainerView.inputContainerView.nameTextfield.delegate = self
         
-        loginButton.backgroundColor = UIColor(r: 80, g: 101, b: 161)
-        loginButton.setTitle("Login", for: .normal)
-        loginButton.setTitleColor(.white, for: .normal)
-        loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        loginButton.layer.cornerRadius = 5
-        loginButton.layer.masksToBounds = true
-        loginButton.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
+        loginContainerView.loginButton.addTarget(self,
+                                                 action: #selector(handleLoginRegister),
+                                                 for: .touchUpInside)
+        loginContainerView.forgetPassButton.addTarget(self,
+                                                      action: #selector(forgetPasswordPressed),
+                                                      for: .touchUpInside)
+        loginContainerView.segmentedControl.addTarget(self,
+                                                      action: #selector(handleLoginRegisterChange),
+                                                      for: .valueChanged)
         
-        forgetPassButton.setTitle("Forget your password?", for: .normal)
-        forgetPassButton.setTitleColor(.white, for: .normal)
-        forgetPassButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        forgetPassButton.addTarget(self, action: #selector(forgetPasswordPressed), for: .touchUpInside)
-        
-        segmentedControl.tintColor = .white
-        segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.addTarget(self, action: #selector(handleLoginRegisterChange), for: .valueChanged)
-        
-        inputContainerView.emailTextfield.delegate = self
-        inputContainerView.passwordTextfield.delegate = self
-        inputContainerView.nameTextfield.delegate = self
-        
-        view.addSubview(loginButton)
-        view.addSubview(segmentedControl)
-        view.addSubview(forgetPassButton)
-        view.addSubview(inputContainerView)
+        view.addSubview(loginContainerView)
     }
     
     private func setupConstraints() {
-        segmentedControl.snp.makeConstraints { (make) in
-            make.centerX.equalTo(view)
-            make.bottom.equalTo(inputContainerView.snp.top).offset(-15)
-            make.width.equalTo(self.view).offset(-15)
-            make.height.equalTo(36)
-        }
-        
-        inputContainerView.snp.makeConstraints { (make) in
-            make.center.equalTo(self.view)
-            make.height.equalTo(100)
-            make.width.equalTo(segmentedControl)
-        }
-        
-        loginButton.snp.makeConstraints { (make) in
-            make.centerX.equalTo(view)
-            make.top.equalTo(inputContainerView.snp.bottom).offset(15)
-            make.width.equalTo(inputContainerView.snp.width)
-            make.height.equalTo(50)
-        }
-        
-        forgetPassButton.snp.makeConstraints { (make) in
-            make.top.equalTo(loginButton.snp.bottom)
-            make.left.equalTo(inputContainerView.snp.left)
-            make.height.equalTo(40)
+        loginContainerView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view)
         }
     }
 }
