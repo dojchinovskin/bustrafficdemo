@@ -149,9 +149,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func showTimetable() {
-        let storyboard = UIStoryboard(name: "Camera", bundle: nil)
+        let storyboard = UIStoryboard(name: "TimetableCamera", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "timetableARKitController")
-        //self.navigationController!.pushViewController(vc, animated: true)
         present(vc, animated: true, completion: nil)
     }
     

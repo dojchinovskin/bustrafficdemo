@@ -34,7 +34,6 @@
 		FA77881A20DBA46B00AEB405 /* RegisterPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77881920DBA46B00AEB405 /* RegisterPresenterImpl.swift */; };
 		FA7A6D3720DA6F5200C2D47C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A6D3620DA6F5200C2D47C /* AppDelegate.swift */; };
 		FA7A6D3920DA6F5200C2D47C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A6D3820DA6F5200C2D47C /* HomeViewController.swift */; };
-		FA7A6D3C20DA6F5200C2D47C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7A6D3A20DA6F5200C2D47C /* Main.storyboard */; };
 		FA7A6D3E20DA6F5300C2D47C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7A6D3D20DA6F5300C2D47C /* Assets.xcassets */; };
 		FA7A6D4120DA6F5300C2D47C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7A6D3F20DA6F5300C2D47C /* LaunchScreen.storyboard */; };
 		FA7A6D4C20DA8A4A00C2D47C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A6D4B20DA8A4A00C2D47C /* LoginViewController.swift */; };
@@ -42,7 +41,7 @@
 		FA7AB6A820E0DEDE00A3404D /* AnimationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AB6A720E0DEDE00A3404D /* AnimationExt.swift */; };
 		FA7AF89020EE3EC3003BFC08 /* UserSettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewDataSource.swift */; };
 		FA86BD8820F74FE7003F7DA9 /* TimetableARKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86BD8720F74FE7003F7DA9 /* TimetableARKitController.swift */; };
-		FA86BD8A20F7544F003F7DA9 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA86BD8920F7544F003F7DA9 /* Camera.storyboard */; };
+		FA86BD8A20F7544F003F7DA9 /* TimetableCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA86BD8920F7544F003F7DA9 /* TimetableCamera.storyboard */; };
 		FA888BEA20ECD9C9002E55FF /* SettingsPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */; };
 		FA888BEC20ECF188002E55FF /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA888BEB20ECF188002E55FF /* SettingsTableViewDataSource.swift */; };
 		FA88C77D20E3829700E31BAB /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88C77C20E3829700E31BAB /* UserSettingsViewController.swift */; };
@@ -91,7 +90,6 @@
 		FA7A6D3320DA6F5200C2D47C /* BusTrafficDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusTrafficDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7A6D3620DA6F5200C2D47C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA7A6D3820DA6F5200C2D47C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		FA7A6D3B20DA6F5200C2D47C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA7A6D3D20DA6F5300C2D47C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA7A6D4020DA6F5300C2D47C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA7A6D4220DA6F5300C2D47C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,7 +98,7 @@
 		FA7AB6A720E0DEDE00A3404D /* AnimationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationExt.swift; sourceTree = "<group>"; };
 		FA7AF88F20EE3EC3003BFC08 /* UserSettingsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		FA86BD8720F74FE7003F7DA9 /* TimetableARKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableARKitController.swift; sourceTree = "<group>"; };
-		FA86BD8920F7544F003F7DA9 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		FA86BD8920F7544F003F7DA9 /* TimetableCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimetableCamera.storyboard; sourceTree = "<group>"; };
 		FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterImpl.swift; sourceTree = "<group>"; };
 		FA888BEB20ECF188002E55FF /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		FA88C77C20E3829700E31BAB /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
@@ -216,7 +214,7 @@
 			path = StationsARKit;
 			sourceTree = "<group>";
 		};
-		FA606AC9210F3E3700F5E261 /* Timetable */ = {
+		FA606AC9210F3E3700F5E261 /* ARTimetable */ = {
 			isa = PBXGroup;
 			children = (
 				FA86BD8720F74FE7003F7DA9 /* TimetableARKitController.swift */,
@@ -224,7 +222,7 @@
 				FAFEDF1C211093B500A3C294 /* TimetableTableViewCell.swift */,
 				60FDC4B8228B268200FF5222 /* TrackingNode.swift */,
 			);
-			path = Timetable;
+			path = ARTimetable;
 			sourceTree = "<group>";
 		};
 		FA7A6D2A20DA6F5200C2D47C = {
@@ -253,7 +251,7 @@
 				6003B0AE227C4D4B00FFF3E8 /* ARWeather */,
 				60FDE7CD226D3A3B00E704BE /* ARCard */,
 				FA606AC8210F3DEC00F5E261 /* StationsARKit */,
-				FA606AC9210F3E3700F5E261 /* Timetable */,
+				FA606AC9210F3E3700F5E261 /* ARTimetable */,
 				FA606AC7210F3D8F00F5E261 /* Home */,
 				FA9CB2BD20F3B82400C1A2FD /* UserSettings */,
 				FA9CB2BA20F3B7E800C1A2FD /* Settings */,
@@ -333,8 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				FA7A6D3F20DA6F5300C2D47C /* LaunchScreen.storyboard */,
-				FA86BD8920F7544F003F7DA9 /* Camera.storyboard */,
-				FA7A6D3A20DA6F5200C2D47C /* Main.storyboard */,
+				FA86BD8920F7544F003F7DA9 /* TimetableCamera.storyboard */,
 				600E8093226E15E700F332F3 /* ARCardCamera.storyboard */,
 				6003B0B1227C4DC000FFF3E8 /* ARWeatherCamera.storyboard */,
 			);
@@ -415,11 +412,10 @@
 				FA7A6D4120DA6F5300C2D47C /* LaunchScreen.storyboard in Resources */,
 				FA7A6D3E20DA6F5300C2D47C /* Assets.xcassets in Resources */,
 				601135162289CB9E00EAADC2 /* GoogleService-Info.plist in Resources */,
-				FA86BD8A20F7544F003F7DA9 /* Camera.storyboard in Resources */,
+				FA86BD8A20F7544F003F7DA9 /* TimetableCamera.storyboard in Resources */,
 				600E8094226E15E700F332F3 /* ARCardCamera.storyboard in Resources */,
 				6003B0B2227C4DC000FFF3E8 /* ARWeatherCamera.storyboard in Resources */,
 				60B8D52E226A31060074F002 /* ARCardScene.scn in Resources */,
-				FA7A6D3C20DA6F5200C2D47C /* Main.storyboard in Resources */,
 				60C4432E228462AA00C253E4 /* ARWeatherScene.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,14 +547,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FA7A6D3A20DA6F5200C2D47C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA7A6D3B20DA6F5200C2D47C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FA7A6D3F20DA6F5300C2D47C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

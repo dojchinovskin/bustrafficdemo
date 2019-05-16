@@ -17,7 +17,7 @@ import CoreLocation
 import ARKit
 import SVProgressHUD
 
-class StationsARKitController: UIViewController, CLLocationManagerDelegate {
+class StationsARKitController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     let sceneLocationView = SceneLocationView()
     var twoStationsInfo: TwoStationsInfo?
     
@@ -35,17 +35,21 @@ class StationsARKitController: UIViewController, CLLocationManagerDelegate {
         fetchNearestBusStations()
         setupViews()
         mapSetup()
+        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("run")
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.sceneLocationView.run()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         sceneLocationView.pause()
     }
     
