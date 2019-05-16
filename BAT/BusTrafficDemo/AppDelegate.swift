@@ -24,15 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
         
-        showStatusBar()
         setupRootController()
-        
         return true
-    }
-    
-    private func showStatusBar() {
-        UIApplication.shared.statusBarStyle = .lightContent
-        UIApplication.shared.isStatusBarHidden = false
     }
 
     private func setupRootController() {
