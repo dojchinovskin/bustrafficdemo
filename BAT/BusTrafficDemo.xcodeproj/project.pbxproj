@@ -19,6 +19,7 @@
 		60C064242285CC3C00245A7F /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C064232285CC3C00245A7F /* WeatherInfo.swift */; };
 		60C4432E228462AA00C253E4 /* ARWeatherScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 60C4432D228462AA00C253E4 /* ARWeatherScene.scn */; };
 		60CFE9C62270C726009C899E /* ArCardInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CFE9C52270C726009C899E /* ArCardInteraction.swift */; };
+		60EF14262294CA4800E47CA9 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EF14252294CA4800E47CA9 /* UserLocation.swift */; };
 		60FC47B3228BA2A400AEB8FD /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC47B2228BA2A400AEB8FD /* InputContainerView.swift */; };
 		60FDC4B9228B268200FF5222 /* TrackingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FDC4B8228B268200FF5222 /* TrackingNode.swift */; };
 		60FDE7CF226D3A7300E704BE /* ARCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FDE7CE226D3A7300E704BE /* ARCardViewController.swift */; };
@@ -27,8 +28,8 @@
 		CD70EBFE20DBED7900FDFDF3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EBFD20DBED7900FDFDF3 /* UserManager.swift */; };
 		CD70EC0520DBF80B00FDFDF3 /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EC0420DBF80B00FDFDF3 /* MainAssembly.swift */; };
 		CD70EC0A20DBFE7000FDFDF3 /* UserManagerFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EC0920DBFE7000FDFDF3 /* UserManagerFirebase.swift */; };
-		FA217C07210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA217C06210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift */; };
-		FA217C09210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift */; };
+		FA217C07210EF66C00BF9CD4 /* MKMapViewDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA217C06210EF66C00BF9CD4 /* MKMapViewDelegation.swift */; };
+		FA217C09210EF83C00BF9CD4 /* SceneLocationViewDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegation.swift */; };
 		FA752BA5211DA2B400AB7ED2 /* TwoStationsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA752BA4211DA2B400AB7ED2 /* TwoStationsInfo.swift */; };
 		FA77881820DB958F00AEB405 /* LoginPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77881720DB958F00AEB405 /* LoginPresenterImpl.swift */; };
 		FA77881A20DBA46B00AEB405 /* RegisterPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77881920DBA46B00AEB405 /* RegisterPresenterImpl.swift */; };
@@ -45,13 +46,13 @@
 		FA888BEA20ECD9C9002E55FF /* SettingsPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */; };
 		FA888BEC20ECF188002E55FF /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA888BEB20ECF188002E55FF /* SettingsTableViewDataSource.swift */; };
 		FA88C77D20E3829700E31BAB /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88C77C20E3829700E31BAB /* UserSettingsViewController.swift */; };
-		FA9B9540211990C700741BEA /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B953F211990C700741BEA /* APIProvider.swift */; };
+		FA9B9540211990C700741BEA /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B953F211990C700741BEA /* Provider.swift */; };
 		FA9CB2B120F3A34500C1A2FD /* KeyboardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2B020F3A34500C1A2FD /* KeyboardExt.swift */; };
 		FA9CB2B520F3B6C400C1A2FD /* RegisterContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2B420F3B6C400C1A2FD /* RegisterContract.swift */; };
 		FA9CB2B820F3B72700C1A2FD /* LoginContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2B720F3B72700C1A2FD /* LoginContract.swift */; };
 		FA9CB2BC20F3B80D00C1A2FD /* SettingsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2BB20F3B80D00C1A2FD /* SettingsContract.swift */; };
 		FA9CB2BF20F3B84900C1A2FD /* UserSettingsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CB2BE20F3B84900C1A2FD /* UserSettingsContract.swift */; };
-		FAA648312109E16200BC688D /* StationsARKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA648302109E16200BC688D /* StationsARKitController.swift */; };
+		FAA648312109E16200BC688D /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA648302109E16200BC688D /* StationsViewController.swift */; };
 		FAA96DD920E65ED100282687 /* UserSettingsPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA96DD820E65ED100282687 /* UserSettingsPresenterImpl.swift */; };
 		FAA96DDB20EA55A000282687 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA96DDA20EA55A000282687 /* SettingsViewController.swift */; };
 		FAE84287210B19AB00CDDCD2 /* Reachabilty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE84286210B19AB00CDDCD2 /* Reachabilty.swift */; };
@@ -74,6 +75,7 @@
 		60C064232285CC3C00245A7F /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 		60C4432D228462AA00C253E4 /* ARWeatherScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ARWeatherScene.scn; sourceTree = "<group>"; };
 		60CFE9C52270C726009C899E /* ArCardInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArCardInteraction.swift; sourceTree = "<group>"; };
+		60EF14252294CA4800E47CA9 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		60FC47B2228BA2A400AEB8FD /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		60FDC4B8228B268200FF5222 /* TrackingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingNode.swift; sourceTree = "<group>"; };
 		60FDE7CE226D3A7300E704BE /* ARCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCardViewController.swift; sourceTree = "<group>"; };
@@ -82,8 +84,8 @@
 		CD70EC0420DBF80B00FDFDF3 /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
 		CD70EC0920DBFE7000FDFDF3 /* UserManagerFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerFirebase.swift; sourceTree = "<group>"; };
 		ECBDAAAFC62CAB951C38282F /* Pods-BusTrafficDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusTrafficDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusTrafficDemo/Pods-BusTrafficDemo.release.xcconfig"; sourceTree = "<group>"; };
-		FA217C06210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegateEx.swift; sourceTree = "<group>"; };
-		FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLocationViewDelegateEx.swift; sourceTree = "<group>"; };
+		FA217C06210EF66C00BF9CD4 /* MKMapViewDelegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegation.swift; sourceTree = "<group>"; };
+		FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLocationViewDelegation.swift; sourceTree = "<group>"; };
 		FA752BA4211DA2B400AB7ED2 /* TwoStationsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoStationsInfo.swift; sourceTree = "<group>"; };
 		FA77881720DB958F00AEB405 /* LoginPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterImpl.swift; sourceTree = "<group>"; };
 		FA77881920DBA46B00AEB405 /* RegisterPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenterImpl.swift; sourceTree = "<group>"; };
@@ -102,13 +104,13 @@
 		FA888BE920ECD9C9002E55FF /* SettingsPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterImpl.swift; sourceTree = "<group>"; };
 		FA888BEB20ECF188002E55FF /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		FA88C77C20E3829700E31BAB /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
-		FA9B953F211990C700741BEA /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		FA9B953F211990C700741BEA /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		FA9CB2B020F3A34500C1A2FD /* KeyboardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExt.swift; sourceTree = "<group>"; };
 		FA9CB2B420F3B6C400C1A2FD /* RegisterContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterContract.swift; sourceTree = "<group>"; };
 		FA9CB2B720F3B72700C1A2FD /* LoginContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContract.swift; sourceTree = "<group>"; };
 		FA9CB2BB20F3B80D00C1A2FD /* SettingsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContract.swift; sourceTree = "<group>"; };
 		FA9CB2BE20F3B84900C1A2FD /* UserSettingsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsContract.swift; sourceTree = "<group>"; };
-		FAA648302109E16200BC688D /* StationsARKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsARKitController.swift; sourceTree = "<group>"; };
+		FAA648302109E16200BC688D /* StationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
 		FAA96DD820E65ED100282687 /* UserSettingsPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsPresenterImpl.swift; sourceTree = "<group>"; };
 		FAA96DDA20EA55A000282687 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FAE84286210B19AB00CDDCD2 /* Reachabilty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachabilty.swift; sourceTree = "<group>"; };
@@ -206,10 +208,11 @@
 		FA606AC8210F3DEC00F5E261 /* StationsARKit */ = {
 			isa = PBXGroup;
 			children = (
-				FAA648302109E16200BC688D /* StationsARKitController.swift */,
-				FA217C06210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift */,
-				FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift */,
+				FAA648302109E16200BC688D /* StationsViewController.swift */,
+				FA217C06210EF66C00BF9CD4 /* MKMapViewDelegation.swift */,
+				FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegation.swift */,
 				FA752BA4211DA2B400AB7ED2 /* TwoStationsInfo.swift */,
+				60EF14252294CA4800E47CA9 /* UserLocation.swift */,
 			);
 			path = StationsARKit;
 			sourceTree = "<group>";
@@ -280,7 +283,7 @@
 		FA9B953E2119909000741BEA /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				FA9B953F211990C700741BEA /* APIProvider.swift */,
+				FA9B953F211990C700741BEA /* Provider.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -520,7 +523,7 @@
 				60A459E6226F5CDA00AE20B7 /* ARCard.swift in Sources */,
 				60C064242285CC3C00245A7F /* WeatherInfo.swift in Sources */,
 				FAFEDF1D211093B500A3C294 /* TimetableTableViewCell.swift in Sources */,
-				FA217C07210EF66C00BF9CD4 /* MKMapViewDelegateEx.swift in Sources */,
+				FA217C07210EF66C00BF9CD4 /* MKMapViewDelegation.swift in Sources */,
 				FA77881A20DBA46B00AEB405 /* RegisterPresenterImpl.swift in Sources */,
 				FA9CB2B520F3B6C400C1A2FD /* RegisterContract.swift in Sources */,
 				FA9CB2BF20F3B84900C1A2FD /* UserSettingsContract.swift in Sources */,
@@ -531,15 +534,16 @@
 				FA7A6D3920DA6F5200C2D47C /* HomeViewController.swift in Sources */,
 				6003B0B0227C4D8200FFF3E8 /* ARWeatherViewController.swift in Sources */,
 				603BA3D822849A5700F589CF /* ARWeather.swift in Sources */,
-				FA9B9540211990C700741BEA /* APIProvider.swift in Sources */,
+				FA9B9540211990C700741BEA /* Provider.swift in Sources */,
 				FAF88A53210F43130068DB00 /* TimetableViewController.swift in Sources */,
+				60EF14262294CA4800E47CA9 /* UserLocation.swift in Sources */,
 				FA7AB6A820E0DEDE00A3404D /* AnimationExt.swift in Sources */,
 				FA88C77D20E3829700E31BAB /* UserSettingsViewController.swift in Sources */,
 				FA888BEA20ECD9C9002E55FF /* SettingsPresenterImpl.swift in Sources */,
-				FAA648312109E16200BC688D /* StationsARKitController.swift in Sources */,
+				FAA648312109E16200BC688D /* StationsViewController.swift in Sources */,
 				CD70EBFE20DBED7900FDFDF3 /* UserManager.swift in Sources */,
 				FA7A6D3720DA6F5200C2D47C /* AppDelegate.swift in Sources */,
-				FA217C09210EF83C00BF9CD4 /* SceneLocationViewDelegateEx.swift in Sources */,
+				FA217C09210EF83C00BF9CD4 /* SceneLocationViewDelegation.swift in Sources */,
 				FA9CB2BC20F3B80D00C1A2FD /* SettingsContract.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

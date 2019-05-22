@@ -30,7 +30,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         setupConstraints()
         checkInternetConnections()
         checkIfUserIsLoggedIn()
-        userLocation()
+        getUserLocation()
     }
     
     private func setupViews() {
@@ -116,7 +116,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
         
-    private func userLocation() {
+    private func getUserLocation() {
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -145,7 +145,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func findNearestBusStations() {
-        self.navigationController?.pushViewController(StationsARKitController(), animated: true)
+        self.navigationController?.pushViewController(StationsViewController(), animated: true)
     }
     
     @objc func showTimetable() {

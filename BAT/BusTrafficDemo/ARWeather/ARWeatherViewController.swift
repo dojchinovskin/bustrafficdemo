@@ -45,7 +45,7 @@ class ARWeatherViewController: UIViewController, ARSCNViewDelegate, ARSessionDel
     }
     
     private func fetchTemperatures() {
-        APIProvider.getWeather(latitude: "42", longitude: "21.43", success: { [weak self] weatherInfo in
+        Provider.getWeather(latitude: "42", longitude: "21.43", success: { [weak self] weatherInfo in
             self?.arWeather.updateNodes(weatherInfo)
             self?.setTextFor(weatherInfo.today.0)
             }, failure: { error in
