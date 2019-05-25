@@ -14,6 +14,7 @@
 		603BA3D822849A5700F589CF /* ARWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603BA3D722849A5700F589CF /* ARWeather.swift */; };
 		60484298228CD0A900D624D8 /* LoginContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60484297228CD0A900D624D8 /* LoginContainerView.swift */; };
 		609B77C722996CED00717200 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B77C622996CED00717200 /* Constants.swift */; };
+		609B77C92299905A00717200 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B77C82299905A00717200 /* Images.swift */; };
 		60A459E6226F5CDA00AE20B7 /* ARCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A459E5226F5CDA00AE20B7 /* ARCard.swift */; };
 		60B2B0532284E518001FE04D /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B2B0522284E518001FE04D /* DateExt.swift */; };
 		60B8D52E226A31060074F002 /* ARCardScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 60B8D52D226A31060074F002 /* ARCardScene.scn */; };
@@ -71,6 +72,7 @@
 		603BA3D722849A5700F589CF /* ARWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARWeather.swift; sourceTree = "<group>"; };
 		60484297228CD0A900D624D8 /* LoginContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContainerView.swift; sourceTree = "<group>"; };
 		609B77C622996CED00717200 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		609B77C82299905A00717200 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		60A459E5226F5CDA00AE20B7 /* ARCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCard.swift; sourceTree = "<group>"; };
 		60B2B0522284E518001FE04D /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		60B8D52D226A31060074F002 /* ARCardScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ARCardScene.scn; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				FA7A6D3D20DA6F5300C2D47C /* Assets.xcassets */,
 				60B8D52D226A31060074F002 /* ARCardScene.scn */,
 				60C4432D228462AA00C253E4 /* ARWeatherScene.scn */,
+				609B77C82299905A00717200 /* Images.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				FA77881A20DBA46B00AEB405 /* RegisterPresenterImpl.swift in Sources */,
 				FA9CB2B520F3B6C400C1A2FD /* RegisterContract.swift in Sources */,
 				FA9CB2BF20F3B84900C1A2FD /* UserSettingsContract.swift in Sources */,
+				609B77C92299905A00717200 /* Images.swift in Sources */,
 				60484298228CD0A900D624D8 /* LoginContainerView.swift in Sources */,
 				CD70EC0520DBF80B00FDFDF3 /* MainAssembly.swift in Sources */,
 				FA7A6D4C20DA8A4A00C2D47C /* LoginViewController.swift in Sources */,

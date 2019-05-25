@@ -37,7 +37,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         self.navigationController?.navigationBar.colorBar()
         view.backgroundColor = .white
         navigationController?.navigationBar.isTranslucent = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ProfileMenuIcon"), style: .plain, target: self, action: #selector(showSettings))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: Images.profileMenuIcon, style: .plain, target: self, action: #selector(showSettings))
         navigationItem.title = "Home"
         
         var buttons: [UIButton] = []
@@ -68,7 +68,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         arweatherButton.setTitle("AR Weather", for: .normal)
         arweatherButton.addTarget(self, action: #selector(showARWeather), for: .touchUpInside)
         
-        backgroundPic.image = UIImage(named: "busPic")
+        backgroundPic.image = Images.busIcon
         backgroundPic.translatesAutoresizingMaskIntoConstraints = false
         backgroundPic.contentMode = .scaleAspectFill
         

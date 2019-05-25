@@ -203,7 +203,7 @@ private extension StationsViewController {
     func buildNode(latitude: CLLocationDegrees, longitude: CLLocationDegrees, altitude: CLLocationDistance, imageName: String) -> LocationAnnotationNode {
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let location = CLLocation(coordinate: coordinate, altitude: altitude)
-        let image = UIImage(named: "pin")!
+        let image = Images.pin
         return LocationAnnotationNode(location: location, image: image)
     }
 }

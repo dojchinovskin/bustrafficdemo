@@ -31,7 +31,7 @@ class ARWeather: SCNNode {
     override init() {
         super.init()
         
-        guard let template = SCNScene(named: "ARWeatherScene.scn"),
+        guard let template = Scenes.weatherScene,
             let cloud = template.rootNode.childNode(withName: "Cloud", recursively: false),
             let location = cloud.childNode(withName: "Location", recursively: false),
             let currTemp = cloud.childNode(withName: "CurrTemp", recursively: false),
@@ -131,11 +131,11 @@ class ARWeather: SCNNode {
         if image.lowercased().contains("sun") {
             let action = SCNAction.repeatForever(SCNAction.rotate(by: .pi, around: SCNVector3(0, 0, 1), duration: 5))
             currTempIcon.runAction(action)
-            return UIImage(named: "sun")!
+            return Images.sun
         } else if image.contains("rain") {
-            return UIImage(named: "rain")!
+            return Images.rain
         } else {
-            return UIImage(named: "cloudy")!
+            return Images.cloudy
         }
     }
     

@@ -33,7 +33,7 @@ class TimetableViewController: UIViewController {
         tableView.delegate = self
         
         closeButton = UIButton(type: .custom)
-        closeButton.setImage(UIImage(named: "XButton"), for: .normal)
+        closeButton.setImage(Images.xButton, for: .normal)
         closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
         
         view.addSubview(tableView)
