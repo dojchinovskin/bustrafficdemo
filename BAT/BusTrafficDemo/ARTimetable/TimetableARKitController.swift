@@ -53,7 +53,7 @@ class TimetableARKitController: UIViewController {
     
     private func fetchLinesFor(_ place: String) {
         lines = []
-        let databaseRef = Database.database().reference(fromURL: "https://arbustraffic.firebaseio.com/")
+        let databaseRef = Constants.Firebase.databaseRef
         databaseRef.child("Lines").child(place).observeSingleEvent(of: .value) { [weak self] (snapshot) in
             guard let values = snapshot.value as? Dictionary<String, String> else { return }
             for value in values {

@@ -10,10 +10,7 @@ import UIKit
 import Firebase
 
 class LoginPresenterImpl: LoginPresenter {
-    
     var view: LoginView?
-    let errorEmailString = "There is no user record corresponding to this identifier. The user may have been deleted."
-    let errorPasswordString = "The password is invalid or the user does not have a password."
 
     func attach(view: LoginView) {
         self.view = view
@@ -33,15 +30,8 @@ class LoginPresenterImpl: LoginPresenter {
         view?.showProgressHud()
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] (user, error) in
             self?.view?.hideProgressHud()
-            if error != nil {
-                print("\(error!)")
-                if error?.localizedDescription == self?.errorEmailString {
-                    self?.view?.showWrongEmail()
-                }
-                
-                if error?.localizedDescription == self?.errorPasswordString {
-                    self?.view?.showWrongPassword()
-                }
+            if let error = error {
+                self?.view?.showError(error: error.localizedDescription)
                 return
             }
             self?.view?.loginSuccess()
@@ -54,14 +44,8 @@ class LoginPresenterImpl: LoginPresenter {
         self.view?.showProgressHud()
         Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
             self.view?.hideProgressHud()
-            DispatchQueue.main.async {
-                if let error = error {
-                    self.view?.showResetPasswordFailure(error: error)
-                } else {
-                    self.view?.showResetPasswordSuccess()
-                }
-            }
+            let message = error?.localizedDescription ?? "Check your email."
+            self.view?.showPasswordResetStatus(message: message)
         })
     }
-    
 }

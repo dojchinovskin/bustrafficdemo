@@ -9,13 +9,11 @@
 import UIKit
 
 protocol LoginView: class {
-    func showWrongEmail()
-    func showWrongPassword()
+    func showError(error: String)
     func loginSuccess()
     func showProgressHud()
     func hideProgressHud()
-    func showResetPasswordSuccess()
-    func showResetPasswordFailure(error: Error)
+    func showPasswordResetStatus(message: String)
 }
 
 protocol LoginPresenter: class {

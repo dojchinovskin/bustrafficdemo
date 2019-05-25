@@ -21,12 +21,7 @@ class LoginViewController: UIViewController, LoginView, RegisterView, UITextFiel
     
     var loginPresenter: LoginPresenter = LoginPresenterImpl()
     var registerPresenter: RegisterPresenter = RegisterPresenterImpl()
-    
     private let navigator: Navigator = MainAssembly().getGlobalNavigator()
-    
-    let errorEmail = "Wrong Email or Password"
-    let errorPassword = "Wrong Email or Password"
-    let errorEmailAlreadyUsed = "The email address is already in use by another account."
     
     //MARK: LIFECYCLE
     
@@ -69,17 +64,9 @@ class LoginViewController: UIViewController, LoginView, RegisterView, UITextFiel
     }
     
     // MARK: SVPROGRESS ALERTS
-
-    func showWrongEmail() {
-        SVProgressHUD.showError(withStatus: errorEmail)
-    }
-
-    func showWrongPassword() {
-        SVProgressHUD.showError(withStatus: errorPassword)
-    }
     
-    func showEmailAlreadyUsed() {
-        SVProgressHUD.showError(withStatus: errorEmailAlreadyUsed)
+    func showError(error: String) {
+        SVProgressHUD.showError(withStatus: error)
     }
 
     //MARK: PROGRESS HUD
@@ -94,23 +81,21 @@ class LoginViewController: UIViewController, LoginView, RegisterView, UITextFiel
     
     //MARK: RESET PASSWORD
     
-    func showResetPasswordSuccess() {
-        let resetEmailSentAlert = UIAlertController(title: "Reset email sent successfully", message: "Check your email", preferredStyle: .alert)
-        resetEmailSentAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(resetEmailSentAlert, animated: true, completion: nil)
-    }
-    
-    func showResetPasswordFailure(error: Error) {
-        let resetFailedAlert = UIAlertController(title: "Reset Failed", message: error.localizedDescription, preferredStyle: .alert)
-        resetFailedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(resetFailedAlert, animated: true, completion: nil)
+    func showPasswordResetStatus(message: String) {
+        let alert = UIAlertController(title: "Reset Password",
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     //MARK: CHECK INTERNET CONNECTION
     
     func checkInternetConnection() {
         if !Reachability.isConnectedToNetwork()  {
-            let noNetAlert = UIAlertController(title: "No Internet Connection", message: "Connect your phone to internet connections before using this app.", preferredStyle: .alert)
+            let noNetAlert = UIAlertController(title: "No Internet Connection",
+                                               message: "Connect your phone to internet connections before using this app.",
+                                               preferredStyle: .alert)
             noNetAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                 exit(1)
             }))

@@ -30,17 +30,14 @@ class RegisterPresenterImpl: RegisterPresenter {
     func register(name: String, email: String, password: String) {
         view?.showProgressHud()
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] (user, error) in
-            if error != nil {
-                print(error!)
-                if error?.localizedDescription == self?.errorEmailAlreadyUsed {
-                    self?.view?.showEmailAlreadyUsed()
-                }
+            if let error = error {
+                self?.view?.showError(error: error.localizedDescription)
                 return
             }
             guard let uid = user?.user.uid else {
                 return
             }
-            let ref = Database.database().reference(fromURL: "https://arbustraffic.firebaseio.com/")
+            let ref = Constants.Firebase.databaseRef
             let userReference = ref.child("users").child(uid)
             let values = ["name": name, "email": email]
             userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in

@@ -12,7 +12,7 @@ protocol RegisterView: class {
     func registerSuccess()
     func showProgressHud()
     func hideProgressHud()
-    func showEmailAlreadyUsed()
+    func showError(error: String)
 }
 
 protocol RegisterPresenter: class {

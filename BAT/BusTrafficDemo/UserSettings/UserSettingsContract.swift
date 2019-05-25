@@ -12,17 +12,13 @@ protocol UserSettingsView: class {
     func showProgressHud()
     func hideProgressHud()
     func resetName()
-    func reauthenticateNameSuccess()
-    func updateNameSuccess()
-    func emptyNameTextfield()
+    func reauthenticateName()
     func resetEmail()
-    func reauthenticateEmailSuccess()
-    func updateEmailSuccess()
+    func reauthenticateEmail()
     func resetPassword()
-    func reauthenticatePasswordSuccess()
-    func updatePasswordSuccess()
-    func updateEmailPasswordFailure(error: Error)
-    func reauthenticateFailure(error: Error)
+    func reauthenticatePassword()
+    func showUpdate(title: String)
+    func showFailure(error: String)
 }
 
 protocol UserSettingsPresenter: class {

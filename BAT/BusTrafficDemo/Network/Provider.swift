@@ -17,7 +17,13 @@ typealias WeatherError = (Error) -> Void
 
 struct Provider {
     static func getStations(latitude: String, longitude: String, success: @escaping SuccessBlock, failure: @escaping ErrorBlock) {
-        Alamofire.request("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latitude),\(longitude)&radius=1000&type=bus_station&key=AIzaSyBhhGnyRKf735lvZ6eq-UtJwkHmlTeVSUQ").validate().responseJSON { response in
+        let key = Constants.GoogleMaps.key
+        let radius = Constants.GoogleMaps.radius
+        let type = Constants.GoogleMaps.type
+        
+        let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latitude),\(longitude)&radius=\(radius)&type=\(type)&key=\(key)"
+        
+        Alamofire.request(url).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -40,9 +46,13 @@ struct Provider {
     }
     
     static func getWeather(latitude: String, longitude: String, success: @escaping WeatherSuccess, failure: @escaping WeatherError) {
-        let darkSkyEndpoint = "https://api.darksky.net/forecast/808a30a6bbd354bd8ae98dc386f1c004/\(latitude),\(longitude)?units=si&exclude=minutely,hourly,alerts,flags"
+        let key = Constants.DarkSky.key
+        let parameters = Constants.DarkSky.parameters
+        let units = Constants.DarkSky.units
         
-        Alamofire.request(darkSkyEndpoint).validate().responseJSON { response in
+        let url = "https://api.darksky.net/forecast/\(key)/\(latitude),\(longitude)?units=\(units)&exclude=\(parameters)"
+        
+        Alamofire.request(url).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)

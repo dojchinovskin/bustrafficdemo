@@ -36,7 +36,10 @@ class NavigatorImpl: Navigator {
     }
 
     func setLoginScreenAsRootController() {
-        getMainWindow()?.setRootViewController(UINavigationController(rootViewController: LoginViewController()))
+        let loginViewController = UINavigationController(rootViewController: LoginViewController())
+        var options = UIWindow.TransitionOptions()
+        options.direction = .fade
+        getMainWindow()?.setRootViewController(loginViewController, options: options)        
     }
 
 }

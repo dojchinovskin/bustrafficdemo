@@ -34,10 +34,10 @@ class UserSettingsPresenterImpl: UserSettingsPresenter {
         Auth.auth().currentUser?.reauthenticateAndRetrieveData(with: emailCheck, completion: { (result, error) in
             self.view?.hideProgressHud()
             if let error = error {
-                self.view?.reauthenticateFailure(error: error)
+                self.view?.showFailure(error: error.localizedDescription)
                 return
             }
-            self.view?.reauthenticateNameSuccess()
+            self.view?.reauthenticateName()
         })
     }
     
@@ -46,7 +46,7 @@ class UserSettingsPresenterImpl: UserSettingsPresenter {
             return
         }
         
-        let ref = Database.database().reference(fromURL: "https://busartrafficdemo.firebaseio.com/")
+        let ref = Constants.Firebase.databaseRef
         let userReference = ref.child("users").child(uid)
         let values = ["name": name]
         userReference.updateChildValues(values as Any as! [AnyHashable : Any], withCompletionBlock: { (err, ref) in
@@ -55,7 +55,7 @@ class UserSettingsPresenterImpl: UserSettingsPresenter {
                 return
             }
         })
-        self.view?.updateNameSuccess()
+        self.view?.showUpdate(title: "name")
     }
     
     //MARK: RESET EMAIL
@@ -66,10 +66,10 @@ class UserSettingsPresenterImpl: UserSettingsPresenter {
         Auth.auth().currentUser?.reauthenticateAndRetrieveData(with: emailCheck, completion: { (result, error) in
             self.view?.hideProgressHud()
             if let error = error {
-                self.view?.reauthenticateFailure(error: error)
+                self.view?.showFailure(error: error.localizedDescription)
                 return
             }
-            self.view?.reauthenticateEmailSuccess()
+            self.view?.reauthenticateEmail()
         })
     }
     
@@ -78,16 +78,16 @@ class UserSettingsPresenterImpl: UserSettingsPresenter {
         Auth.auth().currentUser?.updateEmail(to: email, completion: { (error) in
             self.view?.hideProgressHud()
             if let error = error {
-                self.view?.updateEmailPasswordFailure(error: error)
+                self.view?.showFailure(error: error.localizedDescription)
                 return
             }
-            self.view?.updateEmailSuccess()
+            self.view?.showUpdate(title: "email")
             
             guard let uid = Auth.auth().currentUser?.uid else {
                 return
             }
             
-            let ref = Database.database().reference(fromURL: "https://busartrafficdemo.firebaseio.com/")
+            let ref = Constants.Firebase.databaseRef
             let userReference = ref.child("users").child(uid)
             let values = ["email": email]
             userReference.updateChildValues(values as Any as! [AnyHashable : Any], withCompletionBlock: { (err, ref) in
@@ -107,10 +107,10 @@ class UserSettingsPresenterImpl: UserSettingsPresenter {
         Auth.auth().currentUser?.reauthenticateAndRetrieveData(with: emailCheck, completion: { (result, error) in
             self.view?.hideProgressHud()
             if let error = error {
-                self.view?.reauthenticateFailure(error: error)
+                self.view?.showFailure(error: error.localizedDescription)
                 return
             }
-            self.view?.reauthenticatePasswordSuccess()
+            self.view?.reauthenticatePassword()
         })
     }
     
@@ -119,10 +119,10 @@ class UserSettingsPresenterImpl: UserSettingsPresenter {
         Auth.auth().currentUser?.updatePassword(to: email, completion: { (error) in
             self.view?.hideProgressHud()
             if let error = error {
-                self.view?.updateEmailPasswordFailure(error: error)
+                self.view?.showFailure(error: error.localizedDescription)
                 return
             }
-            self.view?.updatePasswordSuccess()
+            self.view?.showUpdate(title: "password")
         })
     }
 }

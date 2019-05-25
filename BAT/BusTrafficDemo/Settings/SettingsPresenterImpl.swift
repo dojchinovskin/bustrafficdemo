@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 
 class SettingsPresenterImpl: SettingsPresenter {
-    
     private let userManager: UserManager = MainAssembly().getUserManager()
     private let navigator: Navigator = MainAssembly().getGlobalNavigator()
     
@@ -36,20 +35,20 @@ class SettingsPresenterImpl: SettingsPresenter {
             Auth.auth().currentUser?.reauthenticateAndRetrieveData(with: emailCheck, completion: { (result, error) in
                 self.view?.hideProgressHud()
                 if let error = error {
-                    self.view?.showAccountDeactivationFailure(error: error)
+                    self.view?.showFailure(error: error)
                 } else {
                     Auth.auth().currentUser?.delete(completion: { (error) in
                         if let error = error {
-                           self.view?.showAccountDeactivationFailure(error: error)
+                           self.view?.showFailure(error: error)
                         }
                     })
                     guard let uid = Auth.auth().currentUser?.uid else {
                         return
                     }
-                    let ref = Database.database().reference(fromURL: "https://busartrafficdemo.firebaseio.com/")
+                    let ref = Constants.Firebase.databaseRef
                     let userReference = ref.child("users").child(uid)
                     userReference.removeValue()
-                    self.view?.showAccountDeactivationSuccess()
+                    self.view?.showSuccess()
                 }
             })
     }

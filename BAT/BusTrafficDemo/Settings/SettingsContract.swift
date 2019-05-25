@@ -12,8 +12,8 @@ protocol SettingsView: class {
     func showProgressHud()
     func hideProgressHud()
     func deactivateAccount()
-    func showAccountDeactivationSuccess()
-    func showAccountDeactivationFailure(error: Error)
+    func showSuccess()
+    func showFailure(error: Error)
 }
 
 protocol SettingsPresenter: class {
