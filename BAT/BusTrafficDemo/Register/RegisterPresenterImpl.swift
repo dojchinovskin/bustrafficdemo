@@ -10,9 +10,6 @@ import UIKit
 import Firebase
 
 class RegisterPresenterImpl: RegisterPresenter {
-    
-    let errorEmailAlreadyUsed = "The email address is already in use by another account."
-    
     var view: RegisterView?
     
     func attach(view: RegisterView) {
