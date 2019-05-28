@@ -152,6 +152,31 @@
 			path = ARWeather;
 			sourceTree = "<group>";
 		};
+		60113353229DEB6600570935 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				60FDE7CD226D3A3B00E704BE /* ARCard */,
+				6003B0AE227C4D4B00FFF3E8 /* ARWeather */,
+				FA606AC9210F3E3700F5E261 /* ARTimetable */,
+				FA606AC8210F3DEC00F5E261 /* StationsARKit */,
+				FA606AC7210F3D8F00F5E261 /* Home */,
+				FA9CB2B320F3B67A00C1A2FD /* Register */,
+				FA9CB2B620F3B71000C1A2FD /* Login */,
+				FA9CB2BA20F3B7E800C1A2FD /* Settings */,
+				FA9CB2BD20F3B82400C1A2FD /* UserSettings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		60113354229DEB9800570935 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				FA9B953E2119909000741BEA /* Network */,
+				CD70EBFF20DBEE2C00FDFDF3 /* Utils */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
 		60484299228CD36800D624D8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,21 +280,11 @@
 			isa = PBXGroup;
 			children = (
 				FA7A6D3620DA6F5200C2D47C /* AppDelegate.swift */,
-				FA9B953E2119909000741BEA /* Network */,
-				6003B0AE227C4D4B00FFF3E8 /* ARWeather */,
-				60FDE7CD226D3A3B00E704BE /* ARCard */,
-				FA606AC8210F3DEC00F5E261 /* StationsARKit */,
-				FA606AC9210F3E3700F5E261 /* ARTimetable */,
-				FA606AC7210F3D8F00F5E261 /* Home */,
-				FA9CB2BD20F3B82400C1A2FD /* UserSettings */,
-				FA9CB2BA20F3B7E800C1A2FD /* Settings */,
-				FA9CB2B620F3B71000C1A2FD /* Login */,
-				FA9CB2B320F3B67A00C1A2FD /* Register */,
-				CD70EBFF20DBEE2C00FDFDF3 /* Utils */,
+				60113354229DEB9800570935 /* Engine */,
+				60113353229DEB6600570935 /* Features */,
+				FAFEDF1B2110516400A3C294 /* Resources */,
 				FA7A6D4220DA6F5300C2D47C /* Info.plist */,
 				601135152289CB9E00EAADC2 /* GoogleService-Info.plist */,
-				FAFEDF1A2110513A00A3C294 /* Storyboards */,
-				FAFEDF1B2110516400A3C294 /* Resources */,
 			);
 			path = BusTrafficDemo;
 			sourceTree = "<group>";
@@ -349,6 +364,7 @@
 		FAFEDF1B2110516400A3C294 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FAFEDF1A2110513A00A3C294 /* Storyboards */,
 				FA7A6D3D20DA6F5300C2D47C /* Assets.xcassets */,
 				60B8D52D226A31060074F002 /* ARCardScene.scn */,
 				60C4432D228462AA00C253E4 /* ARWeatherScene.scn */,
