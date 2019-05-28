@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,14 +14,14 @@
             <objects>
                 <viewController storyboardIdentifier="timetableARKitController" id="0eD-ke-2hQ" customClass="TimetableARKitController" customModule="BusTrafficDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dh1-B6-pEf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUM-AC-LZm">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goy-rl-5ig">
-                                <rect key="frame" x="162.5" y="587" width="50" height="50"/>
+                                <rect key="frame" x="182" y="782" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2lR-oQ-QmO"/>
                                     <constraint firstAttribute="width" constant="50" id="rjp-Qq-5X0"/>
@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VRl-by-ozh">
-                                <rect key="frame" x="62.5" y="50" width="250" height="51"/>
+                                <rect key="frame" x="82" y="74" width="250" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="DtT-AG-LxX"/>
                                     <constraint firstAttribute="width" constant="250" id="et6-b5-0iJ"/>
@@ -50,7 +50,7 @@
                             <constraint firstItem="VRl-by-ozh" firstAttribute="top" secondItem="B7D-QK-67d" secondAttribute="top" constant="30" id="Ler-lP-w3k"/>
                             <constraint firstItem="goy-rl-5ig" firstAttribute="centerX" secondItem="dh1-B6-pEf" secondAttribute="centerX" id="TTb-Q8-wDI"/>
                             <constraint firstItem="B7D-QK-67d" firstAttribute="bottom" secondItem="goy-rl-5ig" secondAttribute="bottom" constant="30" id="VIa-aj-aiS"/>
-                            <constraint firstItem="B7D-QK-67d" firstAttribute="bottom" secondItem="UUM-AC-LZm" secondAttribute="bottom" id="aYr-fN-tST"/>
+                            <constraint firstAttribute="bottom" secondItem="UUM-AC-LZm" secondAttribute="bottom" id="aYr-fN-tST"/>
                             <constraint firstItem="VRl-by-ozh" firstAttribute="centerX" secondItem="dh1-B6-pEf" secondAttribute="centerX" id="mnZ-g3-Q5v"/>
                             <constraint firstItem="UUM-AC-LZm" firstAttribute="leading" secondItem="B7D-QK-67d" secondAttribute="leading" id="wWd-NC-64d"/>
                             <constraint firstItem="UUM-AC-LZm" firstAttribute="top" secondItem="dh1-B6-pEf" secondAttribute="top" id="zcY-P1-RyY"/>

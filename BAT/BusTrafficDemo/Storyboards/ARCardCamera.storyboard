@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYG-zB-nrS">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nv7-cx-7PE">
                                 <rect key="frame" x="182" y="782" width="50" height="50"/>
@@ -37,7 +37,7 @@
                             <constraint firstItem="hYG-zB-nrS" firstAttribute="top" secondItem="VFJ-QC-M4e" secondAttribute="top" id="GB7-wR-018"/>
                             <constraint firstItem="QOJ-Qi-Sb4" firstAttribute="bottom" secondItem="Nv7-cx-7PE" secondAttribute="bottom" constant="30" id="Lkp-lq-C3W"/>
                             <constraint firstItem="QOJ-Qi-Sb4" firstAttribute="trailing" secondItem="hYG-zB-nrS" secondAttribute="trailing" id="PQy-oK-7Yk"/>
-                            <constraint firstItem="QOJ-Qi-Sb4" firstAttribute="bottom" secondItem="hYG-zB-nrS" secondAttribute="bottom" id="mrW-N8-Di3"/>
+                            <constraint firstAttribute="bottom" secondItem="hYG-zB-nrS" secondAttribute="bottom" id="mrW-N8-Di3"/>
                             <constraint firstItem="Nv7-cx-7PE" firstAttribute="centerX" secondItem="VFJ-QC-M4e" secondAttribute="centerX" id="u91-zA-b3y"/>
                             <constraint firstItem="hYG-zB-nrS" firstAttribute="leading" secondItem="QOJ-Qi-Sb4" secondAttribute="leading" id="xHS-Yk-f5T"/>
                         </constraints>
