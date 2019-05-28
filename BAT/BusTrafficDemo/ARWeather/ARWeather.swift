@@ -31,7 +31,7 @@ class ARWeather: SCNNode {
     override init() {
         super.init()
         
-        guard let template = Scenes.weatherScene,
+        guard let template = SCNScene(named: "ARWeatherScene.scn"),
             let cloud = template.rootNode.childNode(withName: "Cloud", recursively: false),
             let location = cloud.childNode(withName: "Location", recursively: false),
             let currTemp = cloud.childNode(withName: "CurrTemp", recursively: false),

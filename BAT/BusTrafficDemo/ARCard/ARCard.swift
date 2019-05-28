@@ -22,7 +22,7 @@ class ARCard: SCNNode {
     override init() {
         super.init()
         
-        guard let template = Scenes.cardScene,
+        guard let template = SCNScene(named: "ARCardScene.scn"),
             let rootNode = template.rootNode.childNode(withName: "RootNode", recursively: false),
             let target = rootNode.childNode(withName: "CardTarget", recursively: false),
             let phoneButton = rootNode.childNode(withName: "Phone", recursively: false),

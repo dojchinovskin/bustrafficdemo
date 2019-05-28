@@ -21,8 +21,3 @@ struct Images {
     static let rain = UIImage(named: "rain")!
     static let cloudy = UIImage(named: "cloudy")!
 }
-
-struct Scenes {
-    static let cardScene = SCNScene(named: "ARCardScene.scn")
-    static let weatherScene = SCNScene(named: "ARWeatherScene.scn")
-}
