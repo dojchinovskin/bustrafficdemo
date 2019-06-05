@@ -22,6 +22,7 @@ extension ARCardViewController {
         case "Phone": callNumber(number: "070830535") // jsp/skopska number
         case "Sms": sendSmsTo(number: "070830535")
         case "Email": print("Email")
+        case "Info": print("Info")
         default: return
         }
     }

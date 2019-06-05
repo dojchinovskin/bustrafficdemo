@@ -16,6 +16,7 @@ class ARCard: SCNNode {
     private var websiteButton: SCNNode!
     private var mapsButton: SCNNode!
     private var emailButton: SCNNode!
+    private var infoButton: SCNNode!
     
     private var buttons: [SCNNode] = []
     
@@ -29,7 +30,8 @@ class ARCard: SCNNode {
             let smsButton = rootNode.childNode(withName: "Sms", recursively: false),
             let websiteButton = rootNode.childNode(withName: "Website", recursively: false),
             let mapsButton = rootNode.childNode(withName: "Maps", recursively: false),
-            let emailButton = rootNode.childNode(withName: "Email", recursively: false)
+            let emailButton = rootNode.childNode(withName: "Email", recursively: false),
+            let infoButton = rootNode.childNode(withName: "Info", recursively: false)
         else {
             fatalError("Error getting ARCard nodes")
         }
@@ -40,12 +42,14 @@ class ARCard: SCNNode {
         self.websiteButton = websiteButton
         self.mapsButton = mapsButton
         self.emailButton = emailButton
+        self.infoButton = infoButton
         
         buttons.append(phoneButton)
         buttons.append(smsButton)
         buttons.append(websiteButton)
         buttons.append(mapsButton)
         buttons.append(emailButton)
+        buttons.append(infoButton)
         
         cardTarget.isHidden = true
         buttons.forEach { $0.rotation = SCNVector4Make(0, 1, 0, GLKMathDegreesToRadians(180)) }
