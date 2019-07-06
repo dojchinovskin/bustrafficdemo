@@ -74,7 +74,7 @@ class UserSettingsViewController: UIViewController, UserSettingsView {
     //MARK: RESET NAME
     
     func resetName() {
-        let alert = self.customAlert(title: "Edit your name",
+        let alert = self.customAlert(title: "Change your name",
                                      message: "Enter your email and password",
                                      firstPlaceholder: "Enter your email",
                                      secondPlaceholder: "Enter your password")
@@ -91,7 +91,7 @@ class UserSettingsViewController: UIViewController, UserSettingsView {
     
     func reauthenticateName() {
         let alert = self.customAlert(title: "New Name",
-                                     message: "Enter your new name",
+                                     message: "Change your new name",
                                      firstPlaceholder: "Enter your new name",
                                      secondPlaceholder: nil)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

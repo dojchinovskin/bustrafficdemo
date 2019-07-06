@@ -53,7 +53,7 @@ extension ARCardViewController: ARSCNViewDelegate {
             
             let referenceImage = imageAnchor.referenceImage
             
-            if let matchedBusinessCardName = referenceImage.name, matchedBusinessCardName == "businessCard" && !self.isCardPlaced {
+            if let matchedCardName = referenceImage.name, matchedCardName == "transportCard" && !self.isCardPlaced {
                 self.isCardPlaced = true
                 node.addChildNode(self.arCard)
                 self.arCard.animateButtons()

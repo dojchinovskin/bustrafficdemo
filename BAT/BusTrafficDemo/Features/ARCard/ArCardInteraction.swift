@@ -19,14 +19,20 @@ extension ARCardViewController {
         switch hitResult {
         case "Website": displayWebsite(urlString: "https://www.google.com")
         case "Maps": print("Maps")
-        case "Phone": callNumber(number: "070830535") // jsp/skopska number
-        case "Sms": sendSmsTo(number: "070830535")
+        case "Phone": callNumber(number: "070000000") // jsp/skopska number
+        case "Sms": sendSmsTo(number: "070000000")
         case "Email": print("Email")
-        case "Info": print("Info")
+        case "Info": getInfo()
         default: return
         }
     }
     
+    private func getInfo() {
+        let alert = UIAlertController(title: "Bus Traffic Card Info", message: "You have 250 den left.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
     private func callNumber(number: String) {
         if let url = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
