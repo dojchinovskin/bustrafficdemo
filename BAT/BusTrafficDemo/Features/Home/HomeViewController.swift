@@ -145,13 +145,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func findNearestBusStations() {
-        self.navigationController?.pushViewController(StationsViewController(), animated: true)
+        let stationsController = StationsViewController()
+        self.present(stationsController, animated: true, completion: nil)
     }
     
     @objc func showTimetable() {
         let storyboard = UIStoryboard(name: "TimetableCamera", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "timetableARKitController")
-        present(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
     }
     
     @objc func showSettings() {
@@ -162,12 +163,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @objc func showARCard() {
         let storyboard = UIStoryboard(name: "ARCardCamera", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "arCardViewController")
-        present(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
     }
     
     @objc func showARWeather() {
         let storyboard = UIStoryboard(name: "ARWeatherCamera", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "arWeatherViewController")
-        present(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
     }
 }

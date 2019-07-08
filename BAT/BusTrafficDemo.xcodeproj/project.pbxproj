@@ -30,7 +30,6 @@
 		CD70EBFE20DBED7900FDFDF3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EBFD20DBED7900FDFDF3 /* UserManager.swift */; };
 		CD70EC0520DBF80B00FDFDF3 /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EC0420DBF80B00FDFDF3 /* MainAssembly.swift */; };
 		CD70EC0A20DBFE7000FDFDF3 /* UserManagerFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70EC0920DBFE7000FDFDF3 /* UserManagerFirebase.swift */; };
-		FA217C07210EF66C00BF9CD4 /* MKMapViewDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA217C06210EF66C00BF9CD4 /* MKMapViewDelegation.swift */; };
 		FA217C09210EF83C00BF9CD4 /* SceneLocationViewDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegation.swift */; };
 		FA752BA5211DA2B400AB7ED2 /* TwoStationsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA752BA4211DA2B400AB7ED2 /* TwoStationsInfo.swift */; };
 		FA77881820DB958F00AEB405 /* LoginPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77881720DB958F00AEB405 /* LoginPresenterImpl.swift */; };
@@ -88,7 +87,6 @@
 		CD70EC0420DBF80B00FDFDF3 /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
 		CD70EC0920DBFE7000FDFDF3 /* UserManagerFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerFirebase.swift; sourceTree = "<group>"; };
 		ECBDAAAFC62CAB951C38282F /* Pods-BusTrafficDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusTrafficDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusTrafficDemo/Pods-BusTrafficDemo.release.xcconfig"; sourceTree = "<group>"; };
-		FA217C06210EF66C00BF9CD4 /* MKMapViewDelegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegation.swift; sourceTree = "<group>"; };
 		FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLocationViewDelegation.swift; sourceTree = "<group>"; };
 		FA752BA4211DA2B400AB7ED2 /* TwoStationsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoStationsInfo.swift; sourceTree = "<group>"; };
 		FA77881720DB958F00AEB405 /* LoginPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterImpl.swift; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				FAA648302109E16200BC688D /* StationsViewController.swift */,
-				FA217C06210EF66C00BF9CD4 /* MKMapViewDelegation.swift */,
 				FA217C08210EF83C00BF9CD4 /* SceneLocationViewDelegation.swift */,
 				FA752BA4211DA2B400AB7ED2 /* TwoStationsInfo.swift */,
 				60EF14252294CA4800E47CA9 /* UserLocation.swift */,
@@ -546,7 +543,6 @@
 				60A459E6226F5CDA00AE20B7 /* ARCard.swift in Sources */,
 				60C064242285CC3C00245A7F /* WeatherInfo.swift in Sources */,
 				FAFEDF1D211093B500A3C294 /* TimetableTableViewCell.swift in Sources */,
-				FA217C07210EF66C00BF9CD4 /* MKMapViewDelegation.swift in Sources */,
 				FA77881A20DBA46B00AEB405 /* RegisterPresenterImpl.swift in Sources */,
 				FA9CB2B520F3B6C400C1A2FD /* RegisterContract.swift in Sources */,
 				FA9CB2BF20F3B84900C1A2FD /* UserSettingsContract.swift in Sources */,

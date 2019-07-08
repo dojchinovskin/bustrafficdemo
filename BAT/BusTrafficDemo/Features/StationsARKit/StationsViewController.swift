@@ -16,8 +16,8 @@ import SVProgressHUD
 class StationsViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     let sceneLocationView = SceneLocationView()
     var twoStationsInfo: TwoStationsInfo!
-    let mapView = MKMapView()
     let findButton = UIButton(type: .custom)
+    let closeButton = UIButton(type: .custom)
 
     var userLocation: UserLocation!
     let locationManager = CLLocationManager()
@@ -50,27 +50,19 @@ class StationsViewController: UIViewController, CLLocationManagerDelegate, UIGes
     private func setupViews() {
         sceneLocationView.locationViewDelegate = self
         
-        mapView.delegate = self
-        mapView.showsUserLocation = true
-        mapView.alpha = 0.8
-        
-        let delta: CLLocationDegrees = 0.005
-        let span = MKCoordinateSpanMake(delta, delta)
-        let location = CLLocationCoordinate2DMake((locationManager.location?.coordinate.latitude) ?? 42, (locationManager.location?.coordinate.longitude) ?? 21)
-        let region = MKCoordinateRegionMake(location, span)
-        mapView.setRegion(region, animated: false)
-        
         findButton.backgroundColor = UIColor(r: 161, g: 117, b: 170)
-        findButton.setTitle("Find nearest station", for: .normal)
+        findButton.setTitle("Find nearest stations", for: .normal)
         findButton.setTitleColor(.white, for: .normal)
-        findButton.translatesAutoresizingMaskIntoConstraints = false
         findButton.layer.cornerRadius = 5
         findButton.layer.masksToBounds = true
         findButton.addTarget(self, action: #selector(findButtonPressed), for: .touchUpInside)
         
+        closeButton.setImage(Images.xButton, for: .normal)
+        closeButton.addTarget(self, action: #selector(closeButtonPressed), for: .touchUpInside)
+        
         view.addSubview(sceneLocationView)
-        view.addSubview(mapView)
         view.addSubview(findButton)
+        view.addSubview(closeButton)
     }
     
     private func setupConstraints() {
@@ -78,34 +70,26 @@ class StationsViewController: UIViewController, CLLocationManagerDelegate, UIGes
             make.edges.equalTo(self.view)
         }
         
-        mapView.snp.makeConstraints { (make) in
-            make.left.bottom.right.equalTo(self.view)
-            make.height.equalTo(self.view.frame.height / 2)
-        }
-        
         findButton.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
+            make.centerX.equalTo(self.view)
+            make.bottom.equalTo(closeButton.snp.top).offset(-20)
             make.width.equalToSuperview().offset(-50)
             make.height.equalTo(50)
         }
-    }
-    
-    private func calculateUserDistance(from point: MKPointAnnotation) -> Double {
-        guard let userLocation = mapView.userLocation.location else { return 0 }
-        let pointLocation = CLLocation(
-            latitude:  point.coordinate.latitude,
-            longitude: point.coordinate.longitude
-        )
-        return userLocation.distance(from: pointLocation)
+        
+        closeButton.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self.view)
+            make.bottom.equalToSuperview().offset(-30)
+            make.height.width.equalTo(50)
+        }
     }
     
     private func getUserLocation() {
-        SVProgressHUD.show(withStatus: "Please wait")
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
             locationManager.startUpdatingLocation()
         }
         if let latitude = locationManager.location?.coordinate.latitude,
@@ -117,15 +101,16 @@ class StationsViewController: UIViewController, CLLocationManagerDelegate, UIGes
         }
     }
     
-    private func setAnnotation(latitude: CLLocationDegrees, longitude: CLLocationDegrees) -> MKPointAnnotation {
-        let annotation = MKPointAnnotation()
-        let coordinate = CLLocationCoordinate2DMake(latitude, longitude)
-        annotation.coordinate = coordinate
-        let distance = calculateUserDistance(from: annotation)
-        let distanceTxt = String(Int(distance))
-        annotation.title = "Bus station: \n" + "~" + distanceTxt + "m"
-        mapView.addAnnotation(annotation)
-        return annotation
+    private func fetchNearestBusStations() {
+        let userLocationTxt = userLocation.getLocationAsString()
+        Provider.getStations(latitude: userLocationTxt.latitudeStr,
+                             longitude: userLocationTxt.longitudeStr,
+                             success: {
+                                twoStationsInfo in
+                                self.twoStationsInfo = twoStationsInfo
+        }) { (error) in
+            print(error)
+        }
     }
     
     private func drawRoute(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
@@ -146,7 +131,7 @@ class StationsViewController: UIViewController, CLLocationManagerDelegate, UIGes
                 return
             }
             let route = response.routes[0]
-            self.mapView.add(route.polyline, level: .aboveRoads)
+            self.sceneLocationView.addRoutes(routes: [route])
         }
     }
     
@@ -155,27 +140,23 @@ class StationsViewController: UIViewController, CLLocationManagerDelegate, UIGes
             sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: $0)
         }
         
-        let firstAnnotation = setAnnotation(latitude: twoStationsInfo.latitude1,
-                                            longitude: twoStationsInfo.longitude1)
-        let secondAnnotation = setAnnotation(latitude: twoStationsInfo.latitude2,
-                                             longitude: twoStationsInfo.longitude2)
-        
-        guard let userLocation = mapView.userLocation.location?.coordinate else { return }
-        drawRoute(source: userLocation, destination: firstAnnotation.coordinate)
-        drawRoute(source: userLocation, destination: secondAnnotation.coordinate)
+        if let userLocation = userLocation, let stations = twoStationsInfo {
+            let location = CLLocationCoordinate2DMake(userLocation.latitude,
+                                                      userLocation.longitude)
+            let destinationA = CLLocationCoordinate2DMake(stations.latitude1,
+                                                          stations.longitude1)
+            let destinationB = CLLocationCoordinate2DMake(stations.latitude2,
+                                                          stations.longitude2)
+            
+            drawRoute(source: location, destination: destinationA)
+            drawRoute(source: location, destination: destinationB)
+        } else  {
+            print("Location or destination error")
+        }
     }
     
-    func fetchNearestBusStations() {
-        let userLocationTxt = userLocation.getLocationAsString()
-        Provider.getStations(latitude: userLocationTxt.latitudeStr,
-                                longitude: userLocationTxt.longitudeStr,
-                                success: {
-                                    twoStationsInfo in
-                                    self.twoStationsInfo = twoStationsInfo
-                                    SVProgressHUD.dismiss()
-                                }) { (error) in
-                                    print(error)
-        }
+    @objc private func closeButtonPressed() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
