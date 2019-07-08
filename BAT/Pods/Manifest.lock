@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.7.3)
-  - ARCL (1.0.4)
+  - ARCL (1.2.0)
   - Crashlytics (3.12.0):
     - Fabric (~> 1.9.0)
   - Fabric (1.9.0)
@@ -86,7 +86,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  ARCL: 5fd2b0d7aabf91f15dbc0e8c510b25516b8a755a
+  ARCL: c33685a61647ceeb1cb768b20053a7a8e1e2b261
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   Firebase: 355bd535bfdacaa82a7fe8d9784115edefd6fc03

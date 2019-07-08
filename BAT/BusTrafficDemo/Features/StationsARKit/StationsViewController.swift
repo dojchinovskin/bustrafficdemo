@@ -48,7 +48,7 @@ class StationsViewController: UIViewController, CLLocationManagerDelegate, UIGes
     }
     
     private func setupViews() {
-        sceneLocationView.locationDelegate = self
+        sceneLocationView.locationViewDelegate = self
         
         mapView.delegate = self
         mapView.showsUserLocation = true
